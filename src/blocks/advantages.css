@@ -1,0 +1,125 @@
+.benefits-container {
+    /*display: flex;*/
+    /*flex-direction: column;*/
+    /*align-items: flex-start;*/
+    /*padding: 40px;*/
+    margin: 100px auto 0;
+    font-family: 'Inter', sans-serif;
+    /*width: 1600px;*/
+}
+
+.benefits-button {
+    background-color: #ffffff;
+    color: #001573;
+    border: 2px solid #001573;
+    border-radius: 20px;
+    padding: 10px 20px;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 75%;
+    margin-bottom: 20px; /* Отступ от кнопки до списка */
+    width: 167px;
+    height: 33px;
+    margin-left: 80px;
+}
+
+.benefits-content {
+    display: flex;
+    margin-top: 20px;
+    justify-content: center;
+}
+
+
+.benefits-main-text h1 {
+    color: #001573;
+    font-size: 70px; /* Вы можете увеличить размер шрифта, если нужно */
+    font-weight: 600;
+    max-width: 740px; /* Ограничение ширины текста для соответствия дизайну */
+    line-height: 95%; /* Регулировка межстрочного интервала */
+}
+
+
+.benefits-main-text span {
+    position: relative;
+    overflow: hidden;
+    display: block; /* Это заставляет фон применяться только к тексту */
+    color: #FFFFFF;
+    /*background-color: #001573;*/
+    /*padding: 2px 4px; !* Добавляет немного пространства вокруг текста *!*/
+    /*transform: rotate(-1deg);*/
+}
+
+.benefits-main-text span::before {
+    content: "";
+    position: absolute;
+    width: 200%;
+    height: 108%;
+    z-index: -1;
+    background-color: #001573;
+    transform: rotate(-1deg);
+
+}
+.benefits-list {
+    max-width: 720px; /* Ограничение ширины списка для соответствия дизайну */
+    /*margin-left: auto; !* Автоматический отступ слева для выравнивания по правому краю *!*/
+}
+
+.benefits-list ul {
+    list-style: none; /* Убираем стандартные маркеры списка */
+    /*padding: 0; !* Убираем стандартные отступы *!*/
+}
+
+.benefits-list li {
+    color: #001573;
+    font-size: 1.25rem; /* Размер шрифта для элементов списка */
+    /*padding: 5px 0; !* Вертикальные отступы для каждого элемента списка *!*/
+    border-top: 1px solid #001573; /* Левая граница для маркера списка */
+    /*padding-left: 10px; !* Отступ слева от левой границы *!*/
+    display: flex;
+    flex-direction: row;
+    gap: 26px;
+    align-items: baseline;
+    margin-bottom: 0;
+}
+
+.benefits-list li:last-child {
+    border-bottom: 1px solid #001573;
+}
+
+.benefits-list h2 {
+    margin-top: 25px;
+    margin-bottom: 10px;
+    font-size: 24px;
+    line-height: 110%;
+    font-weight: 600;
+}
+
+.benefits-list p {
+    margin-top: 0;
+    margin-bottom: 25px;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 110%;
+}
+
+.benefits-list img {
+    width: 24px;
+    height: 24px;
+}
+
+.benefits-list div {
+}
+/* Добавьте медиа-запросы для адаптивного дизайна, если это необходимо */
+@media (max-width: 768px) {
+    .benefits-content {
+        flex-direction: column; /* Столбцы для мобильных устройств */
+    }
+
+    .benefits-main-text, .benefits-list {
+        max-width: 100%; /* Позволяет тексту и списку занимать всю доступную ширину */
+    }
+
+    .benefits-list li {
+        font-size: 1rem; /* Уменьшенный размер шрифта для элементов списка на мобильных устройствах */
+    }
+}

@@ -1,0 +1,95 @@
+.mission-page {
+    position: relative;
+    font-family: 'Inter', sans-serif;
+    background: #fff; /* или любой цвет фона, который вы выбрали */
+    height: 631px; /* Полная высота экрана */
+    overflow: hidden; /* Скрывает переполнение за пределами контейнера */
+    /*display: flex;*/
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    /*width: 1600px;*/
+    margin: 120px auto 120px;
+}
+
+.mission-button {
+    background-color: #ffffff;
+    color: #001573;
+    border: 2px solid #001573;
+    border-radius: 20px;
+    padding: 10px 20px;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 75%;
+    margin-bottom: 20px; /* Отступ от кнопки до списка */
+    width: 167px;
+    height: 33px;
+    margin-left: 80px;
+}
+
+.mission-statement {
+    position: relative;
+    margin-left: 20px; /* или подходящий отступ слева */
+}
+
+.main-text {
+    margin-top: 120px;
+    margin-bottom: 0;
+    font-size: 220px; /* Размер шрифта для главного текста */
+    text-align: center;
+    font-weight: bold;
+    line-height: 90%;
+    color: #001573;
+    white-space: nowrap; /* Обеспечивает отсутствие переносов строк */
+    position: relative; /* Относительное позиционирование для наложения текста */
+    z-index: 2; /* Устанавливаем z-index для контроля наложения */
+}
+
+.main-text_low {
+    margin-top: 0;
+    font-size: 264px; /* Размер шрифта для главного текста */
+}
+
+/*.sub-text {*/
+/* */
+/*    color: #001573;*/
+/*    position: absolute; !* Абсолютное позиционирование для наложения на основной текст *!*/
+/*    top: 0; !* Позиционирование от верхнего края родителя *!*/
+/*    left: 0;*/
+/*    z-index: 1; !* z-index меньше, чем у .main-text, чтобы текст находился под ним *!*/
+/*    transform: translateY(-50%); !* Сдвигаем текст, чтобы он был по центру основного *!*/
+/*}*/
+
+/* ... предыдущие стили ... */
+
+.overlay-text {
+    font-size: 75px; /* Размер шрифта для подзаголовка */
+    font-weight: 600;
+    line-height: 75%;
+    text-align: left;
+    color: #001573; /* Полупрозрачный цвет для эффекта наложения */
+    /*position: absolute; !* Абсолютное позиционирование для наложения текста *!*/
+    /*bottom: 100%; !* Расположение текста ближе к низу родительского контейнера *!*/
+    /*right: 15%; !* Сдвигаем текст вправо относительно родительского контейнера *!*/
+    /*transform: translateX(50%); !* Сдвигаем текст обратно, чтобы выровнять его относительно правого края *!*/
+    /*z-index: 1; !* Устанавливаем z-index меньше, чтобы текст оказался под основным текстом *!*/
+    /*margin-right: auto;*/
+}
+
+.overlay-cont {
+    display: flex;
+    flex-direction: row;
+    position: absolute; /* Абсолютное позиционирование для наложения текста */
+    bottom: 90%; /* Расположение текста ближе к низу родительского контейнера */
+    right: 10%; /* Сдвигаем текст вправо относительно родительского контейнера */
+    /*transform: translateX(50%); !* Сдвигаем текст обратно, чтобы выровнять его относительно правого края *!*/
+    z-index: 1; /* Устанавливаем z-index меньше, чтобы текст оказался под основным текстом */
+    margin-right: auto;
+    align-items: center;
+    gap: 41px;
+}
+
+.overlay-img {
+    width: 98px;
+    height: 81px;
+}

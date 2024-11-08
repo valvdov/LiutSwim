@@ -1,0 +1,85 @@
+.main-container {
+    background-color: white;
+    /*max-width: 1600px;*/
+    align-items: center;
+    justify-content: space-between; /* Добавьте пространство между колонками */
+    /*border-bottom: 2px solid #001573; !* Граница снизу *!*/
+    font-family: Inter,serif;
+    margin: 120px auto 0;
+    position: relative;
+}
+
+.method-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.method-button {
+    background-color: #ffffff;
+    color: #001573;
+    border: 2px solid #001573;
+    border-radius: 20px;
+    padding: 10px 20px;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 75%;
+    margin-bottom: 20px; /* Отступ от кнопки до списка */
+    width: 167px;
+    height: 33px;
+    margin-left: 80px;
+}
+
+.method-list {
+    list-style-type: none;
+    padding: 0;
+    color: #001573;
+    position: relative;
+    /*max-width: 1600px;*/
+    margin-right: auto;
+}
+
+.method-list li {
+    display: flex;
+    align-items: center;
+    padding-left: 80px;
+    /*margin-bottom: 10px; !* Отступ между пунктами списка *!*/
+    font-size: 18px; /* Маленький шрифт для списка */
+    line-height: 110%;
+    font-weight: 500;
+    height: 53px;
+    vertical-align: center;
+    border-bottom: 1px solid #001573;
+}
+
+.method-list li:first-child {
+    background-color: #001573;
+    color: white;
+
+}
+
+.right-column {
+    position: absolute; /* Абсолютное позиционирование для изображения */
+    right: 80px; /* Прижимаем к правому краю родителя */
+    top: 50%; /* Отступ сверху */
+    transform: translateY(-50%); /* Сдвигаем изображение на 50% его высоты вверх */
+}
+
+.text-block {
+    color: #1E1E1E;
+    text-align: left; /* Текст выровнен по правому краю */
+    margin-bottom: 20px; /* Отступ от текста до изображения */
+    font-size: 24px;
+    line-height: 110%;
+}
+
+.text-block span {
+    color: #001573;
+}
+
+.swimmer-image {
+    width: 263px; /* Адаптируйте ширину под ваш дизайн */
+    height: auto; /* Автоматически рассчитываемая высота */
+    /*border: 2px solid #001573; !* Граница вокруг изображения *!*/
+}

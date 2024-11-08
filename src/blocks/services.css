@@ -1,0 +1,166 @@
+/* App.css */
+.page-container {
+    /*display: grid;*/
+    /*grid-template-columns: repeat(3, 1fr);*/
+    /*gap: 20px;*/
+    /*background-color: #001573;*/
+    /*max-width: 1600px;*/
+    /*max-height: 733px;*/
+    /*margin-left: auto;*/
+    /*margin-right: auto;*/
+    display: flex; /* Используйте flex вместо grid для выравнивания */
+    flex-direction: column; /* Содержимое в столбик */
+    /*align-items: center; !* Выравнивание дочерних элементов по центру *!*/
+    background-color: #001573;
+    /*max-width: 1600px; !* или 100%, если нужно чтобы контейнер занимал всю ширину *!*/
+    margin: 0 auto; /* Центрирование на странице */
+    padding-bottom: 82px;
+}
+
+.nav-bar {
+    grid-column: 1 / -1; /* Навигационная панель на всю ширину */
+    display: flex;
+    justify-content: space-between;
+    /*padding: 10px;*/
+    margin-top: 72px;
+    margin-bottom: 46px;
+}
+
+.nav-button {
+    background-color: transparent;
+    color: white;
+    border: 2px solid white;
+    border-radius: 20px;
+    padding: 10px 20px;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 75%;
+    margin-bottom: 20px; /* Отступ от кнопки до списка */
+    width: 175px;
+    height: 33px;
+    margin-left: 80px;
+}
+
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Определение трех колонок */
+    gap: 20px;
+    justify-content: center; /* Центрирование колонок внутри grid */
+    width: fit-content; /* Это позволит контейнеру быть шириной содержимого */
+    margin: 0 auto; /* Центрирование grid контейнера */
+}
+
+.card:first-child{
+    background-color: transparent;
+    /*color: linear-gradient(90deg, rgba(241, 241, 241, 1), rgba(139, 139, 139, 1));*/
+    border: 1px solid #F1F1F1;
+    border-top-left-radius: 40px;
+    box-shadow:
+    inset 0 0 25px #8B8B8B,
+    inset 0 0 25px #8B8B8B,
+    inset 0 0 25px #8B8B8B;
+    color: white;
+}
+
+.card {
+    background-color: #ffffff;
+    padding: 20px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    display: flex;
+    flex-direction: column;
+    max-width: 430px;
+    /*min-width: 405px;*/
+    height: 450px;
+}
+
+.card-title {
+    color: #001573;;
+    font-weight: 600;
+    line-height: 90%;
+    font-family: Inter serif;
+    font-size: 40px;
+    margin-bottom: 0;
+    /* Дополнительные стили для заголовка карточки */
+}
+
+.card-title-first {
+    font-weight: 500;
+    font-family: Inter serif;
+    font-size: 32px;
+}
+
+.card-text {
+    color: #001573;
+    margin-top: 10px;
+    font-weight: 400;
+    line-height: 110%;
+    font-family: Inter serif;
+    font-size: 16px;
+    max-width: 236px;
+    /* Дополнительные стили для текста карточки */
+}
+
+.card-footer {
+    margin-top: auto; /* Выравнивание футера карточки внизу */
+    display: flex;
+    flex-direction: column;
+}
+
+.price {
+    color: #001573;
+    font-weight: 500;
+    line-height: 110%;
+    font-family: Inter serif;
+    font-size: 24px;
+    /* Дополнительные стили для цены */
+}
+
+.signup-button {
+   width: 420px;
+    height: 50px;
+    background-color: #FF6434;
+    border-radius: 100px;
+    border: none;
+    color: white;
+    font-weight: 400;
+    line-height: 110%;
+    font-family: Inter serif;
+    font-size: 18px;
+    margin-top: 30px;
+    box-shadow: 4px 6px 0 0 #406AEA;
+}
+
+.circle-button {
+    /* Стили для круглых кнопок в футере */
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+}
+
+.next-buttons {
+    width: 111px;
+    height: 49px;
+    margin-right: 80px;
+}
+.circle-button-arrow {
+    height: 10.06px;
+    width: 21.55px;
+}
+
+.left-button {
+   width: 48px;
+    height: 48px;
+    margin-right: 12px;
+    background-color: transparent;
+    border: 1px solid white;
+}
+
+.right-button {
+    width: 48px;
+    height: 48px;
+    background-color: #FF6434;
+    border: none;
+    box-shadow: 5px 1px 0 #406AEA;
+}
+
+/* Дополнительные медиа-запросы и стили по необходимости */

@@ -1,0 +1,139 @@
+.loyalty-program-page {
+    /*position: relative;*/
+    color: #FFFFFF;
+    font-family: 'Inter', sans-serif;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(../images/background_loyalty.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    max-height: 1400px;
+    /*max-width: 1600px;*/
+    padding-top: 145px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    margin: 120px auto 0;
+    /*padding: 40px;*/
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5); /* Добавляет тень к тексту для улучшения читаемости */
+}
+
+.loyalty-program-button {
+    background-color: transparent;
+    color: white;
+    border: 1px solid white;
+    border-radius: 20px; /* Закругленные углы */
+    padding: 10px 20px;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 75%;
+    width: 255px;
+    height: 33px;
+    cursor: pointer;
+    outline: none;
+    margin-left: 82px;
+}
+
+.main-offer {
+    font-size: 80px; /* Большой размер текста для главного предложения */
+    line-height: 85%;
+    font-weight: 600;
+    max-width: 503px;
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-left: 439px;
+}
+
+.details {
+    display: flex;
+  justify-content: center;
+    width: 100%;
+    background: rgb(0,21,115);
+    background: linear-gradient(180deg, rgba(0,21,115,0) 0%, rgba(0,21,115,1) 100%, rgba(255,255,255,1) 100%);
+    padding-bottom: 87px;
+}
+
+.description {
+    font-size: 16px; /* Размер шрифта для описания */
+     max-width: 362px; /* Максимальная ширина описания */
+    line-height: 110%;
+    font-weight: 400;
+    margin-left: 439px;
+}
+
+.discount-info {
+    display: flex;
+    align-items: baseline; /* Выравнивает элементы по базовой линии */
+
+    justify-content: center;
+    gap: 20px; /* Расстояние между элементами скидок */
+    height: 556px;
+    width: 1600px;
+}
+
+.discount-div {
+    display: flex;
+    align-self: flex-start;
+    flex-direction: column;
+}
+
+.discount {
+    font-size: 300px; /* Размер шрифта для информации о скидках и сроках */
+    font-weight: 600;
+    line-height: 100%;
+}
+
+.duration-div {
+    display: flex;
+    align-self: flex-end;
+    flex-direction: column;
+}
+
+.duration{
+    font-size: 200px; /* Размер шрифта для информации о скидках и сроках */
+    font-weight: 600;
+    line-height: 100%;
+    margin-bottom: 20px;
+  }
+
+.additional-discount-div {
+    height: 145px;
+    display: flex;
+    align-self: flex-start;
+    flex-direction: column;
+
+}
+.additional-discount {
+    font-size: 166px; /* Размер шрифта для информации о скидках и сроках */
+    font-weight: 600;
+    line-height: 100%;
+}
+
+sup {
+    vertical-align: center;
+    font-size: 60%;
+}
+
+sub {
+    vertical-align: middle;
+    font-size: 45%;
+}
+
+.span_img {
+    width: 10px;
+    margin-right: 3.5px;
+}
+
+/* Добавьте медиа-запросы для адаптивности */
+@media (max-width: 768px) {
+    .main-offer {
+        font-size: 2.5rem;
+    }
+
+    .description {
+        font-size: 1rem;
+    }
+
+    .discount, .duration, .additional-discount {
+        font-size: 3rem;
+    }
+}

@@ -1,0 +1,89 @@
+.discount-page {
+    background-color: #FFFFFF; /* Цвет фона страницы */
+    color: #001573; /* Цвет текста */
+    font-family: 'Inter', sans-serif;
+    /*width: 1600px;*/
+    margin: 120px auto 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center; /* Текст по центру */
+}
+
+.discount-header {
+    font-size: 160px; /* Размер шрифта заголовка */
+    font-weight: 600;
+    line-height: 75%;
+    margin: 0;
+}
+
+.lesson {
+    text-align: end;
+    margin-right: 31px;
+}
+
+.arrow-down {
+    width: 98px;
+    height: 81px;
+}
+
+.discount-form {
+    display: flex;
+    flex-direction: column;
+    max-width: 718px; /* Максимальная ширина формы */
+    margin-top: 100px;
+    width: 100%; /* Ширина формы */
+    align-items: center;
+}
+
+.discount-form input[type="text"],
+.discount-form input[type="tel"],
+.discount-form input[type="email"] {
+    width: 100%; /* Ширина полей ввода */
+    padding: 0.5em; /* Паддинг внутри полей ввода */
+    margin-bottom: 40px; /* Отступы между полями ввода */
+    border: none;
+    height: 23px;
+    border-bottom: 2px solid #001573; /* Границы полей ввода */
+    /*border-radius: 5px; !* Скругление углов полей ввода *!*/
+    background: transparent; /* Прозрачный фон полей ввода */
+    color: #001573; /* Цвет текста в полях ввода */
+}
+
+.discount-form .privacy-policy {
+    color: #001573; /* Цвет текста согласия с политикой */
+    font-size: 14px; /* Размер шрифта согласия с политикой */
+    text-align: start;
+    align-self: start;
+    /*margin-bottom: 1em; !* Отступ после согласия с политикой *!*/
+}
+
+.discount-form .privacy-policy a {
+    color: #001573;
+    margin-left: 24px;
+}
+
+.discount-form .privacy-policy input[type="checkbox"] {
+    margin-right: 0.5em; /* Отступ галочки от текста */
+}
+
+.submit-button {
+    background-color: #FF6434; /* Цвет фона кнопки "Загрузить еще" */
+    color: white; /* Цвет текста кнопки */
+    padding-bottom: 15px;
+    padding-top: 15px;
+    margin-top: 47px;
+    margin-bottom: 45px;
+    width: 728px;
+    /*margin-left: 83px;*/
+    border: none; /* Убрать границу кнопки */
+    border-radius: 20px; /* Закругление углов кнопки */
+    font-size: 18px; /* Размер шрифта кнопки */
+    font-weight: 600;
+    line-height: 110%;
+    cursor: pointer; /* Курсор в виде пальца при наведении на кнопку */
+    box-shadow: 4px 6px 0 0 #406AEA;
+}
+
+/* Медиа-запросы и другие стили для адаптивности и точной настройки */

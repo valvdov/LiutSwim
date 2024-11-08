@@ -1,0 +1,129 @@
+.mainPage {
+    background-image: url(../images/background.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    /*max-width: 1600px;*/
+    height: 791px;
+    color: white;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.main_text {
+    margin-top: 150px;
+    background: linear-gradient(
+            rgba(0, 21, 115, 0) 0%,      /* Start fully transparent */
+            rgba(0, 21, 115, 0.5) 50%,   /* Midpoint with partial opacity */
+            rgba(0, 21, 115, 1) 79%,   /* Near the end, almost opaque */
+            rgba(0, 21, 115, 1) 100%     /* Fully opaque at the bottom */
+    );
+    padding-bottom: 340px;
+    /* Убедитесь, что у .main_text нет стилей, мешающих flexbox, таких как flex-direction, если они не нужны */
+}
+
+.first_text {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+}
+.second_text {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    flex-direction: column;
+}
+
+.first_text {
+    margin-left: 32px;
+}
+
+.inline_text_container {
+    display: flex;
+    align-items: center;
+}
+
+
+.small_text {
+    font-weight: 600;
+    font-size: 40px;
+    margin-left: 82px;
+    padding-bottom: 30px;
+}
+
+.small_text_second {
+    margin-right: 20px; /* Отступ между "до:" и "продвинутого" */
+}
+
+.big_text {
+    font-family: Inter serif;
+    font-weight: 600;
+    font-size: 145px;
+}
+
+.big_text_first {
+    /* Стили для первого большого текста */
+}
+
+.big_text_second {
+    /* Стили для "продвинутого" */
+    line-height: 70%;
+    margin-right: 20px; /* Если нужен отступ справа */
+    margin-bottom: -20px; /* Поднимает текст "уровня" вверх */
+}
+
+.level_and_button {
+    display: flex;
+    align-items: flex-end;
+    margin-left: 20px;
+}
+
+.level_text {
+    display: block; /* или inline-block, в зависимости от нужного вам результата */
+    font-size: 145px;
+    align-self: flex-start; /* Поднимает "уровня" выше внутри flex-контейнера */
+    margin-bottom: -20px; /* Если текст "уровня" все еще слишком низко, добавьте отрицательный margin */
+}
+
+.add_text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 27px;
+    gap: 19px;
+}
+
+.subtext {
+    font-size: 18px;
+    line-height: 110%;
+    /* Дополнительные стили для подзаголовка */
+}
+
+.button {
+    background-color: #ff8c00;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    padding: 5px 40px;
+    font-size: 18px;
+    cursor: pointer;
+    box-shadow: 4px 6px 0 rgb(64 106 234 / 50%);
+    width: 300px;
+    height: 35px;
+    /* Дополнительные стили для кнопки, если это необходимо */
+}
+
+/* Добавьте медиазапросы для адаптивного дизайна, если это необходимо */
+@media (max-width: 768px) {
+    .first_text,
+    .second_text,
+    .level_and_button {
+        flex-direction: column;
+        align-items: flex-start; /* или center для центрирования */
+    }
+
+    .level_text,
+    .add_text {
+        margin-left: 0;
+        margin-right: 0;
+    }
+}

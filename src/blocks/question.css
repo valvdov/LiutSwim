@@ -1,0 +1,28 @@
+/* Question Section */
+.question {
+    background-color: #0d1f59;
+    color: #ffffff;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.question h1 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.question button {
+    background-color: #f27d30;
+    color: #ffffff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.question button:hover {
+    background-color: #e06c26;
+}

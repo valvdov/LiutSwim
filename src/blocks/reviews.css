@@ -1,0 +1,128 @@
+.reviews-page {
+    background-color: #001573; /* Цвет фона */
+    color: white; /* Цвет текста */
+    font-family: 'Inter', sans-serif; /* Шрифт */
+    /*width: 1600px;*/
+    margin: 0 auto 0;
+    padding-top: 48px;
+}
+
+.reviews-button {
+    background-color: transparent;
+    color: white;
+    border: 1px solid white;
+    border-radius: 20px; /* Закругленные углы */
+    padding: 10px 20px;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 75%;
+    width: 122px;
+    height: 33px;
+    cursor: pointer;
+    outline: none;
+    margin-left: 82px;
+}
+
+.reviews-container {
+    margin-top: 40px;
+    margin-left: 82px;
+    margin-right: 82px;
+    display: flex;
+    flex-direction: column; /* Отзывы идут один за другим */
+}
+
+.review {
+    display: flex;
+    align-items: center; /* Выравнивание аватара и текста отзыва */
+    margin-bottom: 20px; /* Отступ между отзывами */
+    gap: 40%;
+    padding-bottom: 18px;
+    border-bottom: 1px solid rgba(255,255,255,0.4);
+}
+
+.review:first-child {
+    padding-top: 18px;
+    border-top: 1px solid rgba(255,255,255,0.4);
+}
+
+.review-name {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    min-width: 220px;
+    align-items: center;
+}
+
+.review-name h3{
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 110%;
+}
+
+.circletag {
+    display: block;
+    width: 100px;
+    height: 100px;
+    background-color: #ffffff;
+    -moz-border-radius: 50px;
+    -webkit-border-radius: 50px;
+    background-size: 50px;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    box-shadow: 4px 6px 0 0 #406AEA;
+}
+
+.circletag-white-girl{
+    background-image: url("../images/avatar_girl_white.png");
+}
+
+.circletag-black-girl{
+    background-image: url("../images/avatar_girl_black.png");
+}
+
+.review-avatar {
+    width: 50px; /* Размер аватара */
+    height: 50px; /* Размер аватара */
+    align-self: center;
+}
+
+.review-content {
+    width: 470px;
+}
+
+.review-content h3 {
+    margin: 0;
+    font-size: 1rem; /* Размер шрифта для имени */
+}
+
+.review-content p {
+    font-size: 16px; /* Размер шрифта для текста отзыва */
+    font-weight: 400;
+    line-height: 110%;
+    color: #FFFFFF;
+    margin: 5px 0; /* Отступы вокруг текста отзыва */
+}
+
+.review-content span {
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.7); /* Цвет хэштега */
+}
+
+.load-more-button {
+    background-color: #FF6434; /* Цвет фона кнопки "Загрузить еще" */
+    color: white; /* Цвет текста кнопки */
+    padding-bottom: 15px;
+    padding-top: 15px;
+    width: 90%;
+    border: none; /* Убрать границу кнопки */
+    border-radius: 20px; /* Закругление углов кнопки */
+    font-size: 18px; /* Размер шрифта кнопки */
+    font-weight: 600;
+    line-height: 110%;
+    /* Отступ сверху для кнопки */
+    margin: 20px 83px 45px;
+    cursor: pointer; /* Курсор в виде пальца при наведении на кнопку */
+    box-shadow: 4px 6px 0 0 #406AEA;
+}
+
+/* Подстройте медиа-запросы и другие параметры в соответствии с вашим дизайном */

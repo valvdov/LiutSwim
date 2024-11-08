@@ -1,0 +1,97 @@
+.team-container {
+    background: rgb(9,9,121);
+    background: linear-gradient(180deg, rgba(9,9,121,1) 0%, rgba(9,9,121,1) 56%, rgba(255,255,255,1) 57%, rgba(255,255,255,1) 100%);
+    text-align: center; /* Выравнивание текста по центру */
+    padding: 20px;
+    /*max-width: 1600px;*/
+    margin: 0 auto 0;
+    font-family: Inter, serif;
+}
+
+.team-header-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 50px;
+}
+
+.team-button {
+    background-color: transparent;
+    color: white;
+    border: 1px solid white;
+    border-radius: 20px; /* Закругленные углы */
+    padding: 10px 20px;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 75%;
+    width: 130px;
+    height: 33px;
+    cursor: pointer;
+    outline: none;
+    margin-left: 82px;
+}
+
+.team-header {
+    color: #FFFFFF;
+    line-height: 110%;
+    text-align: left;
+    font-weight: 600;
+    font-size: 18px; /* Размер шрифта заголовка */
+}
+
+.team-members {
+    display: flex; /* Использование flexbox для управления членами команды */
+    justify-content: center; /* Выравнивание по центру */
+    gap: 15px; /* Пространство между элементами команды */
+}
+
+.team-member {
+    background-color: #ffffff; /* Фон для карточки члена команды */
+    border: none;
+    /*padding: 20px;*/
+    /*box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); !* Тень для карточки *!*/
+    width: 321px;
+}
+
+.member-image {
+    width: 321px; /* Ширина изображения */
+    height: auto; /* Высота изображения, чтобы сохранить пропорции */
+}
+
+.member-info h3 span {
+    color: #FFFFFF;
+    background-color: #001573;
+    /*margin-bottom: 10px; !* Отступ заголовка от описания *!*/
+    font-size: 40px; /* Размер шрифта заголовка */
+    font-weight: 600;
+    line-height: 90%;
+}
+
+.member-info {
+
+    text-align: left; /* Выравнивание текста по левому краю */
+}
+
+/* Оформление текста о каждом члене команды */
+.member-info p {
+    color: #001573;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 120%;
+}
+
+/* Добавьте медиа-запросы для адаптивности, если необходимо */
+@media (max-width: 768px) {
+    .team-members {
+        flex-direction: column; /* Столбцы для мобильных устройств */
+    }
+
+    .team-member {
+        margin-bottom: 20px; /* Отступ между карточками членов команды */
+    }
+
+    .member-info {
+        text-align: center; /* Центрирование текста для мобильных устройств */
+    }
+}

@@ -1,0 +1,112 @@
+.container {
+    /*max-width: 1200px;*/
+    margin: 259px auto 120px;
+    padding: 20px;
+    font-family: 'Arial', sans-serif; /* Используйте нужный шрифт */
+    color: #333; /* Общий цвет текста */
+}
+
+.about-text {
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 50px; /* Примерный отступ от шапки до основного содержимого */
+}
+
+.about-button {
+    background-color: #fff;
+    color: #333;
+    border: 2px solid #333;
+    border-radius: 20px; /* Закругленные углы */
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    outline: none;
+}
+
+.main-content {
+    text-align: center; /* Центрирование основного содержимого */
+}
+
+.title {
+    color: #001573;
+    font-size: 75px;
+    line-height: 1.2; /* Увеличиваем line-height, чтобы предотвратить сокращение текста */
+    font-weight: 500;
+    text-align: left;
+    margin-bottom: 50px;
+    text-shadow: 0 4px 4px rgba(0,0,0,0.25);
+
+}
+
+.title_span {
+    color: #FFFFFF;
+    background-color: #001573;
+    display: inline; /* Это заставляет фон применяться только к тексту */
+    padding: 2px 4px; /* Добавляет немного пространства вокруг текста */
+}
+
+.features {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Две колонки */
+    grid-column-gap: 20px;
+    grid-row-gap: 0;
+    margin-top: 0; /* Отступ сверху */
+}
+
+
+.feature-item {
+    display: flex;
+    flex-direction: row;
+    gap: 60px;
+    align-items: center;
+    text-align: left; /* Текст выровнен по левому краю */
+    /*padding: 20px;*/
+    border-top: 1px solid rgba(64, 106, 234, 0.5);
+    border-bottom: 1px solid rgba(64, 106, 234, 0.5);
+}
+
+.feature-item:nth-child(n+3) {
+    border-top: none;
+}
+
+.feature-item-contnent {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 21px;
+    margin-bottom: 21px;
+}
+
+.feature-image {
+    width: 100px; /* Примерный размер изображения */
+    height: 100px; /* Примерный размер изображения */
+    margin: 0;
+    border-radius: 300px;
+    box-shadow: 4px 6px 0 0 #406AEA;
+
+}
+
+.feature-title {
+    color: #333;
+    font-size: 24px;
+    margin: 0;
+}
+
+.feature-description {
+    font-size: 16px;
+    line-height: 1.5; /* Межстрочный интервал */
+    margin: 0;
+}
+
+/* Медиа-запросы для адаптивного дизайна, если это необходимо */
+@media (max-width: 768px) {
+    .features {
+        grid-template-columns: 1fr; /* Одна колонка на малых экранах */
+    }
+
+    .header {
+        justify-content: center; /* Центрирование кнопки на малых экранах */
+    }
+}
+
+/* Добавьте любые дополнительные стили, необходимые для совпадения с дизайном */
