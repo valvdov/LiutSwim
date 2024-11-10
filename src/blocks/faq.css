@@ -1,7 +1,8 @@
 .faq-container {
     background-color: #FFFFFF; /* Цвет фона */
     /*max-width: 1440px; !* Ширина контейнера *!*/
-    margin: 130px auto 0; /* Центрирование и добавление отступов сверху и снизу */
+    /* Центрирование и добавление отступов сверху и снизу */
+    margin: 130px 82px 0;
     /*margin-left: auto;*/
     /*margin-right: auto;*/
     font-family: 'Inter', sans-serif;
