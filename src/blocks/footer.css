@@ -1,10 +1,45 @@
 .footer {
+    font-family: Inter serif;
     background-color: #0d1f59;
     color: #ffffff;
     padding: 40px 20px;
     display: flex;
+    flex-direction: column;
+}
+
+.footer_container{
+    text-align: left;
+    display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
+}
+
+.about_text{
+    text-align: left;
+    flex-wrap: wrap;
+    width: 525px;
+    margin: 10px;
+}
+
+.nav {
+    font-size: 24px;
+}
+
+.address_list{
+    font-size: 18px;
+}
+
+.address {
+    font-size: 16px;
+}
+
+.contact_list {
+    margin-top: 61px;
+    font-size: 18px;
+}
+
+.contact {
+    font-size: 16px;
 }
 
 .footer div {
@@ -19,22 +54,13 @@
 
 .footer ul li {
     margin: 8px 0;
-    font-size: 14px;
+/*    font-size: 14px;*/
 }
 
-.footer p {
-    margin: 6px 0;
-    font-size: 14px;
-}
-
-.footer button {
-    background: none;
-    border: none;
-    color: #ffffff;
-    font-size: 14px;
-    cursor: pointer;
-    text-decoration: underline;
-}
+/*.footer p {*/
+/*    margin: 6px 0;*/
+/*    font-size: 14px;*/
+/*}*/
 
 .footer button:hover {
     color: #f27d30;
@@ -47,7 +73,34 @@
     align-items: center;
 }
 
-.footer-icons img {
+.social_icons {
+    gap: 15px;
+    height: 69px;
+    display: flex;
+    flex-direction: row;
+}
+
+.social-icons-pack{
+    width: 100%;
+    height: 100%;
+    max-height: 69px;
+    max-width: 69px;
+    border: none;
+    cursor: pointer;
+    background-color: #F8F8FF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 7px;
+    box-shadow: 2px 1px 0 #014CCC;
+}
+
+.social-icons-pack:hover{
+    background-color: #FF6434;
+}
+
+.social_icon{
+    border-radius: 8px;
     width: 24px;
     height: 24px;
     cursor: pointer;
@@ -58,14 +111,32 @@
     transform: scale(1.1);
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-    .footer {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .footer div {
-        margin: 10px 0;
-    }
+.work_hours{
+    font-size: 16px;
 }
+
+.working_hours {
+    font-size: 14px;
+}
+
+.work_hours_second{
+    margin-top: 8px;
+}
+
+.footer_about {
+    font-size: 14px;
+    display: flex;
+    justify-content: space-between;
+}
+
+/*!* Responsive *!*/
+/*@media (max-width: 768px) {*/
+/*    .footer {*/
+/*        flex-direction: column;*/
+/*        text-align: center;*/
+/*    }*/
+
+/*    .footer div {*/
+/*        margin: 10px 0;*/
+/*    }*/
+/*}*/

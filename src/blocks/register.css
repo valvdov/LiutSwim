@@ -80,7 +80,7 @@
     border: none; /* Убрать границу кнопки */
     border-radius: 20px; /* Закругление углов кнопки */
     font-size: 18px; /* Размер шрифта кнопки */
-    font-weight: 600;
+    font-weight: 500;
     line-height: 110%;
     cursor: pointer; /* Курсор в виде пальца при наведении на кнопку */
     box-shadow: 4px 6px 0 0 #406AEA;

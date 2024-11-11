@@ -117,7 +117,7 @@
     border: none; /* Убрать границу кнопки */
     border-radius: 20px; /* Закругление углов кнопки */
     font-size: 18px; /* Размер шрифта кнопки */
-    font-weight: 600;
+    font-weight: 500;
     line-height: 110%;
     /* Отступ сверху для кнопки */
     margin: 20px 83px 45px;

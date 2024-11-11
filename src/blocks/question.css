@@ -1,28 +1,56 @@
 /* Question Section */
 .question {
+    width: 100%;
     background-color: #0d1f59;
     color: #ffffff;
-    padding: 40px 20px;
+    padding-top: 93px;
     text-align: center;
 }
 
-.question h1 {
-    font-size: 24px;
-    font-weight: bold;
-    margin-bottom: 20px;
+.question_wrapper{
+    font-size: 48px; /* Adjust to match your design */
+    line-height: 100%;
+    font-weight: 600; /* Adjust weight to match your design */
+    margin: 0 0 20px 0;
+    text-align: left;
+    padding-left: 80px;
 }
 
-.question button {
-    background-color: #f27d30;
-    color: #ffffff;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 20px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+.question_text {
+    display: block;
+    font-size: 80px;
+    font-weight: 500;
+}
+.question_text_first {
+    max-width: 850px;
 }
 
-.question button:hover {
+.question_text_second {
+    max-width: 600px;
+    transform: translateX(400px);
+}
+.question_text_third {
+    max-width: 500px;
+    transform: translateX(750px);
+}
+
+.question_button {
+    background-color: #FF6434; /* Цвет фона кнопки "Загрузить еще" */
+    color: white; /* Цвет текста кнопки */
+    padding-bottom: 15px;
+    padding-top: 15px;
+    width: 90%;
+    border: none; /* Убрать границу кнопки */
+    border-radius: 20px; /* Закругление углов кнопки */
+    font-size: 18px; /* Размер шрифта кнопки */
+    font-weight: 500;
+    line-height: 110%;
+    /* Отступ сверху для кнопки */
+    margin: 20px 83px 45px;
+    cursor: pointer; /* Курсор в виде пальца при наведении на кнопку */
+    box-shadow: 4px 6px 0 0 #406AEA;
+}
+
+.question_button:hover {
     background-color: #e06c26;
 }

@@ -1,6 +1,6 @@
 .container {
     /*max-width: 1200px;*/
-    margin: 259px auto 120px;
+    margin: 259px 80px 120px;
     padding: 20px;
     font-family: 'Arial', sans-serif; /* Используйте нужный шрифт */
     color: #333; /* Общий цвет текста */
@@ -29,7 +29,7 @@
 
 .title {
     color: #001573;
-    font-size: 75px;
+    font-size: 85px;
     line-height: 1.2; /* Увеличиваем line-height, чтобы предотвратить сокращение текста */
     font-weight: 500;
     text-align: left;
@@ -39,6 +39,8 @@
 }
 
 .title_span {
+    background-clip: padding-box;
+    box-shadow: 0px 10px 0 white;
     color: #FFFFFF;
     background-color: #001573;
     display: inline; /* Это заставляет фон применяться только к тексту */

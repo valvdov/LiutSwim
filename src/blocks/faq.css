@@ -2,7 +2,7 @@
     background-color: #FFFFFF; /* Цвет фона */
     /*max-width: 1440px; !* Ширина контейнера *!*/
     /* Центрирование и добавление отступов сверху и снизу */
-    margin: 130px 82px 0;
+    margin: 130px auto 120px;
     /*margin-left: auto;*/
     /*margin-right: auto;*/
     font-family: 'Inter', sans-serif;
@@ -21,16 +21,22 @@
     font-weight: 500;
     font-size: 18px;
     line-height: 75%;
-    margin-bottom: 20px; /* Отступ от кнопки до списка */
-    width: 167px;
+    margin-bottom: 32px; /* Отступ от кнопки до списка */
+    width: 86px;
     height: 33px;
     margin-left: 80px;
+
+
 }
 
 .faq-item {
-    margin-bottom: 10px; /* Отступы между вопросами */
+    /*margin-bottom: 10px; !* Отступы между вопросами *!*/
     border-top: 1px solid #406AEA; /* Линия под каждым вопросом */
     min-height: 69px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    margin-left: 82px;
+    margin-right: 82px;
 }
 
 .faq-item:last-child {
@@ -38,7 +44,8 @@
 }
 
 .faq-question {
-    font-size: 18px; /* Размер шрифта для вопроса */
+
+    font-size: 40px; /* Размер шрифта для вопроса */
     color: #001A70; /* Цвет текста вопроса */
     cursor: pointer; /* Показывает, что на вопрос можно нажать */
     padding: 10px 0; /* Вертикальные отступы вопроса */
@@ -47,21 +54,30 @@
     align-items: center; /* Центрируем элементы по вертикали */
 }
 
-.toggle-icon {
-    width: 24px; /* Ширина иконки */
-    height: 24px; /* Высота иконки */
-    transition: transform 0.3s ease; /* Анимация поворота иконки */
+.faq-icon-wrapper {
+    min-width: 40px;
+    min-height: 40px;
+    background-color: #FF6434;
+    border: none;
+    box-shadow: 4px 0 2px #406AEA;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.toggle-icon.active {
-    transform: rotate(45deg); /* Поворот активной иконки на 45 градусов */
+.faq-icon {
+    width: 19.61px; /* Inner image width */
+    height: 19.61px; /* Inner image height */
 }
+
 
 .faq-answer {
-    font-size: 16px; /* Размер шрифта для ответа */
-    color: #333333; /* Цвет текста ответа */
-    padding: 10px 0 20px 0; /* Отступы вокруг текста ответа */
+    font-size: 24px; /* Размер шрифта для ответа */
+    color: #001573; /* Цвет текста ответа */
+    padding: 10px 0 0 0; /* Отступы вокруг текста ответа */
     display: none; /* По умолчанию ответы не отображаются */
+    width: 55%;
 }
 
 .faq-item.active .faq-answer {

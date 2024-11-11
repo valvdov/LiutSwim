@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
-import plusIcon from '../images/plusIcon.png'; // Путь к изображению иконки "+"
 import faqsData from "../data/dataFaq";
+import plusSymbol from "../images/plus-sign.png";
+import minusSymbol from "../images/minus-sign.png"
+
 
 function Faq() {
     const [faqs, setFaqs] = useState(faqsData.map(faq => ({ ...faq, isOpen: false })));
@@ -8,9 +10,7 @@ function Faq() {
     const toggleFAQ = index => {
         setFaqs(faqs.map((faq, i) => {
             if (i === index) {
-                faq.isOpen = !faq.isOpen;
-            } else {
-                faq.isOpen = false;
+                return { ...faq, isOpen: !faq.isOpen };
             }
             return faq;
         }));
@@ -23,7 +23,13 @@ function Faq() {
                 <div key={index} className={`faq-item ${faq.isOpen ? 'active' : ''}`}>
                     <div className="faq-question" onClick={() => toggleFAQ(index)}>
                         {faq.question}
-                        <span className={`faq-icon ${faq.isOpen ? 'opened' : 'closed'}`}>+</span>
+                        <div className="faq-icon-wrapper">
+                            <img
+                                alt={faq.isOpen ? 'Minus Icon' : 'Plus Icon'}
+                                src={faq.isOpen ? minusSymbol : plusSymbol}
+                                className="faq-icon"
+                            />
+                        </div>
                     </div>
                     {faq.isOpen && <div className="faq-answer">{faq.answer}</div>}
                 </div>
@@ -31,6 +37,5 @@ function Faq() {
         </div>
     );
 }
-
 
 export default Faq;
