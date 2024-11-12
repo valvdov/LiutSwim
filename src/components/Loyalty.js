@@ -3,7 +3,7 @@ import spanImg from '../images/loyalty_li.png'
 
 function Loyalty() {
     return (
-        <div className="loyalty-program-page">
+        <div id="programm" className="loyalty-program-page">
                 <button className="loyalty-program-button">программа лояльности</button>
                 <h1 className="main-offer">В нашем клубе есть программа лояльности</h1>
                 <p className="description">

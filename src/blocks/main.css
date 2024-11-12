@@ -25,6 +25,7 @@
     display: flex;
     gap: 40px;
     align-items: center;
+    margin-left: 32px;
 }
 .second_text {
     display: flex;
@@ -33,9 +34,7 @@
     flex-direction: column;
 }
 
-.first_text {
-    margin-left: 32px;
-}
+
 
 .inline_text_container {
     display: flex;
@@ -93,6 +92,7 @@
 }
 
 .subtext {
+    margin-left: 10px;
     font-size: 18px;
     line-height: 110%;
     /* Дополнительные стили для подзаголовка */
@@ -112,6 +112,16 @@
     /* Дополнительные стили для кнопки, если это необходимо */
 }
 
+.first_text__lang-en {
+    align-items: start;
+}
+.big_text_first__lang-en {
+    line-height: 0.75;
+}
+.level_and_button__lang-en {
+    margin-left: 120px;
+}
+
 /* Добавьте медиазапросы для адаптивного дизайна, если это необходимо */
 @media (max-width: 768px) {
     .first_text,
@@ -125,5 +135,26 @@
     .add_text {
         margin-left: 0;
         margin-right: 0;
+    }
+}
+
+
+@media (min-width: 1950px) {
+    .small_text{
+        font-size: 145px;
+    }
+    .big_text{
+        font-size: 250px;
+    }
+    .subtext {
+        font-size: 40px;
+    }
+    .button {
+        font-size: 40px;
+        width: 660px;
+        height: 80px;
+    }
+    .mainPage{
+        height: 1055px;
     }
 }

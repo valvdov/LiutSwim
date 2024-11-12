@@ -2,12 +2,15 @@ import React from 'react';
 import '../blocks/services.css'
 import leftArrow from '../images/left arrow.png'
 import rightArrow from '../images/right arrow.png'
+import translations from "../data/translations";
 
-function Services() {
+function Services({language}) {
+    const t = translations[language] || translations["ru"];
+
     return (
-        <div className="page-container">
+        <div id="services" className="page-container">
             <div className="nav-bar">
-                <button className="nav-button">наши программы</button>
+                <button className="nav-button">{t.nav_button}</button>
                 <div className="next-buttons">
                     <button className="circle-button left-button"><img src={leftArrow} className={'circle-button-arrow'}
                                                                        alt='back'/></button>
@@ -18,27 +21,23 @@ function Services() {
             </div>
             <div className="card-container">
                 <div className="card">
-                    <h2 className="card-title-first">В Liutswim программа тренировок представляет собой ряд комплексных
-                        и
-                        динамичных упражнений, направленных на развитие мускулатуры и выносливости
+                    <h2 className={`card-title-first ${language === "ru" ? "lang-ru" : "card-title-first__lang-en"}`}>{t.card_title_first}
                     </h2>
                 </div>
                 <div className="card">
-                <h2 className="card-title">Синхронное<br/> плавание</h2>
-                    <p className="card-text">Вид спорта, в котором пловцы синхронно исполняют хореографические элементы
-                        под музыкальное сопровождение.</p>
+                <h2 className="card-title">{t.card_title__before}<br/> {t.card_title_after}</h2>
+                    <p className="card-text">{t.card_text}</p>
                     <div className="card-footer">
-                        <span className="price">32£ - за 90 минут</span>
-                        <button className="signup-button">Записаться</button>
+                        <span className="price">{t.price}</span>
+                        <button className="signup-button">{t.signup_button}</button>
                     </div>
                 </div>
                 <div className="card">
-                    <h2 className="card-title">Спортивное плавание</h2>
-                    <p className="card-text">Вид спорта, в котором пловцы совершают заплыв на определенную дистанцию
-                        за наименьшее время, используя определенный стиль</p>
+                    <h2 className="card-title">{t.card_title_second__before}<br /> {t.card_title_second_after}</h2>
+                    <p className="card-text">{t.card_text_second}</p>
                     <div className="card-footer">
-                        <span className="price">18£ - за 45 минут</span>
-                        <button className="signup-button">Записаться</button>
+                        <span className="price">{t.price_second}</span>
+                        <button className="signup-button">{t.signup_button}</button>
                     </div>
                 </div>
             </div>

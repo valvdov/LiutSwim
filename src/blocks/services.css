@@ -89,6 +89,10 @@
     font-size: 32px;
 }
 
+.card-title-first__lang-en {
+    font-size: 45px;
+}
+
 .card-text {
     color: #001573;
     margin-top: 10px;

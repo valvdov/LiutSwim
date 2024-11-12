@@ -17,7 +17,7 @@ function Faq() {
     };
 
     return (
-        <div className="faq-container">
+        <div id="faq" className="faq-container">
             <button className="faq-button">faq</button>
             {faqs.map((faq, index) => (
                 <div key={index} className={`faq-item ${faq.isOpen ? 'active' : ''}`}>

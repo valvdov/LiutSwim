@@ -1,27 +1,26 @@
 import React from 'react';
 import '../blocks/metodology.css'
-import swimmerImage from '../images/metodolog.png'; // Импортируйте ваше изображение
+import swimmerImage from '../images/metodolog.png';
+import translations from "../data/translations"; // Импортируйте ваше изображение
 
-function Metodology() {
+function Metodology({language}) {
+    const t = translations[language] || translations["ru"];
+
     return (
         <div className="main-container">
             <div className='method-header'>
-                <button className="method-button">методология</button>
+                <button className="method-button">{t.method_button}</button>
                 <div className="text-block">
-                    <p>Наша методика была разработана <span> на основе <br/>богатого опыта </span> наших тренеров.</p>
+                    <p>{t.text_block}<span>{t.text_block_span_before}<br/>{t.text_block_span_after}</span>{t.text_block_after}</p>
                 </div>
                 <div></div>
             </div>
             <ul className="method-list">
-                <li>(01) Во время занятий тренеры находятся в воде, что ускоряет процесс освоения</li>
-                <li>(02) Программа учитывает психологические и физические возможности ребенка и корректируется при
-                        необходимости
-                    </li>
-                    <li>(03) В конце занятий тренеры проводят развлекательные активности, чтобы дети смогли
-                        расслабиться
-                    </li>
-                    <li>(04) Повышение выносливости за счет развития дыхательной системы</li>
-                    <li>(05) Контроль успеваемости с помощью личных дневников</li>
+                <li>(01) {t.method_list_01}</li>
+                <li>(02) {t.method_list_02}</li>
+                    <li>(03) {t.method_list_03}</li>
+                    <li>(04) {t.method_list_04}</li>
+                    <li>(05) {t.method_list_05}</li>
                 </ul>
             <div className="right-column">
                 <img src={swimmerImage} alt="Swimmer" className="swimmer-image"/>
