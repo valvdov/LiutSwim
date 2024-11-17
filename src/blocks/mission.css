@@ -2,7 +2,7 @@
     position: relative;
     font-family: 'Inter', sans-serif;
     background: #fff; /* или любой цвет фона, который вы выбрали */
-    height: 631px; /* Полная высота экрана */
+    /*height: 631px; !* Полная высота экрана *!*/
     overflow: hidden; /* Скрывает переполнение за пределами контейнера */
     /*display: flex;*/
     flex-direction: column;
@@ -27,6 +27,7 @@
     margin-left: 80px;
 }
 
+
 .mission-statement {
     position: relative;
     margin-left: 20px; /* или подходящий отступ слева */
@@ -43,11 +44,28 @@
     white-space: nowrap; /* Обеспечивает отсутствие переносов строк */
     position: relative; /* Относительное позиционирование для наложения текста */
     z-index: 2; /* Устанавливаем z-index для контроля наложения */
+    text-transform: uppercase;
+}
+
+.main-text__lang_en {
+    font-size: 380px; /* Размер шрифта для главного текста */
+    margin-bottom: 90px;
+}
+
+
+.main-text__sup {
+    text-transform: none;
+    font-size: 100px;
+    vertical-align: top;
 }
 
 .main-text_low {
     margin-top: 0;
     font-size: 264px; /* Размер шрифта для главного текста */
+}
+
+.main-text_low__lang-en {
+    font-size: 380px;
 }
 
 /*.sub-text {*/
@@ -87,6 +105,15 @@
     margin-right: auto;
     align-items: center;
     gap: 41px;
+}
+
+.overlay-cont__lang_en {
+    bottom: 100%;
+    right: 30%;
+}
+
+.overlay-text__lang-en {
+    font-size: 95px;
 }
 
 .overlay-img {

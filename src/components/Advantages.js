@@ -1,53 +1,52 @@
 import React from 'react';
 import '../blocks/advantages.css'; // Убедитесь, что подключен файл стилей
 import logo from '../images/logo_adv.png'
+import translations from "../data/translations";
 
-function Advantages() {
+function Advantages({language}) {
+    const t = translations[language] || translations["ru"];
     return (
         <div className="benefits-container">
-            <button className="benefits-button">преимущества</button>
+            <button className="benefits-button">{t.benefits_button}</button>
             <div className="benefits-content">
                 <div className="benefits-main-text">
-                    <h1>Мы поддерживаем <span>вдохновляющую и</span> <span>доброжелательную</span> атмосферу для вашего ребенка</h1>
+                    <h1>{t.benefits_main_text} <span>{t.benefits_main_text_span}</span> <span>{t.benefits_main_text_span_second}</span> {t.benefits_main_text_end}</h1>
                 </div>
                 <div className="benefits-list">
                     <ul>
                         <li>
                             <img src={logo} alt='logo'/>
                             <div>
-                                <h2>Время на восстановление</h2>
-                                <p>Мы понимаем важность адаптации после травматичного опыта в воде и предоставляем время
-                                    для
-                                    восстановления</p>
+                                <h2>{t.benefits_list_item}</h2>
+                                <p>{t.benefits_list_item__text}</p>
                             </div>
                         </li>
                         <li>
                             <img src={logo} alt='logo'/>
                             <div>
-                                <h2>Соревнования</h2>
-                                <p>Мы проводим соревнования, где дети сами выбирают образы и музыку.</p>
+                                <h2>{t.benefits_list_item_second}</h2>
+                                <p>{t.benefits_list_item_second__text}</p>
                             </div>
                         </li>
                         <li>
                             <img src={logo} alt='logo'/>
                             <div>
-                                <h2>Индивидуальный подход</h2>
-                                <p>Мы поддерживаем инклюзивный подход и приветствуем детей, нуждающихся в индивидуальном
-                                    подходе.</p>
+                                <h2>{t.benefits_list_item_third}</h2>
+                                <p>{t.benefits_list_item_third__text}</p>
                             </div>
                         </li>
                         <li>
                             <img src={logo} alt='logo'/>
                             <div>
-                                <h2>Ориентированы на результат</h2>
-                                <p>Мы минимально используем нарукавники и дощечки для плавания.</p>
+                                <h2>{t.benefits_list_item_fourth}</h2>
+                                <p>{t.benefits_list_item_fourth__text}</p>
                             </div>
                         </li>
                         <li>
                             <img src={logo} alt='logo'/>
                             <div>
-                                <h2>Множество счастливых студентов</h2>
-                                <p>Обучили плаванию уже более 1800 учеников.</p>
+                                <h2>{t.benefits_list_item_last}</h2>
+                                <p>{t.benefits_list_item_last__text}</p>
                             </div>
                         </li>
                     </ul>

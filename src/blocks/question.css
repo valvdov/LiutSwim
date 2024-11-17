@@ -34,6 +34,10 @@
     transform: translateX(750px);
 }
 
+.question_text_third__lang-en {
+    max-width: 700px;
+}
+
 .question_button {
     background-color: #FF6434; /* Цвет фона кнопки "Загрузить еще" */
     color: white; /* Цвет текста кнопки */

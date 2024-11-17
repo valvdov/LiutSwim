@@ -1,29 +1,29 @@
 import React from 'react';
 import spanImg from '../images/loyalty_li.png'
+import translations from "../data/translations";
 
-function Loyalty() {
+function Loyalty({language}) {
+    const t = translations[language] || translations["ru"];
     return (
         <div id="programm" className="loyalty-program-page">
-                <button className="loyalty-program-button">программа лояльности</button>
-                <h1 className="main-offer">В нашем клубе есть программа лояльности</h1>
+                <button className="loyalty-program-button">{t.loyalty_program_button}</button>
+                <h1 className="main-offer">{t.main_offer}</h1>
                 <p className="description">
-                    Став ее участником, вы получите ряд интересных преимуществ, скидок и привилегий, которые
-                    предоставляются
-                    исключительно участникам программы лояльности.
+                    {t.description}
                 </p>
                 <div className="details">
                     <div className="discount-info">
                         <div className='discount-div'>
                             <span className="discount">50<sup>%</sup></span>
-                            <p><img className='span_img' alt='li' src={spanImg}/>Скидка на первое занятие</p>
+                            <p><img className='span_img' alt='li' src={spanImg}/>{t.discount_sup}</p>
                         </div>
                         <div className='duration-div'>
                             <span className="additional-discount">10<sup>%</sup></span>
-                            <p><img className='span_img' alt='li' src={spanImg}/>Скидка для постоянных клиентов</p>
+                            <p><img className='span_img' alt='li' src={spanImg}/>{t.additional_discount}</p>
                         </div>
                         <div className='additional-discount-div'>
-                            <span className="duration">6 <sub>месяцев</sub></span>
-                            <p><img className='span_img' alt='li' src={spanImg}/>Подарки от клуба каждые</p>
+                            <span className="duration">6 <sub>{t.duration}</sub></span>
+                            <p><img className='span_img' alt='li' src={spanImg}/>{t.duration_text}</p>
                         </div>
                     </div>
                 </div>
