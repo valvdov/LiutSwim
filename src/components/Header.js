@@ -2,8 +2,16 @@ import React from 'react';
 import logo from '../images/logo.png';
 import instagram from '../images/instagram.png';
 import facebook from '../images/facebook.png';
+import {Icon} from "@iconify/react";
 
 function Header({ language, setLanguage }) {
+    function goFcb() {
+        window.open("https://www.facebook.com/people/Liut-Swim/100075410320827/")
+    }
+    function goInst() {
+        window.open("https://www.instagram.com/_liutswim_/")
+    }
+
     return (
         <section className="header">
             <div className={'header_container'}>
@@ -25,8 +33,12 @@ function Header({ language, setLanguage }) {
                         <option value="en">EN</option>
                     </select>
                     <div className={'header_social'}>
-                        <img className={'facebook'} src={facebook} alt={'Facebook'} />
-                        <img className={'instagram'} src={instagram} alt={'Instagram'} />
+                        <button onClick={goFcb} className='social-icons-pack_header facebook'>
+                            <Icon className='social_icon_header' icon="uiw:facebook" color={'#014CCC'}/>
+                        </button>
+                        <button onClick={goInst} className='social-icons-pack_header'>
+                            <Icon className='social_icon_header' icon="teenyicons:instagram-solid" color={'#014CCC'}/>
+                        </button>
                     </div>
                 </div>
             </div>

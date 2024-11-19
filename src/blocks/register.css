@@ -86,4 +86,8 @@
     box-shadow: 4px 6px 0 0 #406AEA;
 }
 
+.submit-button:hover {
+    background-color: #f27d30;
+}
+
 /* Медиа-запросы и другие стили для адаптивности и точной настройки */

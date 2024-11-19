@@ -51,9 +51,10 @@
     height: 53px;
     vertical-align: center;
     border-bottom: 1px solid #001573;
+    cursor: default;
 }
 
-.method-list li:first-child {
+.method-list li:hover {
     background-color: #001573;
     color: white;
 

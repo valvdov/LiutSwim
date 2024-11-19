@@ -2,6 +2,11 @@ import React from "react";
 
 const translations = {
     ru: {
+        about: 'О нас',
+        services: 'Услуги',
+        program: 'Программа лояльности',
+        faq: 'FAQ',
+        contacts: 'Контакты',
         small_text: "с",
         big_text_first: "начинающего",
         small_text_second: "до",
@@ -94,13 +99,27 @@ const translations = {
         discount_header: 'Получи скидку',
         discount_header_after: 'на первый',
         discount_header_lesson: 'урок',
-        discount_form__text: 'Имя/',
-        discount_form__tel: '+7 (___) ___ __ __"',
+        discount_form__text: 'Имя',
+        discount_form__tel: '+7 (___) ___ __ __',
         discount_checkbox: 'Я согласен с обработкой персональных данных в соответствии с условиями',
         discount_checkbox_privacy: 'политики конфиденциальности',
+        discount_form_question: 'Ваш вопрос',
         discount_button: 'Отправить',
+        address: 'Адрес',
+        phone_email: 'Телефон/E-mail',
+        working_hours: 'Часы работы',
+        working_hours_wessex_first: 'Пятница  11.00 - 12.00',
+        working_hours_wessex_second: 'Воскресенье 10.00 - 14.30',
+        working_hours_brentford: 'Суббота 14.00 - 17.00',
+        working_hours_fullham: 'Вторник с 17.30',
+        popup_title: 'Задайте вопрос',
     },
     en: {
+        about: 'About',
+        services: 'Services',
+        program: 'Loyalty Programme',
+        faq: 'FAQ',
+        contacts: 'Contact',
         small_text: "from",
         big_text_first: (
             <>
@@ -204,7 +223,16 @@ const translations = {
         discount_form__tel: '+44 ____ ___ ___',
         discount_checkbox: 'I agree with the processing of personal data in accordance with the',
         discount_checkbox_privacy: 'terms of the privacy policy',
+        discount_form_question: 'You question',
         discount_button: 'Send',
+        address: 'Address',
+        phone_email: 'Phone/E-mail',
+        working_hours: 'Opening hours',
+        working_hours_wessex_first: 'Friday 11.00 - 12.00',
+        working_hours_wessex_second: 'Sunday 10.00 - 14.30',
+        working_hours_brentford: 'Saturday 14.00 - 17.00',
+        working_hours_fullham: 'Tuesday from 17.30',
+        popup_title: 'Ask a question',
     }
 };
 

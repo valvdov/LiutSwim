@@ -22,9 +22,6 @@ function Metodology({language}) {
                     <li>(04) {t.method_list_04}</li>
                     <li>(05) {t.method_list_05}</li>
                 </ul>
-            <div className="right-column">
-                <img src={swimmerImage} alt="Swimmer" className="swimmer-image"/>
-            </div>
         </div>
     );
 }

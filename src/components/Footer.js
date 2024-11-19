@@ -1,52 +1,65 @@
 import React from 'react';
 import '../index.css';
 import {Icon} from "@iconify/react";
+import translations from "../data/translations";
 
-function Footer() {
+function Footer({language}) {
+    const t = translations[language] || translations["ru"];
+    function goFcb() {
+        window.open("https://www.facebook.com/people/Liut-Swim/100075410320827/")
+    }
+    function goInst() {
+        window.open("https://www.instagram.com/_liutswim_/")
+    }
+
     return (
-        <div className="footer">
+        <div className="footer" id='contacts'>
             <div className="footer_container">
                 <div>
                     <ul className='nav'>
-                        <li>О Нас</li>
-                        <li>Услуги</li>
-                        <li>Программа Лояльности</li>
-                        <li>FAQ</li>
-                        <li>Контакты</li>
+                        <li><a className='footer_menu_link' href="#about">{t.about}</a></li>
+                        <li><a className='footer_menu_link' href="#services">{t.services}</a></li>
+                        <li><a className='footer_menu_link' href="#programm">{t.program}</a></li>
+                        <li><a className='footer_menu_link' href="#faq">{t.faq}</a></li>
+                        <li><a className='footer_menu_link' href="#contacts">{t.contacts}</a></li>
                     </ul>
                 </div>
                 <div>
                     <ul className='address_list'>
-                        <li className='address'>Адрес</li>
+                        <li className='address'>{t.address}</li>
                         <li>Primary School, Wessex Gardens, London NW11 9RR</li>
                         <li>658 Chiswick High Rd., Brentford TW8 0HJ</li>
+                        <li>Normand Park, Lillie Rd, London SW6 7ST</li>
                     </ul>
                     <ul className='contact_list'>
-                        <li className='contact'>Телефон/E-mail</li>
-                        <li>+44 7305 238189</li>
-                        <li>+44 7423548200</li>
-                        <li>liutswim@gmail.com</li>
+                        <li className='contact'>{t.phone_email}</li>
+                        <li><a className='call_email' href="tel:07399324217">07399324217</a></li>
+                        <li><a className='call_email' href="mailto:liutswim@gmail.com">liutswim@gmail.com</a></li>
                     </ul>
                 </div>
 
                 <div>
                     <ul className='work_hours'>
-                        <p className='working_hours'>Часы работы</p>
+                        <p className='working_hours'>{t.working_hours}</p>
                         <li>Wessex:</li>
-                        <li>Суббота 11.00 - 12.00</li>
-                        <li>Воскресенье 10.00 - 14.30</li>
+                        <li>{t.working_hours_wessex_first}</li>
+                        <li>{t.working_hours_wessex_second}</li>
                     </ul>
                     <ul className='work_hours_second'>
                         <li>Brentford:</li>
-                        <li>Суббота 14.00 - 17.00</li>
+                        <li>{t.working_hours_brentford}</li>
+                    </ul>
+                    <ul className='work_hours_second'>
+                        <li>Fulham pools:</li>
+                        <li>{t.working_hours_fullham}</li>
                     </ul>
                 </div>
                 <div>
                     <div className='social_icons'>
-                        <button className='social-icons-pack'>
-                            <Icon className='social_icon' icon="uiw:facebook" color={'#014CCC'}/>
+                        <button onClick={goFcb} className='social-icons-pack'>
+                           <Icon className='social_icon' icon="uiw:facebook" color={'#014CCC'}/>
                         </button>
-                        <button className='social-icons-pack'>
+                        <button onClick={goInst} className='social-icons-pack'>
                             <Icon className='social_icon' icon="teenyicons:instagram-solid" color={'#014CCC'}/>
                         </button>
                     </div>

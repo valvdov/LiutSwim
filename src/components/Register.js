@@ -5,7 +5,7 @@ import translations from "../data/translations";
 function Register({language}) {
     const t = translations[language] || translations["ru"];
     return (
-        <div className="discount-page">
+        <div id='register' className="discount-page">
             <div>
                 <h1 className="discount-header">{t.discount_header} <br/> {t.discount_header_after}</h1>
                 <h1 className='discount-header lesson'>{t.discount_header_lesson}<img className='arrow-down' src={downArrow} alt='arrow'/></h1>

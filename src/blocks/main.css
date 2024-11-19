@@ -112,6 +112,10 @@
     /* Дополнительные стили для кнопки, если это необходимо */
 }
 
+.button:hover {
+    background-color: #f27d30;
+}
+
 .first_text__lang-en {
     align-items: start;
 }

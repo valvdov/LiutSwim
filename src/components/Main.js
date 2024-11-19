@@ -3,6 +3,12 @@ import Header from "./Header";
 import translations from "../data/translations";
 
 function Main({ language, setLanguage }) {
+    const scrollToRegister = () => {
+        const registerElement = document.getElementById('register');
+        if (registerElement) {
+            registerElement.scrollIntoView({ behavior: 'smooth' });
+        }
+    };
     const t = translations[language] || translations["ru"];
 
     return (
@@ -25,7 +31,7 @@ function Main({ language, setLanguage }) {
                             <div className="big_text big_text_second level_text">{t.level_text}</div>
                             <div className="add_text">
                                 <div className="subtext">{t.subtext}</div>
-                                <button className="button">{t.button}</button>
+                                <button onClick={scrollToRegister} className="button">{t.button}</button>
                             </div>
                         </div>
                     </div>

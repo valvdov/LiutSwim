@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
 import faqsData from "../data/dataFaq";
 import plusSymbol from "../images/plus-sign.png";
-import minusSymbol from "../images/minus-sign.png"
+import minusSymbol from "../images/minus-sign.png";
 
-
-function Faq() {
+function Faq({ language }) {
     const [faqs, setFaqs] = useState(faqsData.map(faq => ({ ...faq, isOpen: false })));
 
     const toggleFAQ = index => {
@@ -18,11 +17,11 @@ function Faq() {
 
     return (
         <div id="faq" className="faq-container">
-            <button className="faq-button">faq</button>
+            <button className="faq-button">FAQ</button>
             {faqs.map((faq, index) => (
                 <div key={index} className={`faq-item ${faq.isOpen ? 'active' : ''}`}>
                     <div className="faq-question" onClick={() => toggleFAQ(index)}>
-                        {faq.question}
+                        {faq.question[language]}
                         <div className="faq-icon-wrapper">
                             <img
                                 alt={faq.isOpen ? 'Minus Icon' : 'Plus Icon'}
@@ -31,7 +30,7 @@ function Faq() {
                             />
                         </div>
                     </div>
-                    {faq.isOpen && <div className="faq-answer">{faq.answer}</div>}
+                    {faq.isOpen && <div className="faq-answer">{faq.answer[language]}</div>}
                 </div>
             ))}
         </div>

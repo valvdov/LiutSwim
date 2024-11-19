@@ -49,18 +49,53 @@
     width: fit-content; /* Это позволит контейнеру быть шириной содержимого */
     margin: 0 auto; /* Центрирование grid контейнера */
 }
-
-.card:first-child{
+.first-card {
     background-color: transparent;
-    /*color: linear-gradient(90deg, rgba(241, 241, 241, 1), rgba(139, 139, 139, 1));*/
     border: 1px solid #F1F1F1;
-    border-top-left-radius: 40px;
-    box-shadow:
-    inset 0 0 25px #8B8B8B,
-    inset 0 0 25px #8B8B8B,
-    inset 0 0 25px #8B8B8B;
+    border-top-left-radius: 40px; /* Закругление верхнего левого угла */
+    box-shadow: inset 0 0 25px #8B8B8B;
     color: white;
+    /*background-color: transparent;*/
+    /*!*color: linear-gradient(90deg, rgba(241, 241, 241, 1), rgba(139, 139, 139, 1));*!*/
+    /*border: 1px solid #F1F1F1;*/
+    /*border-top-left-radius: 40px;*/
+    /*box-shadow:*/
+    /*        inset 0 0 25px #8B8B8B,*/
+    /*        inset 0 0 25px #8B8B8B,*/
+    /*        inset 0 0 25px #8B8B8B;*/
+    /*color: white;*/
 }
+
+.card-title-white{
+    color: #ffffff !important;
+    font-family: Inter serif !important;
+    font-size: 32px !important;
+    font-weight: 500 !important;
+}
+
+.first-card-design {
+    background-color: transparent !important;
+    border: 1px solid #F1F1F1 !important;
+    border-top-left-radius: 40px ;
+    box-shadow:
+            inset 0 0 25px #8B8B8B,
+            inset 0 0 25px #8B8B8B,
+            inset 0 0 25px #8B8B8B !important;
+    color: white !important;
+}
+
+
+/*.card:first-child{*/
+/*    background-color: transparent;*/
+/*    !*color: linear-gradient(90deg, rgba(241, 241, 241, 1), rgba(139, 139, 139, 1));*!*/
+/*    border: 1px solid #F1F1F1;*/
+/*    border-top-left-radius: 40px;*/
+/*    box-shadow:*/
+/*    inset 0 0 25px #8B8B8B,*/
+/*    inset 0 0 25px #8B8B8B,*/
+/*    inset 0 0 25px #8B8B8B;*/
+/*    color: white;*/
+/*}*/
 
 .card {
     background-color: #ffffff;
@@ -100,7 +135,7 @@
     line-height: 110%;
     font-family: Inter serif;
     font-size: 16px;
-    max-width: 236px;
+    max-width: 350px;
     /* Дополнительные стили для текста карточки */
 }
 
@@ -132,6 +167,11 @@
     font-size: 18px;
     margin-top: 30px;
     box-shadow: 4px 6px 0 0 #406AEA;
+    cursor: pointer;
+}
+
+.signup-button:hover {
+    background-color: #f27d30;
 }
 
 .circle-button {
@@ -139,6 +179,24 @@
     border-radius: 50%;
     width: 40px;
     height: 40px;
+    cursor: pointer;
+}
+
+.circle-button-active {
+    background-color: #FF6434 !important; /* Цвет для активной кнопки */
+    border: none !important;
+    box-shadow: 5px 1px 0 #406AEA; /* Тень для активной кнопки */
+}
+
+.circle-button-active:hover {
+    background-color: #f27d30 !important;
+}
+
+.circle-button-inactive {
+    background-color: transparent !important; /* Цвет для неактивной кнопки */
+    border: 1px solid white !important; /* Рамка для неактивной кнопки */
+    box-shadow: none !important; /* Без тени для неактивной кнопки */
+    cursor: not-allowed; /* Курсор для заблокированной кнопки */
 }
 
 .next-buttons {

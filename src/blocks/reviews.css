@@ -35,7 +35,7 @@
     display: flex;
     align-items: center; /* Выравнивание аватара и текста отзыва */
     margin-bottom: 20px; /* Отступ между отзывами */
-    gap: 40%;
+    gap: 35%;
     padding-bottom: 18px;
     border-bottom: 1px solid rgba(255,255,255,0.4);
 }
@@ -51,6 +51,7 @@
     gap: 20px;
     min-width: 220px;
     align-items: center;
+    width: 360px;
 }
 
 .review-name h3{
@@ -80,6 +81,14 @@
     background-image: url("../images/avatar_girl_black.png");
 }
 
+.circletag-beard-man{
+    background-image: url("../images/avatar_man_beard.png");
+}
+
+.circletag-white-girl-curved{
+    background-image: url("../images/avatar_girl_white_curved.png");
+}
+
 .review-avatar {
     width: 50px; /* Размер аватара */
     height: 50px; /* Размер аватара */
@@ -87,7 +96,7 @@
 }
 
 .review-content {
-    width: 470px;
+    width: 600px;
 }
 
 .review-content h3 {
@@ -123,6 +132,23 @@
     margin: 20px 83px 45px;
     cursor: pointer; /* Курсор в виде пальца при наведении на кнопку */
     box-shadow: 4px 6px 0 0 #406AEA;
+}
+
+.load-more-button:hover {
+    background-color: #f27d30;
+}
+
+.load-more-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 115px; /* Задайте высоту кнопки или пустого места */
+    margin-top: 20px;
+}
+
+.placeholder {
+    width: 100%; /* Пустой блок занимает всё пространство контейнера */
+    height: 100%; /* Высота совпадает с высотой кнопки */
 }
 
 /* Подстройте медиа-запросы и другие параметры в соответствии с вашим дизайном */
