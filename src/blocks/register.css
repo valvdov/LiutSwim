@@ -90,4 +90,23 @@
     background-color: #f27d30;
 }
 
-/* Медиа-запросы и другие стили для адаптивности и точной настройки */
+@media (max-width: 1600px) {
+    .discount-header {
+        font-size: 140px;
+    }
+    .lesson {
+        margin-right: 12%;
+    }
+}
+
+@media (max-width: 1429px) {
+    .discount-header {
+        font-size: 130px;
+    }
+}
+
+@media (max-width: 1284px) {
+    .discount-header{
+        font-size: 110px;
+    }
+}

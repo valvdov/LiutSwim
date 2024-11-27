@@ -9,7 +9,7 @@ function Advantages({language}) {
         <div className="benefits-container">
             <button className="benefits-button">{t.benefits_button}</button>
             <div className="benefits-content">
-                <div className="benefits-main-text">
+                <div className={`benefits-main-text ${language === "ru" ? "" : "benefits-main-text__lang_en"}`}>
                     <h1>{t.benefits_main_text} <span>{t.benefits_main_text_span}</span> <span>{t.benefits_main_text_span_second}</span> {t.benefits_main_text_end}</h1>
                 </div>
                 <div className="benefits-list">

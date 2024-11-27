@@ -155,7 +155,7 @@
 }
 
 .signup-button {
-   width: 420px;
+    width: 420px;
     height: 50px;
     background-color: #FF6434;
     border-radius: 100px;
@@ -225,4 +225,33 @@
     box-shadow: 5px 1px 0 #406AEA;
 }
 
-/* Дополнительные медиа-запросы и стили по необходимости */
+
+@media (max-width: 1429px) {
+    .card {
+        max-width: 390px;
+    }
+
+    .signup-button {
+        width: 390px;
+    }
+}
+
+@media (max-width: 1332px) {
+    .card {
+        max-width: 370px;
+    }
+
+    .signup-button {
+        width: 370px;
+    }
+}
+
+@media (max-width: 1284px) {
+    .card {
+        max-width: 350px;
+    }
+
+    .signup-button {
+        width: 350px;
+    }
+}

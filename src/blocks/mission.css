@@ -49,7 +49,7 @@
 
 .main-text__lang_en {
     font-size: 380px; /* Размер шрифта для главного текста */
-    margin-bottom: 90px;
+    margin-bottom: 15px;
 }
 
 
@@ -119,4 +119,76 @@
 .overlay-img {
     width: 98px;
     height: 81px;
+}
+
+@media (max-width: 1600px) {
+    .main-text {
+        font-size: 180px;
+    }
+    .main-text_low {
+        font-size: 220px;
+    }
+    .overlay-text {
+        font-size: 65px;
+    }
+    .main-text__lang_en {
+        font-size: 280px;
+    }
+    .main-text_low__lang-en {
+        font-size: 320px;
+    }
+}
+
+@media (max-width: 1429px) {
+    .main-text {
+        font-size: 160px;
+    }
+    .main-text_low {
+        font-size: 200px;
+    }
+    .overlay-text {
+        font-size: 60px;
+    }
+    .main-text__lang_en {
+        font-size: 260px;
+    }
+    .main-text_low__lang-en {
+        font-size: 300px;
+    }
+}
+
+@media (max-width: 1332px) {
+    .main-text {
+        font-size: 140px;
+    }
+    .main-text_low {
+        font-size: 180px;
+    }
+    .overlay-text {
+        font-size: 50px;
+    }
+    .main-text__lang_en {
+        font-size: 240px;
+    }
+    .main-text_low__lang-en {
+        font-size: 280px;
+    }
+}
+
+@media (max-width: 1284px) {
+    .main-text {
+        font-size: 120px;
+    }
+    .main-text_low {
+        font-size: 160px;
+    }
+    .overlay-text {
+        font-size: 40px;
+    }
+    .main-text__lang_en {
+        font-size: 220px;
+    }
+    .main-text_low__lang-en {
+        font-size: 260px;
+    }
 }

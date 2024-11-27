@@ -124,6 +124,37 @@ sub {
 }
 
 /* Добавьте медиа-запросы для адаптивности */
+@media (max-width: 1600px) {
+    sub {
+        font-size: 35%;
+    }
+}
+
+@media (max-width: 1429px) {
+    sub {
+        font-size: 25%;
+    }
+}
+
+@media (max-width: 1284px) {
+    sub {
+        font-size: 20%;
+    }
+}
+
+@media (max-width: 1268px) {
+    .duration {
+        font-size: 150px;
+    }
+    .discount {
+        font-size: 250px;
+    }
+    .additional-discount {
+        font-size: 116px;
+    }
+}
+
+
 @media (max-width: 768px) {
     .main-offer {
         font-size: 2.5rem;

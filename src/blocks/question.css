@@ -35,7 +35,7 @@
 }
 
 .question_text_third__lang-en {
-    max-width: 700px;
+    max-width: 600px;
 }
 
 .question_button {
@@ -50,11 +50,45 @@
     font-weight: 500;
     line-height: 110%;
     /* Отступ сверху для кнопки */
-    margin: 20px 83px 45px;
+    margin: 20px auto 45px;
     cursor: pointer; /* Курсор в виде пальца при наведении на кнопку */
     box-shadow: 4px 6px 0 0 #406AEA;
 }
 
 .question_button:hover {
     background-color: #f27d30;
+}
+
+@media (max-width: 1429px) {
+    .question_text{
+    font-size: 70px;
+    }
+
+    .question_text_third__lang-en {
+        max-width: 550px;
+    }
+}
+
+@media (max-width: 1378px) {
+    .question_text{
+        font-size: 60px;
+    }
+
+    .question_text_third__lang-en {
+        max-width: 500px;
+    }
+}
+
+@media (max-width: 1332px) {
+    .question_text{
+        font-size: 50px;
+    }
+
+    .question_text_third__lang-en {
+        max-width: 400px;
+    }
+
+    .question_text_third {
+        max-width: 400px;
+    }
 }
