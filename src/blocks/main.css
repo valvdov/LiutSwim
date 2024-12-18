@@ -7,6 +7,7 @@
     color: white;
     margin-right: auto;
     margin-left: auto;
+    background-position: center;
 }
 
 .main_text {
@@ -127,21 +128,6 @@
 }
 
 /* Добавьте медиазапросы для адаптивного дизайна, если это необходимо */
-@media (max-width: 768px) {
-    .first_text,
-    .second_text,
-    .level_and_button {
-        flex-direction: column;
-        align-items: flex-start; /* или center для центрирования */
-    }
-
-    .level_text,
-    .add_text {
-        margin-left: 0;
-        margin-right: 0;
-    }
-}
-
 
 @media (min-width: 1950px) {
     .small_text{
@@ -160,5 +146,176 @@
     }
     .mainPage{
         height: 1055px;
+    }
+}
+
+@media (max-width: 1604px) {
+    .small_text{
+        font-size: 100px;
+    }
+    .big_text{
+        font-size: 205px;
+    }
+    .subtext {
+        font-size: 25px;
+    }
+    .button {
+        font-size: 25px;
+        width: 330px;
+        height: 50px;
+    }
+    .mainPage{
+        height: 1055px;
+    }
+}
+@media (max-width: 1470px) {
+    .main_text{
+        padding-bottom: 360px;
+    }
+    .small_text{
+        font-size: 80px;
+    }
+    .big_text{
+        font-size: 160px;
+    }
+    .subtext {
+        font-size: 25px;
+    }
+    .button {
+        font-size: 25px;
+        width: 330px;
+        height: 50px;
+    }
+    .mainPage{
+        height: 1055px;
+    }
+}
+
+@media (max-width: 1185px) {
+    .main_text{
+        padding-bottom: 420px;
+    }
+    .small_text{
+        font-size: 40px;
+    }
+    .big_text{
+        font-size: 120px;
+    }
+    .subtext {
+        font-size: 20px;
+    }
+    .button {
+        font-size: 20px;
+        width: 300px;
+        height: 40px;
+    }
+    .mainPage{
+        height: 800px;
+    }
+}
+
+@media (max-width: 960px) {
+    .main_text{
+        padding-bottom: 420px;
+    }
+    .small_text{
+        font-size: 3em;
+    }
+    .big_text{
+        font-size: 5em;
+    }
+    .subtext {
+        font-size: 1em;
+    }
+    .button {
+        font-size: 1em;
+        width: 200px;
+        height: 40px;
+    }
+    .mainPage{
+        height: 800px;
+    }
+}
+
+@media (max-width: 810px) {
+    .main_text{
+        padding-bottom: 420px;
+    }
+    .small_text{
+        font-size: 2rem;
+    }
+    .big_text{
+        font-size: 3.5rem;
+    }
+    .subtext {
+        font-size: 1.2rem;
+    }
+
+    .small_text_second {
+        margin-left: 0;
+    }
+    .button {
+        font-size: 1em;
+        width: 200px;
+        height: 40px;
+    }
+
+    .level_text {
+        margin-left: 70px;
+    }
+    .mainPage{
+        height: 800px;
+    }
+}
+
+@media (max-width: 660px) {
+    .main_text{
+        padding-bottom: 200px;
+    }
+    .small_text{
+        font-size: 1rem;
+        margin-left: 10px;
+    }
+
+    .first_text {
+        gap: 10px;
+    }
+
+    .second_text {
+        align-items: start;
+    }
+
+    .inline_text_container {
+        margin-left: 40px;
+    }
+
+    .big_text{
+        font-size: 1.5rem;
+    }
+    .subtext {
+        font-size: 1rem;
+    }
+
+    .small_text_second {
+        margin-left: 0;
+        margin-right: 10px;
+    }
+    .button {
+        font-size: 0.8em;
+        width: 150px;
+        height: 30px;
+        padding: 6px 5px;
+    }
+
+    .level_text {
+        margin-left: 50px;
+    }
+
+    .add_text {
+        margin-top: 0;
+    }
+
+    .mainPage{
+        height: 600px;
     }
 }

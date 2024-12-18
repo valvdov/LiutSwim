@@ -23,6 +23,7 @@
     display: flex;
     flex-direction: row;
     gap: 35px;
+    transition: transform 0.3s ease-in-out;
 }
 
 .header_menu_link {
@@ -94,4 +95,119 @@
     border: none;
     color: #FFFFFF;
     cursor: pointer;
+}
+
+
+
+.burger-button {
+    display: none;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.menu-lang-social {
+    display: none;
+}
+
+@media (max-width: 960px) {
+    .header_menu {
+        gap: 10px;
+        align-items: center;
+    }
+    .header_menu_link {
+        max-width: 110px;
+    }
+
+    .header_add {
+        margin-right: 61px;
+    }
+}
+
+@media (max-width: 810px) {
+    .header_menu {
+        gap: 10px;
+        align-items: center;
+    }
+    .header_menu_link {
+        max-width: 110px;
+    }
+
+    .header_add {
+        margin-right: 11px;
+    }
+
+    .logo_img {
+        margin-left: 11px;
+    }
+}
+
+
+@media (max-width: 660px) {
+    .burger-button {
+        display: block; /* Показать бургер-кнопку */
+    }
+
+    .header_menu {
+        position: absolute;
+        top: 70px;
+        right: 0;
+        width: 100%;
+        background-color: rgba(	0, 21, 115, .9);
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        padding: 20px 0;
+        transform: translateY(-150%);
+        transition: transform 0.3s ease-in-out;
+    }
+
+    .header_menu.menu-open {
+        transform: translateY(0); /* Показать меню */
+    }
+
+    .header_menu_link {
+        font-size: 16px;
+        text-align: center; /* Центрирование текста */
+        padding: 10px 0; /* Добавим отступы сверху и снизу */
+        width: 100%; /* Ширина на всю строку */
+    }
+
+    .header_menu_link:not(:last-child) {
+        border-bottom: 1px solid #FFFFFF; /* Разделитель под каждой ссылкой */
+    }
+
+    .header_add {
+        display: none;
+    }
+
+    .logo_img {
+        margin-left: 20px;
+    }
+
+
+    .menu-lang-social {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        align-items: center;
+        margin-top: 20px;
+    }
+
+    .menu-lang-social .lang_select {
+        background-color: transparent;
+        border: none;
+        color: #FFFFFF;
+        font-size: 16px;
+        cursor: pointer;
+    }
+
+    .menu-lang-social .header_social {
+        display: flex;
+        gap: 15px;
+    }
+
+    .lang_select {
+        margin-right: 0;
+    }
 }

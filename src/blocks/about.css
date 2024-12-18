@@ -45,7 +45,7 @@
 
 .title_span {
     background-clip: padding-box;
-    box-shadow: 0px 10px 0 white;
+    box-shadow: 0 10px 0 white;
     color: #FFFFFF;
     background-color: #001573;
     display: inline; /* Это заставляет фон применяться только к тексту */
@@ -106,10 +106,47 @@
 }
 
 /* Медиа-запросы для адаптивного дизайна, если это необходимо */
-@media (max-width: 768px) {
+@media (max-width: 960px) {
+    .title {
+        font-size: 48px;
+    }
+
     .features {
         grid-template-columns: 1fr; /* Одна колонка на малых экранах */
     }
+
+    .header {
+        justify-content: center; /* Центрирование кнопки на малых экранах */
+    }
+}
+
+@media (max-width: 660px) {
+    .container {
+        margin: 40px auto;
+    }
+
+    .title {
+        font-size: 20px;
+    }
+
+    .features {
+        grid-template-columns: 1fr; /* Одна колонка на малых экранах */
+    }
+
+    .feature-image {
+        width: 75px;
+        height: 75px;
+    }
+
+
+    .feature-title {
+        font-size: 20px;
+    }
+
+    .feature-description {
+        font-size: 12px;
+    }
+
 
     .header {
         justify-content: center; /* Центрирование кнопки на малых экранах */

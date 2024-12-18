@@ -192,3 +192,136 @@
         font-size: 260px;
     }
 }
+
+@media (max-width: 1230px) {
+    .main-text {
+        font-size: 100px;
+    }
+    .main-text_low {
+        font-size: 140px;
+    }
+    .overlay-text {
+        font-size: 20px;
+    }
+    .main-text__lang_en {
+        font-size: 200px;
+    }
+    .main-text_low__lang-en {
+        font-size: 240px;
+    }
+
+    .overlay-cont__lang_en {
+        bottom: 115%;
+        right: 17%;
+    }
+}
+
+@media (max-width: 960px) {
+    .main-text {
+        font-size: 6rem;
+    }
+    .main-text_low {
+        font-size: 8.5rem;
+    }
+    .overlay-text {
+        font-size: 1.5rem;
+    }
+    .main-text__lang_en {
+        font-size: 8.5rem;
+    }
+    .main-text_low__lang-en {
+        font-size: 8.5rem;
+    }
+
+    .overlay-cont {
+        bottom: 100%;
+        right: 10%;
+    }
+
+    .overlay-cont__lang_en {
+        bottom: 115%;
+        right: 17%;
+    }
+}
+
+@media (max-width: 810px) {
+    .main-text {
+        font-size: 4rem;
+    }
+    .main-text_low {
+        font-size: 5.5rem;
+    }
+    .overlay-text {
+        font-size: 1.5rem;
+    }
+    .overlay-img {
+        width: 88px;
+        height: 71px;
+    }
+
+    .main-text__lang_en {
+        font-size: 7.5rem;
+    }
+    .main-text_low__lang-en {
+        font-size: 8.5rem;
+    }
+
+    .overlay-cont {
+        bottom: 100%;
+        right: 10%;
+    }
+
+    .overlay-cont__lang_en {
+        bottom: 115%;
+        right: 17%;
+    }
+
+    .mission-button {
+        font-size: 12px;
+        width: 131px;
+        height: 24px;
+        line-height: 25%;
+    }
+}
+
+@media (max-width: 660px) {
+    .mission-page {
+        margin-top: 40px;
+        margin-bottom: 40px;
+    }
+
+    .main-text {
+        font-size: 2.5rem;
+    }
+    .main-text_low {
+        font-size: 3rem;
+    }
+    .overlay-text {
+        font-size: 1.5rem;
+    }
+    .overlay-img {
+        width: 48px;
+        height: 31px;
+    }
+
+    .main-text__lang_en {
+        font-size: 7.5rem;
+    }
+    .main-text_low__lang-en {
+        font-size: 8.5rem;
+    }
+
+    .overlay-cont {
+        bottom: 100%;
+        right: 10%;
+    }
+
+    .overlay-cont__lang_en {
+        bottom: 115%;
+        right: 17%;
+    }
+
+    .mission-button {
+     margin-left: 10px;
+    }
+}

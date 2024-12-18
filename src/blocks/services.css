@@ -33,7 +33,8 @@
     border-radius: 20px;
     padding: 10px 20px;
     font-weight: 500;
-    font-size: 18px;
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
     line-height: 75%;
     margin-bottom: 20px; /* Отступ от кнопки до списка */
     width: 175px;
@@ -42,12 +43,23 @@
 }
 
 .card-container {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); /* Определение трех колонок */
-    gap: 20px;
-    justify-content: center; /* Центрирование колонок внутри grid */
-    width: fit-content; /* Это позволит контейнеру быть шириной содержимого */
-    margin: 0 auto; /* Центрирование grid контейнера */
+    display: flex; /* Используем flexbox */
+    gap: 20px; /* Отступ между карточками */
+    justify-content: center; /* Центрирование карточек */
+    overflow: hidden; /* Скрываем карточки вне видимой области */
+}
+
+.card {
+    flex: 0 0 calc(33.33% - 20px); /* По умолчанию 3 карточки на экране */
+    height: 450px;
+    background-color: #ffffff;
+    padding: 20px;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    z-index: 1;
+    overflow: hidden; /* Избегаем проблем с фоном */
 }
 .first-card {
     background-color: transparent;
@@ -97,16 +109,16 @@
 /*    color: white;*/
 /*}*/
 
-.card {
-    background-color: #ffffff;
-    padding: 20px;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    display: flex;
-    flex-direction: column;
-    max-width: 430px;
-    /*min-width: 405px;*/
-    height: 450px;
-}
+/*.card {*/
+/*    background-color: #ffffff;*/
+/*    padding: 20px;*/
+/*    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);*/
+/*    display: flex;*/
+/*    flex-direction: column;*/
+/*    max-width: 430px;*/
+/*    !*min-width: 405px;*!*/
+/*    height: 450px;*/
+/*}*/
 
 .card-title {
     color: #001573;;
@@ -255,3 +267,70 @@
         width: 350px;
     }
 }
+
+
+@media (max-width: 1230px) {
+    .card {
+        max-width: 250px;
+        height: 524px;
+    }
+
+
+    .signup-button {
+        width: 250px;
+    }
+}
+
+@media (max-width: 958px) {
+     .card {
+            flex: 0 0 calc(50% - 20px); /* 2 карточки на экране */
+            max-width: 350px;
+     }
+
+    .signup-button {
+        width: 350px;
+    }
+
+}
+
+@media (max-width: 810px) {
+    .card {
+        flex: 0 0 calc(50% - 20px); /* 2 карточки на экране */
+        max-width: 250px;
+    }
+
+    .signup-button {
+        width: 250px;
+    }
+
+    .nav-button {
+        font-size: 12px;
+        width: 131px;
+        height: 24px;
+        line-height: 25%;
+    }
+
+}
+
+@media (max-width: 660px) {
+    .card {
+        flex: 0 0 100%; /* 1 карточка на 100% ширины */
+    }
+
+    .signup-button {
+        width: 250px;
+    }
+
+    .nav-button {
+        margin-left: 10px;
+    }
+
+    .next-buttons {
+        margin-right: 20px;
+    }
+
+}
+
+
+
+

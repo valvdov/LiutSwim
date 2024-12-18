@@ -23,7 +23,7 @@
     border-radius: 20px;
     padding: 10px 20px;
     font-weight: 500;
-    font-size: 18px;
+    font-size: 16px;
     line-height: 75%;
     margin-bottom: 20px; /* Отступ от кнопки до списка */
     width: 167px;
@@ -83,4 +83,39 @@
     width: 263px; /* Адаптируйте ширину под ваш дизайн */
     height: auto; /* Автоматически рассчитываемая высота */
     /*border: 2px solid #001573; !* Граница вокруг изображения *!*/
+}
+
+
+@media (max-width: 810px) {
+    .method-button {
+        font-size: 12px;
+        width: 131px;
+        height: 24px;
+        line-height: 25%;
+    }
+
+    .text-block {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 660px) {
+    .main-container {
+        margin-top: 40px;
+    }
+    .method-button {
+        margin-left: 10px;
+    }
+
+    .text-block {
+        margin-top: 25px;
+        margin-left: 10px;
+        font-size: 12px;
+    }
+
+    .method-list li {
+        font-size: 12px;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
 }

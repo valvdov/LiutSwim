@@ -110,3 +110,49 @@
         font-size: 110px;
     }
 }
+
+@media (max-width: 810px) {
+    .discount-header{
+        font-size: 60px;
+    }
+
+    .arrow-down {
+        width: 68px;
+        height: 51px;
+    }
+
+    .discount-form {
+        margin-top: 40px;
+        width: auto;
+    }
+
+    .submit-button {
+        width: 100%;
+        min-width: 360px;
+        max-width: 720px;
+    }
+}
+
+@media (max-width: 660px) {
+    .discount-header{
+        font-size: 40px;
+    }
+
+    .arrow-down {
+        width: 48px;
+        height: 31px;
+    }
+
+    .discount-form {
+        margin-top: 40px;
+        margin-left: 10px;
+        margin-right: 10px;
+        width: auto;
+    }
+
+    .submit-button {
+        width: 100%;
+        min-width: 250px;
+        max-width: 720px;
+    }
+}

@@ -19,7 +19,7 @@
     border-radius: 20px;
     padding: 10px 20px;
     font-weight: 500;
-    font-size: 18px;
+    font-size: 16px;
     line-height: 75%;
     margin-bottom: 32px; /* Отступ от кнопки до списка */
     width: 86px;
@@ -85,7 +85,7 @@
 }
 
 /* Медиа-запросы и другие стили для адаптивности */
-@media (max-width: 768px) {
+@media (max-width: 810px) {
     .faq-container {
         width: 90%; /* Сужаем контейнер на мобильных устройствах */
     }
@@ -96,5 +96,37 @@
 
     .faq-answer {
         font-size: 14px; /* Уменьшаем размер шрифта для ответов */
+    }
+
+    .faq-button {
+        font-size: 12px;
+        width: 65px;
+        height: 24px;
+        line-height: 25%;
+    }
+}
+
+@media (max-width: 660px) {
+    .faq-container {
+        width: 100%; /* Сужаем контейнер на мобильных устройствах */
+        margin-top: 40px;
+    }
+
+    .faq-item {
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+
+    .faq-question {
+        font-size: 16px; /* Уменьшаем размер шрифта для вопросов */
+    }
+
+    .faq-answer {
+        font-size: 14px; /* Уменьшаем размер шрифта для ответов */
+        width: 90%;
+    }
+
+    .faq-button {
+        margin-left: 10px;
     }
 }

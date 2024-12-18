@@ -92,3 +92,125 @@
         max-width: 400px;
     }
 }
+
+@media (max-width: 1332px) {
+    .question_text{
+        font-size: 45px;
+    }
+
+    .question_text_third__lang-en {
+        max-width: 340px !important;
+    }
+
+    .question_text_third {
+        max-width: 280px;
+    }
+}
+
+@media (max-width: 1170px) {
+    .question_wrapper {
+        text-align: center;
+    }
+
+    .question_text{
+        font-size: 35px;
+    }
+
+    .question_text_first {
+        transform: translateX(-200px);
+    }
+
+    .question_text_second {
+        transform: translateX(200px);
+    }
+
+    .question_text_third__lang-en {
+        max-width: 280px !important;
+    }
+
+    .question_text_third {
+        max-width: 240px;
+        transform: translateX(600px);
+    }
+}
+
+@media (max-width: 960px) {
+    .question_wrapper {
+        text-align: center;
+    }
+
+    .question_text{
+        font-size: 30px;
+    }
+
+    .question_text_first {
+        transform: translateX(-250px);
+    }
+
+    .question_text_second {
+        transform: translateX(50px);
+    }
+
+    .question_text_third__lang-en {
+        max-width: 280px !important;
+    }
+
+    .question_text_third {
+        max-width: 240px;
+        transform: translateX(400px);
+    }
+}
+@media (max-width: 810px) {
+    .question_wrapper {
+        text-align: center;
+    }
+
+    .question_text{
+        font-size: 20px;
+    }
+
+    .question_text_first {
+        transform: translateX(-150px);
+    }
+
+    .question_text_second {
+        transform: translateX(0px);
+    }
+
+    .question_text_third__lang-en {
+        max-width: 280px !important;
+    }
+
+    .question_text_third {
+        max-width: 240px;
+        transform: translateX(300px);
+    }
+}
+
+@media (max-width: 660px) {
+    .question_wrapper {
+        text-align: center;
+    }
+
+    .question_text{
+        font-size: 16px;
+        line-height: 14px;
+    }
+
+    .question_text_first {
+        transform: translateX(-100px);
+    }
+
+    .question_text_second {
+        transform: translateX(-50px);
+    }
+
+    .question_text_third__lang-en {
+        max-width: 280px !important;
+    }
+
+    .question_text_third {
+        max-width: 100px;
+        transform: translateX(100px);
+    }
+}

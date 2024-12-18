@@ -143,6 +143,17 @@
     justify-content: space-between;
 }
 
+@media (max-width: 660px) {
+
+    .social_icons {
+        justify-content: center;
+    }
+    .social-icons-pack {
+        width: 64px;
+        height: 64px;
+    }
+}
+
 /*!* Responsive *!*/
 /*@media (max-width: 768px) {*/
 /*    .footer {*/

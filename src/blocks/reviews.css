@@ -13,7 +13,7 @@
     border: 1px solid white;
     border-radius: 20px; /* Закругленные углы */
     padding: 10px 20px;
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 500;
     line-height: 75%;
     width: 122px;
@@ -152,3 +152,123 @@
 }
 
 /* Подстройте медиа-запросы и другие параметры в соответствии с вашим дизайном */
+
+@media (max-width: 1370px) {
+    .review {
+        gap: 20%;
+    }
+}
+
+@media (max-width: 1156px) {
+    .circletag {
+        width: 75px;
+        height: 75px;
+    }
+    .circletag-beard-man {
+        background-size: 50%;
+    }
+    .circletag-white-girl {
+        background-size: 50%;
+    }
+    .circletag-black-girl-curved {
+        background-size: 50%;
+    }
+    .review {
+        gap: 15%;
+    }
+}
+
+@media (max-width: 950px) {
+    .review-name {
+        width: 500px;
+    }
+    .circletag {
+        width: 75px;
+        height: 75px;
+    }
+    .circletag-beard-man {
+        background-size: 50%;
+    }
+    .circletag-white-girl {
+        background-size: 50%;
+    }
+    .circletag-black-girl-curved {
+        background-size: 50%;
+    }
+    .review {
+        gap: 5%;
+    }
+}
+
+@media (max-width: 810px) {
+    .reviews-button {
+        font-size: 12px;
+        width: 92px;
+        height: 24px;
+        line-height: 25%;
+    }
+}
+
+@media (max-width: 660px) {
+    .reviews-button {
+      margin-left: 10px;
+    }
+
+    .review {
+        flex-direction: column;
+    }
+
+    .reviews-container {
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+
+    .review-name {
+        width: 220px;
+        justify-content: center;
+    }
+
+    .review-name h3 {
+        width: 100px;
+        font-size: 14px;
+    }
+    .circletag {
+        width: 50px;
+        height: 50px;
+    }
+    .circletag-beard-man {
+        background-size: 50%;
+    }
+    .circletag-white-girl {
+        background-size: 50%;
+    }
+    .circletag-black-girl-curved {
+        background-size: 50%;
+    }
+    .circletag-black-girl {
+        background-size: 50%;
+    }
+    .circletag-white-girl-curved {
+        background-size: 50%;
+    }
+
+
+    .review-content {
+        width: auto;
+    }
+
+    .review-content p {
+        font-size: 12px;
+    }
+
+    .review-content span {
+        font-size: 12px;
+    }
+    .review {
+        gap: 10px
+    }
+
+    .load-more-button {
+        font-size: 12px;
+    }
+}

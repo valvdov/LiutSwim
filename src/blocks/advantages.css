@@ -15,7 +15,7 @@
     border-radius: 20px;
     padding: 10px 20px;
     font-weight: 500;
-    font-size: 18px;
+    font-size: 16px;
     line-height: 75%;
     margin-bottom: 20px; /* Отступ от кнопки до списка */
     width: 182px;
@@ -121,16 +121,76 @@
         max-width: 580px;
     }
 }
-@media (max-width: 768px) {
+@media (max-width: 960px) {
     .benefits-content {
         flex-direction: column; /* Столбцы для мобильных устройств */
     }
 
-    .benefits-main-text, .benefits-list {
+    .benefits-main-text {
+        max-width: 100%;
+    }
+
+    .benefits-main-text h1{
+        max-width: 90%;
+        margin-right: 0;
+        font-size: 50px;
+    }
+
+    .benefits-list {
         max-width: 100%; /* Позволяет тексту и списку занимать всю доступную ширину */
+    }
+
+    .benefits-list ul {
+       padding-left: 0;
     }
 
     .benefits-list li {
         font-size: 1rem; /* Уменьшенный размер шрифта для элементов списка на мобильных устройствах */
+    }
+}
+
+@media (max-width: 810px) {
+
+    .benefits-main-text {
+        max-width: 100%;
+    }
+
+    .benefits-main-text h1{
+        max-width: 90%;
+        margin-right: 0;
+        font-size: 45px;
+    }
+
+    .benefits-button {
+        font-size: 12px;
+        width: 137px;
+        height: 24px;
+        line-height: 25%;
+    }
+
+}
+
+@media (max-width: 660px) {
+    .benefits-container {
+        margin-top: 40px;
+    }
+
+    .benefits-main-text {
+        max-width: 100%;
+    }
+
+    .benefits-main-text h1{
+        max-width: 90%;
+        margin-right: 0;
+        font-size: 25px;
+    }
+
+    .benefits-button {
+     margin-left: 10px;
+    }
+
+    .benefits-content {
+        margin-left: 10px;
+        margin-right: 10px;
     }
 }

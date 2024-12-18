@@ -22,7 +22,7 @@
     border: 1px solid white;
     border-radius: 20px; /* Закругленные углы */
     padding: 10px 20px;
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 500;
     line-height: 75%;
     width: 130px;
@@ -82,9 +82,13 @@
 }
 
 /* Добавьте медиа-запросы для адаптивности, если необходимо */
-@media (max-width: 768px) {
+@media (max-width: 1000px) {
+    .team-container {
+        background: linear-gradient(180deg, rgba(9,9,121,1) 0%, rgba(9,9,121,1) 87%, rgba(255,255,255,1) 89%, rgba(255,255,255,1) 100%);
+    }
     .team-members {
         flex-direction: column; /* Столбцы для мобильных устройств */
+        align-items: center;
     }
 
     .team-member {
@@ -93,5 +97,46 @@
 
     .member-info {
         text-align: center; /* Центрирование текста для мобильных устройств */
+    }
+}
+
+@media (max-width: 810px) {
+    .team-button {
+        font-size: 12px;
+        width: 98px;
+        height: 24px;
+        line-height: 25%;
+    }
+}
+
+@media (max-width: 660px) {
+    .team-button {
+        margin-left: 10px;
+    }
+
+    .team-header {
+        margin-top: 30px;
+        margin-left: 10px;
+        font-size: 12px;
+    }
+
+    .team-container {
+        background: linear-gradient(180deg, rgba(9,9,121,1) 0%, rgba(9,9,121,1) 87%, rgba(255,255,255,1) 89%, rgba(255,255,255,1) 100%);
+    }
+    .team-members {
+        flex-direction: column; /* Столбцы для мобильных устройств */
+        align-items: center;
+    }
+
+    .team-member {
+        margin-bottom: 20px; /* Отступ между карточками членов команды */
+    }
+
+    .member-info {
+        text-align: center; /* Центрирование текста для мобильных устройств */
+    }
+
+    .member-info p {
+        font-size: 14px;
     }
 }

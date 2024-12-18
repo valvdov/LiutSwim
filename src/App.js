@@ -1,5 +1,5 @@
 import logo from './logo.svg';
-import React, { useState } from 'react';
+import React, {useEffect, useState} from 'react';
 import './App.css';
 import Main from "./components/Main";
 import About from "./components/About";
@@ -18,9 +18,22 @@ import Footer from "./components/Footer";
 function App() {
         const [language, setLanguage] = useState("ru");
 
+    useEffect(() => {
+        const savedLanguage = localStorage.getItem("selectedLanguage");
+        if (savedLanguage) {
+            setLanguage(savedLanguage);
+        }
+    }, []);
+
+    // Сохраняем язык в localStorage при изменении
+    const handleLanguageChange = (newLanguage) => {
+        setLanguage(newLanguage);
+        localStorage.setItem("selectedLanguage", newLanguage);
+    };
+
         return (
             <>
-                    <Main language={language} setLanguage={setLanguage}/>
+                    <Main language={language} setLanguage={handleLanguageChange}/>
                     <About language={language} />
                     <Services language={language} />
                     <Metodology language={language} />
