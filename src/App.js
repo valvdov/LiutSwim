@@ -28,6 +28,15 @@ function App() {
     const [selectedService, setSelectedService] = useState('');
 
 
+    const handleServiceSelect = (service) => {
+        setSelectedService(service); // Устанавливаем выбранное значение из Services
+    };
+
+    const handleServiceChange = (service) => {
+        setSelectedService(service); // Устанавливаем новое значение из Register
+    };
+
+
     // Сохраняем язык в localStorage при изменении
     const handleLanguageChange = (newLanguage) => {
         setLanguage(newLanguage);
@@ -38,14 +47,14 @@ function App() {
             <>
                     <Main language={language} setLanguage={handleLanguageChange}/>
                     <About language={language} />
-                    <Services language={language} onServiceSelect={setSelectedService} />
+                    <Services language={language} onServiceSelect={handleServiceSelect} />
                     <Metodology language={language} />
                     <Mission language={language} />
                     <Team language={language} />
                     <Advantages language={language} />
                     <Loyalty language={language} />
                     <Reviews language={language} />
-                    <Register language={language} selectedService={selectedService} />
+                    <Register language={language} selectedService={selectedService} onServiceChange={handleServiceChange}/>
                     <Faq language={language} />
                     <Question language={language} />
                     <Footer language={language} />

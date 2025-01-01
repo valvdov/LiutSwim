@@ -2,7 +2,7 @@ import React from 'react';
 import downArrow from '../images/down_arrow_lesson.png'
 import translations from "../data/translations";
 
-function Register({ language, selectedService }) {
+function Register({ language, selectedService, onServiceChange }) {
     const t = translations[language] || translations["ru"];
 
     return (
@@ -19,7 +19,7 @@ function Register({ language, selectedService }) {
                     <label htmlFor="serevices-select">{t.serevices_select_label}</label>
                     <select className="discount-form-select" id="serevices-select"
                             value={selectedService} // Устанавливаем выбранное значение
-                            onChange={(e) => console.log(e.target.value)}>
+                            onChange={(e) => onServiceChange(e.target.value)}>
                         <option value="sync">{t.serevices_select_sync}</option>
                         <option value="competetive">{t.serevices_select_competetive}</option>
                         <option value="private">{t.serevices_select_private}</option>
