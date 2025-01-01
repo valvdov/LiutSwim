@@ -204,15 +204,30 @@
         font-size: 20px;
     }
     .main-text__lang_en {
-        font-size: 200px;
+        font-size: 190px;
     }
     .main-text_low__lang-en {
-        font-size: 240px;
+        font-size: 230px;
     }
 
     .overlay-cont__lang_en {
         bottom: 115%;
-        right: 17%;
+        right: 25%;
+    }
+}
+
+@media (max-width: 1035px) {
+
+    .main-text__lang_en {
+        font-size: 170px;
+    }
+    .main-text_low__lang-en {
+        font-size: 210px;
+    }
+
+    .overlay-cont__lang_en {
+        bottom: 115%;
+        right: 25%;
     }
 }
 
@@ -230,7 +245,7 @@
         font-size: 8.5rem;
     }
     .main-text_low__lang-en {
-        font-size: 8.5rem;
+        font-size: 9.5rem;
     }
 
     .overlay-cont {
@@ -240,7 +255,7 @@
 
     .overlay-cont__lang_en {
         bottom: 115%;
-        right: 17%;
+        right: 30%;
     }
 }
 
@@ -273,7 +288,7 @@
 
     .overlay-cont__lang_en {
         bottom: 115%;
-        right: 17%;
+        right: 30%;
     }
 
     .mission-button {
@@ -300,25 +315,35 @@
         font-size: 1.5rem;
     }
     .overlay-img {
-        width: 48px;
-        height: 31px;
+        width: 30px;
+        height: 21px;
     }
 
     .main-text__lang_en {
-        font-size: 7.5rem;
+        font-size: 3.5rem;
     }
     .main-text_low__lang-en {
-        font-size: 8.5rem;
+        font-size: 4.5rem;
+    }
+
+    .main-text__sup {
+        font-size: 1.5rem;
+        top: 0.4em;
     }
 
     .overlay-cont {
         bottom: 100%;
         right: 10%;
+        gap: 20px;
     }
 
     .overlay-cont__lang_en {
         bottom: 115%;
-        right: 17%;
+        right: 40%;
+    }
+
+    .overlay-text__lang-en {
+        font-size: 1rem;
     }
 
     .mission-button {

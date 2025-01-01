@@ -37,6 +37,28 @@
     align-items: center;
 }
 
+.selects-container {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    margin-top: 20px;
+    align-self: start;
+    align-items: center;
+}
+
+.discount-form-select{
+    margin-right: 20px;
+    background-color: rgba(0, 21, 115, 0.5);
+    border: none;
+    border-radius: 5px;
+    color: #FFFFFF;
+    cursor: pointer;
+}
+
+.selects-container:last-of-type {
+    margin-bottom: 40px;
+}
+
 .discount-form input[type="text"],
 .discount-form input[type="tel"],
 .discount-form input[type="email"] {
@@ -51,6 +73,10 @@
     color: #001573; /* Цвет текста в полях ввода */
 }
 
+.discount-form input[type="email"] {
+    margin-bottom: 10px;
+}
+
 .discount-form .privacy-policy {
     color: #001573; /* Цвет текста согласия с политикой */
     font-size: 14px; /* Размер шрифта согласия с политикой */
@@ -61,7 +87,7 @@
 
 .discount-form .privacy-policy a {
     color: #001573;
-    margin-left: 24px;
+    /*margin-left: 24px;*/
 }
 
 .discount-form .privacy-policy input[type="checkbox"] {

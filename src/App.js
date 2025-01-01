@@ -25,6 +25,9 @@ function App() {
         }
     }, []);
 
+    const [selectedService, setSelectedService] = useState('');
+
+
     // Сохраняем язык в localStorage при изменении
     const handleLanguageChange = (newLanguage) => {
         setLanguage(newLanguage);
@@ -35,14 +38,14 @@ function App() {
             <>
                     <Main language={language} setLanguage={handleLanguageChange}/>
                     <About language={language} />
-                    <Services language={language} />
+                    <Services language={language} onServiceSelect={setSelectedService} />
                     <Metodology language={language} />
                     <Mission language={language} />
                     <Team language={language} />
                     <Advantages language={language} />
                     <Loyalty language={language} />
                     <Reviews language={language} />
-                    <Register language={language} />
+                    <Register language={language} selectedService={selectedService} />
                     <Faq language={language} />
                     <Question language={language} />
                     <Footer language={language} />

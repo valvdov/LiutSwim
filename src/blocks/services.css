@@ -52,6 +52,7 @@
 .card {
     flex: 0 0 calc(33.33% - 20px); /* По умолчанию 3 карточки на экране */
     height: 450px;
+    max-width: 420px;
     background-color: #ffffff;
     padding: 20px;
     box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
@@ -240,7 +241,7 @@
 
 @media (max-width: 1429px) {
     .card {
-        max-width: 390px;
+        max-width: 380px;
     }
 
     .signup-button {

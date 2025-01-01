@@ -4,38 +4,31 @@ import rightArrow from '../images/right arrow.png';
 import translations from "../data/translations";
 import servicesData from "../data/dataServices";
 
-function Services({ language }) {
+function Services({ language, onServiceSelect }) {
     const t = translations[language] || translations["ru"];
 
     const [startIndex, setStartIndex] = useState(0);
     const [visibleCards, setVisibleCards] = useState(3); // По умолчанию 3 карточки
 
-    // Изменяем количество видимых карточек на основе ширины экрана
     useEffect(() => {
         const handleResize = () => {
             if (window.innerWidth <= 660) {
-                setVisibleCards(1); // 1 карточка при ширине <= 660px
+                setVisibleCards(1);
             } else if (window.innerWidth < 976) {
-                setVisibleCards(2); // 2 карточки при ширине < 976px
+                setVisibleCards(2);
             } else {
-                setVisibleCards(3); // 3 карточки на больших экранах
+                setVisibleCards(3);
             }
         };
 
         window.addEventListener('resize', handleResize);
-        handleResize(); // Вызов при монтировании компонента
+        handleResize();
         return () => window.removeEventListener('resize', handleResize);
     }, []);
 
-    const triggerVibration = () => {
-        if (navigator.vibrate) { // Проверка поддержки вибрации
-            navigator.vibrate(50); // Вибрация на 50 миллисекунд
-        }
-    };
-
     const triggerHapticFeedback = () => {
         if (navigator.vibrate) {
-            navigator.vibrate(50); // Вибрация на 50 мс для Android
+            navigator.vibrate(50);
         } else {
             const button = document.createElement('input');
             button.type = 'button';
@@ -62,8 +55,6 @@ function Services({ language }) {
             triggerHapticFeedback();
         }
     };
-
-
 
     const canGoPrev = startIndex > 0;
     const canGoNext = startIndex + visibleCards < servicesData.length;
@@ -97,12 +88,7 @@ function Services({ language }) {
             </div>
             <div className="card-container">
                 {servicesData.slice(startIndex, startIndex + visibleCards).map((service, index) => (
-                    <div
-                        key={index}
-                        className={`card ${
-                            startIndex === 0 && index === 0 ? 'first-card-design' : ''
-                        } ${visibleCards === 1 && servicesData.length - startIndex === 1 ? 'last-card-full' : ''}`}
-                    >
+                    <div key={index} className={`card ${startIndex === 0 && index === 0 ? 'first-card-design' : ''}`}>
                         <h2
                             className={`card-title ${
                                 startIndex === 0 && index === 0 ? 'card-title-white' : ''
@@ -117,19 +103,16 @@ function Services({ language }) {
                         >
                             {service.text[language]}
                         </p>
-
-                        {/* Условие для исключения кнопки у первой карточки */}
                         {!(startIndex === 0 && index === 0) && (
                             <div className="card-footer">
                                 <span className="price">{service.price[language]}</span>
                                 <button
                                     className="signup-button"
                                     onClick={() => {
+                                        onServiceSelect(service.value);
                                         const registerElement = document.getElementById('register');
                                         if (registerElement) {
-                                            registerElement.scrollIntoView({
-                                                behavior: 'smooth',
-                                            });
+                                            registerElement.scrollIntoView({ behavior: 'smooth' });
                                         }
                                     }}
                                 >

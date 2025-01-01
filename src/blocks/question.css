@@ -75,7 +75,7 @@
     }
 
     .question_text_third__lang-en {
-        max-width: 500px;
+        max-width: 490px;
     }
 }
 
@@ -95,7 +95,7 @@
 
 @media (max-width: 1332px) {
     .question_text{
-        font-size: 45px;
+        font-size: 40px;
     }
 
     .question_text_third__lang-en {
@@ -206,11 +206,12 @@
     }
 
     .question_text_third__lang-en {
-        max-width: 280px !important;
+        max-width: 120px !important;
     }
 
     .question_text_third {
-        max-width: 100px;
+        max-width: 120px;
         transform: translateX(100px);
     }
+
 }

@@ -318,4 +318,17 @@
     .mainPage{
         height: 600px;
     }
+
+    .level_and_button__lang-en {
+        margin-left: 1em;
+    }
+
+    .second_text {
+        gap: 0;
+    }
+
+    .big_text_first__lang-en {
+        font-size: 2.5rem;
+    }
+
 }

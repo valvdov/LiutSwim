@@ -33,6 +33,7 @@ const servicesData = [
                 £36 <br /> 45 minutes in the pool<br />45 minutes in the gym
             </>,
         },
+        value: 'sync'
     },
     {
         title: {
@@ -55,6 +56,7 @@ const servicesData = [
                 £22 - 45 minutes <br /> £18 - 30 minutes
             </>,
         },
+        value: 'competetive'
     },
     {
         title: {
@@ -69,6 +71,7 @@ const servicesData = [
             ru: '£35 - 30 минут',
             en: '£35 - 30 minutes',
         },
+        value: 'private'
     },
     {
         title: {
@@ -83,6 +86,7 @@ const servicesData = [
             ru: '£47 - 30 минут',
             en: '£47 - 30 minutes',
         },
+        value: 'two-two-one'
     },
     {
         title: {
@@ -97,6 +101,7 @@ const servicesData = [
             ru: '£37 - 30 минут',
             en: '£37 - 30 minutes',
         },
+        value: 'one-two-one'
     }
 ];
 

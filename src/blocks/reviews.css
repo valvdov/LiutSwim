@@ -254,8 +254,9 @@
 
 
     .review-content {
-        width: auto;
+        width: 100%;
     }
+
 
     .review-content p {
         font-size: 12px;

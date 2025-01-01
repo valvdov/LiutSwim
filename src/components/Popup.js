@@ -26,21 +26,19 @@ function Popup({ isVisible, onClose, language, t }) {
         <div className="popup-overlay" onClick={handleOverlayClick}>
             <div className="popup-container">
                 <div className="popup-page">
-                    <div>
-                        <h1 className="discount-header lesson lesson-popup">
+                        <h1 className="popup-header lesson-popup">
                             {t.popup_title}
                         </h1>
-                    </div>
-                    <form className="discount-form">
+                    <form className="popup-form">
                         <input type="text" placeholder={t.discount_form__text} />
                         <input type="tel" placeholder={t.discount_form__tel} />
                         <input type="email" placeholder="Email" />
-                        <textarea placeholder={t.discount_form_question} rows="4" />
+                        <textarea placeholder={t.discount_form_question} max-rows="4" />
                         <label className="privacy-policy">
                             <input type="checkbox" />
                             {t.discount_checkbox} <br /><a href="/privacy">{t.discount_checkbox_privacy}</a>
                         </label>
-                        <button type="submit" className="submit-button">{t.discount_button}</button>
+                        <button type="submit" className="submit-popup-button">{t.discount_button}</button>
                     </form>
                 </div>
             </div>
