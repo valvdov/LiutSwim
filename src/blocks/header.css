@@ -62,8 +62,10 @@
     height: 30px;
 }
 .social-icons-pack_header {
-    width: 30px;
-    height: 30px;
+    width: 100%;
+    height: 100%;
+    max-width: 30px;
+    max-height: 30px;
     border: none;
     cursor: pointer;
     background-color: #F8F8FF;
@@ -79,11 +81,13 @@
 }
 
 .social_icon_header{
-    width: 14px;
-    height: 14px;
+    border-radius: 8px;
+    width: 16px;
+    min-width: 16px;
+    height: 16px;
+    min-height: 16px;
     cursor: pointer;
     transition: transform 0.3s ease;
-    border-radius: 8px;
 }
 .facebook {
     margin-right: 15px;

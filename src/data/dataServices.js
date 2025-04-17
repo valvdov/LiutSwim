@@ -94,8 +94,8 @@ const servicesData = [
             en: '1:2:1',
         },
         text: {
-            ru: '',
-            en: '',
+            ru: 'Это тренировки, где один тренер работает с двумя спортсменами. Подходит для тех, кто хочет индивидуальный подход, но ценит тренировку в небольшой группе. Идеально для улучшения техники, подготовки к соревнованиям или работы над конкретными навыками.',
+            en: 'Features training sessions where one coach works with two athletes. It is perfect for those who seek personalized attention while enjoying training in a small group. Ideal for improving technique, preparing for competitions, or focusing on specific skills.',
         },
         price: {
             ru: '£37 - 30 минут',

@@ -67,7 +67,7 @@ function Header({ language, setLanguage }) {
                         <option value="ru">RU</option>
                         <option value="en">EN</option>
                     </select>
-                    <div className={'header_social'}>
+                    <div className='header_social'>
                         <button onClick={goFcb} className='social-icons-pack_header facebook'>
                             <Icon className='social_icon_header' icon="uiw:facebook" color={'#014CCC'}/>
                         </button>
