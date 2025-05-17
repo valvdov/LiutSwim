@@ -16,7 +16,7 @@ import Question from "./components/Question";
 import Footer from "./components/Footer";
 
 function App() {
-        const [language, setLanguage] = useState("ru");
+        const [language, setLanguage] = useState("en");
 
     useEffect(() => {
         const savedLanguage = localStorage.getItem("selectedLanguage");
