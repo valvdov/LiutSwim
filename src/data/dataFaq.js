@@ -6,7 +6,7 @@ const faqsData = [
         },
         answer: {
             ru: 'Ребенок должен владеть базовым навыками плавания, уметь держаться на воде, владеть несколькими стилями плавания. Мы работаем с детьми от 3 лет.',
-            en: 'A child should have basic swimming skills, be comfortable in the water, and know several swimming styles. We work with children from 3 years old',
+            en: 'A child should have basic swimming skills, be comfortable in the water, and know several swimming styles. We work with children from 3 years old.',
         },
     },
     {
@@ -16,7 +16,7 @@ const faqsData = [
         },
         answer: {
             ru: 'Шапочка для плавания, купальник, полотенце, тапочки, очки, душевые принадлежности. Для занятий в зале удобные шорты или леггинсы, футболка, носки.',
-            en: 'Swimming cap, swimsuit, towel, flip-flops, goggles, shower supplies. For gym sessions: comfortable shorts or leggings, a T-shirt, and socks.',
+            en: 'Swimming cap, swimsuit, towel, flip-flops, goggles, toiletries. For gym sessions: comfortable shorts or leggings, a T-shirt, and socks.',
         },
     },
     {
@@ -36,7 +36,7 @@ const faqsData = [
         },
         answer: {
             ru: 'Соревнования включают в себя сдачу обязательных элементов и произвольную программу.',
-            en: 'Synchronized swimming competitions involve performing mandatory elements and a free routine.',
+            en: 'Synchronised swimming competitions involve performing mandatory elements and a free routine.',
         },
     },
     {
@@ -46,7 +46,7 @@ const faqsData = [
         },
         answer: {
             ru: 'Соревнования по плаванию включают в себя сдачу дистанции на время и командные эстафеты.',
-            en: 'Swimming competitions include racing distances for time and relay races.',
+            en: 'Swimming competitions include racing set distances against the clock and relay races.',
         },
     },
     {

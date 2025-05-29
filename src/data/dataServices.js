@@ -23,7 +23,7 @@ const servicesData = [
                 'Вы научитесь плавать, нырять, надолго задерживать дыхание, ориентироваться в водном пространстве, улучшите координацию, разовьете вестибулярный аппарат, дыхательную и сердечно-сосудистую систему. \n' +
                 'Группа до 6 человек.',
             en: 'Includes choreography, dance, swimming, and acrobatics lessons.  \n' +
-                'You will learn to swim, dive, hold your breath for a long time, orientate, improve coordination, develop the vestibular apparatus, respiratory, and cardiovascular system.  ',
+                'You will learn to swim, dive, hold your breath for a long time, orient yourself in the water, improve coordination, develop the vestibular apparatus, respiratory, and cardiovascular system.  ',
         },
         price: {
             ru: <>
@@ -61,7 +61,7 @@ const servicesData = [
     {
         title: {
             ru: 'Персональная тренировка',
-            en: 'Private Training',
+            en: 'Private Lessons',
         },
         text: {
             ru: 'Проводятся один на один с инструктором, что ускоряет процесс обучения и отлично подходит для тех, кто испытывает стеснение и неуверенность в себе. На уроке мы сможем проработать любые запросы ученика и уделить достаточно времени каждому запросу.',
@@ -95,7 +95,7 @@ const servicesData = [
         },
         text: {
             ru: 'Это тренировки, где один тренер работает с двумя спортсменами. Подходит для тех, кто хочет индивидуальный подход, но ценит тренировку в небольшой группе. Идеально для улучшения техники, подготовки к соревнованиям или работы над конкретными навыками.',
-            en: 'Features training sessions where one coach works with two athletes. It is perfect for those who seek personalized attention while enjoying training in a small group. Ideal for improving technique, preparing for competitions, or focusing on specific skills.',
+            en: 'Features training sessions where one coach works with two athletes. It is perfect for those who seek personalised attention while enjoying training in a small group. Ideal for improving technique, preparing for competitions, or focusing on specific skills.',
         },
         price: {
             ru: '£37 - 30 минут',

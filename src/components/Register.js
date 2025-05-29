@@ -12,7 +12,7 @@ function Register({ language, selectedService, onServiceChange }) {
         phone: "",
         email: "",
         service: selectedService, // Используем выбранный сервис
-        place: "wessex",
+        place: "fulham",
     });
 
     // Обновление formData, если selectedService изменился
@@ -119,9 +119,10 @@ function Register({ language, selectedService, onServiceChange }) {
                         value={formData.place}
                         onChange={handleChange}
                     >
+                        <option value="fulham">Fulham</option>
+                        <option value="hounslow">Hounslow</option>
                         <option value="wessex">Wessex</option>
                         <option value="brentford">Brentford</option>
-                        <option value="fulham">Fulham</option>
                     </select>
                 </div>
                 <label className="privacy-policy">

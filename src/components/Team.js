@@ -1,8 +1,8 @@
 import React from 'react';
 import '../blocks/team.css'; // Убедитесь, что подключен файл стилей
-import alexandraImage from '../images/Alexandra.jpg'; // Замените на пути к вашим изображениям
-import annaImage from '../images/Anna.jpg';
-import juliaImage from '../images/Julia.jpg';
+import alexandraImage from '../images/Alexandra_new.jpg'; // Замените на пути к вашим изображениям
+import annaImage from '../images/Anna_new.jpg';
+import juliaImage from '../images/Julia_new.jpg';
 import translations from "../data/translations";
 
 function Team({language}) {
@@ -16,30 +16,33 @@ function Team({language}) {
             </div>
             <div className="team-members">
                 <div className="team-member">
-                    <img src={alexandraImage} alt="Александра" className="member-image"/>
+                    <img src={alexandraImage} alt="Alexandra" className="member-image"/>
                     <div className="member-info">
                         <h3><span>{t.team_member_al}</span></h3>
-                        <p>/ {t.al_info_first}</p>
-                        <p>/ {t.al_info_second}</p>
-                        <p>/ {t.al_info_last}</p>
+                        <p>&#x2022; {t.team_info_certification}</p>
+                        <p>&#x2022; {t.al_info_first}</p>
+                        <p>&#x2022; {t.al_info_second}</p>
+                        <p>&#x2022; {t.al_info_last}</p>
                     </div>
                 </div>
                 <div className="team-member">
-                    <img src={annaImage} alt="Анна" className="member-image"/>
+                    <img src={annaImage} alt="Anna" className="member-image"/>
                     <div className="member-info">
                         <h3><span>{t.team_member_an}</span></h3>
-                        <p>/ {t.an_info_first}</p>
-                        <p>/ {t.an_info_second}</p>
-                        <p>/ {t.an_info_last}</p>
+                        <p>&#x2022; {t.team_info_certification}</p>
+                        <p>&#x2022; {t.an_info_first}</p>
+                        <p>&#x2022; {t.an_info_second}</p>
+                        <p>&#x2022; {t.an_info_last}</p>
                     </div>
                 </div>
                 <div className="team-member">
-                    <img src={juliaImage} alt="Юлия" className="member-image"/>
+                    <img src={juliaImage} alt="Julia" className="member-image"/>
                     <div className="member-info">
                         <h3><span>{t.team_member_ju}</span></h3>
-                        <p>/ {t.ju_info_first}</p>
-                        <p>/ {t.ju_info_second}</p>
-                        <p>/ {t.ju_info_last}</p>
+                        <p>&#x2022; {t.team_info_certification}</p>
+                        <p>&#x2022; {t.ju_info_first}</p>
+                        <p>&#x2022; {t.ju_info_second}</p>
+                        <p>&#x2022; {t.ju_info_last}</p>
                     </div>
                 </div>
             </div>
