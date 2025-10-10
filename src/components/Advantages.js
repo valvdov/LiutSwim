@@ -1,5 +1,5 @@
 import React from 'react';
-import '../blocks/advantages.css'; // Убедитесь, что подключен файл стилей
+import '../blocks/advantages.css';
 import logo from '../images/logo_adv.png'
 import translations from "../data/translations";
 
@@ -10,7 +10,8 @@ function Advantages({language}) {
             <button className="benefits-button">{t.benefits_button}</button>
             <div className="benefits-content">
                 <div className={`benefits-main-text ${language === "ru" ? "" : "benefits-main-text__lang_en"}`}>
-                    <h1>{t.benefits_main_text} <span>{t.benefits_main_text_span}</span> <span>{t.benefits_main_text_span_second}</span> {t.benefits_main_text_end}</h1>
+                    <h1>{t.benefits_main_text} <span>{t.benefits_main_text_span}</span>
+                        <span>{t.benefits_main_text_span_second}</span> {t.benefits_main_text_end}</h1>
                 </div>
                 <div className="benefits-list">
                     <ul>

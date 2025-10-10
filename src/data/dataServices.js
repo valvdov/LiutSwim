@@ -27,10 +27,10 @@ const servicesData = [
         },
         price: {
             ru: <>
-                £36 <br /> 45 минут в бассейне <br />45 минут в зале
+                £36 <br/> 45 минут в бассейне <br/>45 минут в зале
             </>,
-            en:<>
-                £36 <br /> 45 minutes in the pool<br />45 minutes in the gym
+            en: <>
+                £36 <br/> 45 minutes in the pool<br/>45 minutes in the gym
             </>,
         },
         value: 'sync'
@@ -50,10 +50,10 @@ const servicesData = [
         },
         price: {
             ru: <>
-                £22 - 45 минут <br /> £18 - 30 минут
-                </>,
+                £22 - 45 минут <br/> £18 - 30 минут
+            </>,
             en: <>
-                £22 - 45 minutes <br /> £18 - 30 minutes
+                £22 - 45 minutes <br/> £18 - 30 minutes
             </>,
         },
         value: 'competetive'

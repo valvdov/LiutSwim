@@ -1,4 +1,3 @@
-/* Question Section */
 .question {
     width: 100%;
     background-color: #0d1f59;
@@ -7,10 +6,10 @@
     text-align: center;
 }
 
-.question_wrapper{
-    font-size: 48px; /* Adjust to match your design */
+.question_wrapper {
+    font-size: 48px;
     line-height: 100%;
-    font-weight: 600; /* Adjust weight to match your design */
+    font-weight: 600;
     margin: 0 0 20px 0;
     text-align: left;
     padding-left: 80px;
@@ -21,6 +20,7 @@
     font-size: 80px;
     font-weight: 500;
 }
+
 .question_text_first {
     max-width: 850px;
 }
@@ -29,6 +29,7 @@
     max-width: 600px;
     transform: translateX(400px);
 }
+
 .question_text_third {
     max-width: 500px;
     transform: translateX(750px);
@@ -39,19 +40,18 @@
 }
 
 .question_button {
-    background-color: #FF6434; /* Цвет фона кнопки "Загрузить еще" */
-    color: white; /* Цвет текста кнопки */
+    background-color: #FF6434;
+    color: white;
     padding-bottom: 15px;
     padding-top: 15px;
     width: 90%;
-    border: none; /* Убрать границу кнопки */
-    border-radius: 20px; /* Закругление углов кнопки */
-    font-size: 18px; /* Размер шрифта кнопки */
+    border: none;
+    border-radius: 20px;
+    font-size: 18px;
     font-weight: 500;
     line-height: 110%;
-    /* Отступ сверху для кнопки */
     margin: 20px auto 45px;
-    cursor: pointer; /* Курсор в виде пальца при наведении на кнопку */
+    cursor: pointer;
     box-shadow: 4px 6px 0 0 #406AEA;
 }
 
@@ -60,8 +60,8 @@
 }
 
 @media (max-width: 1429px) {
-    .question_text{
-    font-size: 70px;
+    .question_text {
+        font-size: 70px;
     }
 
     .question_text_third__lang-en {
@@ -70,7 +70,7 @@
 }
 
 @media (max-width: 1378px) {
-    .question_text{
+    .question_text {
         font-size: 60px;
     }
 
@@ -80,7 +80,7 @@
 }
 
 @media (max-width: 1332px) {
-    .question_text{
+    .question_text {
         font-size: 50px;
     }
 
@@ -94,7 +94,7 @@
 }
 
 @media (max-width: 1332px) {
-    .question_text{
+    .question_text {
         font-size: 40px;
     }
 
@@ -112,7 +112,7 @@
         text-align: center;
     }
 
-    .question_text{
+    .question_text {
         font-size: 35px;
     }
 
@@ -139,7 +139,7 @@
         text-align: center;
     }
 
-    .question_text{
+    .question_text {
         font-size: 30px;
     }
 
@@ -160,12 +160,13 @@
         transform: translateX(400px);
     }
 }
+
 @media (max-width: 810px) {
     .question_wrapper {
         text-align: center;
     }
 
-    .question_text{
+    .question_text {
         font-size: 20px;
     }
 
@@ -192,7 +193,7 @@
         text-align: center;
     }
 
-    .question_text{
+    .question_text {
         font-size: 16px;
         line-height: 14px;
     }

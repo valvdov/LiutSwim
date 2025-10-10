@@ -120,6 +120,7 @@ const translations = {
         working_hours_brentford: 'Суббота 14:00 - 17:00',
         working_hours_fullham: 'Вторник 17:30 - 19:00',
         working_hours_hounslow: 'Среда 16:30 - 18:00',
+        working_hours_hounslow_seconds: 'Четверг 16:30 - 18:30',
         popup_title: 'Задайте вопрос',
     },
     en: {
@@ -248,6 +249,7 @@ const translations = {
         working_hours_brentford: 'Saturday 14:00 - 17:00',
         working_hours_fullham: 'Tuesday 17:30 - 19:00',
         working_hours_hounslow: 'Wednesday 16:30 - 18:00',
+        working_hours_hounslow_seconds: 'Thursday 16:30 - 18:30',
         popup_title: 'Ask a question',
     }
 };

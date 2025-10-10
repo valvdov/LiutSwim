@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, {useState, useEffect} from 'react';
 import leftArrow from '../images/left arrow.png';
 import rightArrow from '../images/right arrow.png';
 import translations from "../data/translations";
 import servicesData from "../data/dataServices";
 
-function Services({ language, onServiceSelect }) {
+function Services({language, onServiceSelect}) {
     const t = translations[language] || translations["ru"];
 
     const [startIndex, setStartIndex] = useState(0);
@@ -73,7 +73,7 @@ function Services({ language, onServiceSelect }) {
                         onClick={handlePrev}
                         disabled={!canGoPrev}
                     >
-                        <img src={leftArrow} className="circle-button-arrow" alt="back" />
+                        <img src={leftArrow} className="circle-button-arrow" alt="back"/>
                     </button>
                     <button
                         className={`circle-button right-button ${
@@ -82,7 +82,7 @@ function Services({ language, onServiceSelect }) {
                         onClick={handleNext}
                         disabled={!canGoNext}
                     >
-                        <img src={rightArrow} className="circle-button-arrow" alt="forward" />
+                        <img src={rightArrow} className="circle-button-arrow" alt="forward"/>
                     </button>
                 </div>
             </div>
@@ -112,7 +112,7 @@ function Services({ language, onServiceSelect }) {
                                         onServiceSelect(service.value);
                                         const registerElement = document.getElementById('register');
                                         if (registerElement) {
-                                            registerElement.scrollIntoView({ behavior: 'smooth' });
+                                            registerElement.scrollIntoView({behavior: 'smooth'});
                                         }
                                     }}
                                 >

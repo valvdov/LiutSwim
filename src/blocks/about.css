@@ -2,44 +2,44 @@
     /*max-width: 1200px;*/
     margin: 259px 80px 120px;
     padding: 20px;
-    font-family: 'Arial', sans-serif; /* Используйте нужный шрифт */
-    color: #333; /* Общий цвет текста */
+    font-family: 'Arial', sans-serif;
+    color: #333;
 }
 
 .about-text {
     display: flex;
     justify-content: flex-start;
-    margin-bottom: 50px; /* Примерный отступ от шапки до основного содержимого */
+    margin-bottom: 50px;
 }
 
 .about-button {
     background-color: #fff;
     color: #333;
     border: 2px solid #333;
-    border-radius: 20px; /* Закругленные углы */
+    border-radius: 20px;
     padding: 10px 20px;
     font-size: 16px;
     cursor: pointer;
     outline: none;
 }
+
 .about-button__lang-en {
     margin-top: 72px;
 }
 
 
-
 .main-content {
-    text-align: center; /* Центрирование основного содержимого */
+    text-align: center;
 }
 
 .title {
     color: #001573;
     font-size: 85px;
-    line-height: 1.2; /* Увеличиваем line-height, чтобы предотвратить сокращение текста */
+    line-height: 1.2;
     font-weight: 500;
     text-align: left;
     margin-bottom: 50px;
-    text-shadow: 0 4px 4px rgba(0,0,0,0.25);
+    text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
 
 }
 
@@ -48,16 +48,16 @@
     box-shadow: 0 10px 0 white;
     color: #FFFFFF;
     background-color: #001573;
-    display: inline; /* Это заставляет фон применяться только к тексту */
-    padding: 2px 4px; /* Добавляет немного пространства вокруг текста */
+    display: inline;
+    padding: 2px 4px;
 }
 
 .features {
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* Две колонки */
+    grid-template-columns: repeat(2, 1fr);
     grid-column-gap: 20px;
     grid-row-gap: 0;
-    margin-top: 0; /* Отступ сверху */
+    margin-top: 0;
 }
 
 
@@ -66,7 +66,7 @@
     flex-direction: row;
     gap: 60px;
     align-items: center;
-    text-align: left; /* Текст выровнен по левому краю */
+    text-align: left;
     /*padding: 20px;*/
     border-top: 1px solid rgba(64, 106, 234, 0.5);
     border-bottom: 1px solid rgba(64, 106, 234, 0.5);
@@ -85,8 +85,8 @@
 }
 
 .feature-image {
-    width: 100px; /* Примерный размер изображения */
-    height: 100px; /* Примерный размер изображения */
+    width: 100px;
+    height: 100px;
     margin: 0;
     border-radius: 300px;
     box-shadow: 4px 6px 0 0 #406AEA;
@@ -101,22 +101,21 @@
 
 .feature-description {
     font-size: 16px;
-    line-height: 1.5; /* Межстрочный интервал */
+    line-height: 1.5;
     margin: 0;
 }
 
-/* Медиа-запросы для адаптивного дизайна, если это необходимо */
 @media (max-width: 960px) {
     .title {
         font-size: 48px;
     }
 
     .features {
-        grid-template-columns: 1fr; /* Одна колонка на малых экранах */
+        grid-template-columns: 1fr;
     }
 
     .header {
-        justify-content: center; /* Центрирование кнопки на малых экранах */
+        justify-content: center;
     }
 }
 
@@ -130,7 +129,7 @@
     }
 
     .features {
-        grid-template-columns: 1fr; /* Одна колонка на малых экранах */
+        grid-template-columns: 1fr;
     }
 
     .feature-image {
@@ -149,8 +148,6 @@
 
 
     .header {
-        justify-content: center; /* Центрирование кнопки на малых экранах */
+        justify-content: center;
     }
 }
-
-/* Добавьте любые дополнительные стили, необходимые для совпадения с дизайном */

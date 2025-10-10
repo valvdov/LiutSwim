@@ -2,9 +2,9 @@
     background-color: white;
     /*max-width: 1600px;*/
     align-items: center;
-    justify-content: space-between; /* Добавьте пространство между колонками */
-    /*border-bottom: 2px solid #001573; !* Граница снизу *!*/
-    font-family: Inter,serif;
+    justify-content: space-between;
+    /*border-bottom: 2px solid #001573;*/
+    font-family: Inter, serif;
     margin: 120px auto 0;
     position: relative;
 }
@@ -25,7 +25,7 @@
     font-weight: 500;
     font-size: 16px;
     line-height: 75%;
-    margin-bottom: 20px; /* Отступ от кнопки до списка */
+    margin-bottom: 20px;
     width: 167px;
     height: 33px;
     margin-left: 80px;
@@ -44,8 +44,8 @@
     display: flex;
     align-items: center;
     padding-left: 80px;
-    /*margin-bottom: 10px; !* Отступ между пунктами списка *!*/
-    font-size: 18px; /* Маленький шрифт для списка */
+    /*margin-bottom: 10px;*/
+    font-size: 18px;
     line-height: 110%;
     font-weight: 500;
     height: 53px;
@@ -61,16 +61,16 @@
 }
 
 .right-column {
-    position: absolute; /* Абсолютное позиционирование для изображения */
-    right: 80px; /* Прижимаем к правому краю родителя */
-    top: 50%; /* Отступ сверху */
-    transform: translateY(-50%); /* Сдвигаем изображение на 50% его высоты вверх */
+    position: absolute;
+    right: 80px;
+    top: 50%;
+    transform: translateY(-50%);
 }
 
 .text-block {
     color: #1E1E1E;
-    text-align: left; /* Текст выровнен по правому краю */
-    margin-bottom: 20px; /* Отступ от текста до изображения */
+    text-align: left;
+    margin-bottom: 20px;
     font-size: 24px;
     line-height: 110%;
 }
@@ -80,9 +80,9 @@
 }
 
 .swimmer-image {
-    width: 263px; /* Адаптируйте ширину под ваш дизайн */
-    height: auto; /* Автоматически рассчитываемая высота */
-    /*border: 2px solid #001573; !* Граница вокруг изображения *!*/
+    width: 263px;
+    height: auto;
+    /*border: 2px solid #001573;*/
 }
 
 
@@ -103,6 +103,7 @@
     .main-container {
         margin-top: 40px;
     }
+
     .method-button {
         margin-left: 10px;
     }

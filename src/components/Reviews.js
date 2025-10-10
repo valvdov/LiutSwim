@@ -1,12 +1,8 @@
 import React, {useState} from 'react';
-import avatarNatalia from '../images/avatar_girl_white.png';
-import avatarSanta from '../images/avatar_girl_black.png';
-import minusSymbol from "../images/minus-sign.png";
-import plusSymbol from "../images/plus-sign.png";
 import reviewsData from "../data/dataReviews";
 
-function Reviews({ language }) {
-    const [visibleCount, setVisibleCount] = useState(3); // Сколько отзывов отображать
+function Reviews({language}) {
+    const [visibleCount, setVisibleCount] = useState(3);
 
     const loadMore = () => {
         setVisibleCount(prevCount => Math.min(prevCount + 3, reviewsData.length));
@@ -35,7 +31,7 @@ function Reviews({ language }) {
                         {language === 'ru' ? 'Загрузить ещё' : 'Load more'}
                     </button>
                 ) : (
-                    <div className="placeholder"/> // Пустое место
+                    <div className="placeholder"/>
                 )}
             </div>
         </div>

@@ -48,6 +48,7 @@ function Footer({language}) {
                     <ul className='work_hours_second'>
                         <li>Hounslow:</li>
                         <li>{t.working_hours_hounslow}</li>
+                        <li>{t.working_hours_hounslow_seconds}</li>
                     </ul>
                     <ul className='work_hours_second'>
                         <li>Wessex:</li>
@@ -64,7 +65,7 @@ function Footer({language}) {
                 <div>
                     <div className='social_icons'>
                         <button onClick={goFcb} className='social-icons-pack'>
-                           <Icon className='social_icon' icon="uiw:facebook" color={'#014CCC'}/>
+                            <Icon className='social_icon' icon="uiw:facebook" color={'#014CCC'}/>
                         </button>
                         <button onClick={goInst} className='social-icons-pack'>
                             <Icon className='social_icon' icon="teenyicons:instagram-solid" color={'#014CCC'}/>

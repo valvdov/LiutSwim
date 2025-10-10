@@ -1,7 +1,6 @@
 .faq-container {
-    background-color: #FFFFFF; /* Цвет фона */
-    /*max-width: 1440px; !* Ширина контейнера *!*/
-    /* Центрирование и добавление отступов сверху и снизу */
+    background-color: #FFFFFF;
+    /*max-width: 1440px;*/
     margin: 130px auto 120px;
     /*margin-left: auto;*/
     /*margin-right: auto;*/
@@ -21,7 +20,7 @@
     font-weight: 500;
     font-size: 16px;
     line-height: 75%;
-    margin-bottom: 32px; /* Отступ от кнопки до списка */
+    margin-bottom: 32px;
     width: 86px;
     height: 33px;
     margin-left: 80px;
@@ -30,8 +29,8 @@
 }
 
 .faq-item {
-    /*margin-bottom: 10px; !* Отступы между вопросами *!*/
-    border-top: 1px solid #406AEA; /* Линия под каждым вопросом */
+    /*margin-bottom: 10px;*/
+    border-top: 1px solid #406AEA;
     min-height: 69px;
     padding-top: 30px;
     padding-bottom: 30px;
@@ -45,13 +44,13 @@
 
 .faq-question {
 
-    font-size: 40px; /* Размер шрифта для вопроса */
-    color: #001A70; /* Цвет текста вопроса */
-    cursor: pointer; /* Показывает, что на вопрос можно нажать */
-    padding: 10px 0; /* Вертикальные отступы вопроса */
-    display: flex; /* Располагаем текст вопроса и иконку в одну линию */
-    justify-content: space-between; /* Распределяем текст и иконку по краям */
-    align-items: center; /* Центрируем элементы по вертикали */
+    font-size: 40px;
+    color: #001A70;
+    cursor: pointer;
+    padding: 10px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .faq-icon-wrapper {
@@ -67,35 +66,34 @@
 }
 
 .faq-icon {
-    width: 19.61px; /* Inner image width */
-    height: 19.61px; /* Inner image height */
+    width: 19.61px;
+    height: 19.61px;
 }
 
 
 .faq-answer {
-    font-size: 24px; /* Размер шрифта для ответа */
-    color: #001573; /* Цвет текста ответа */
-    padding: 10px 0 0 0; /* Отступы вокруг текста ответа */
-    display: none; /* По умолчанию ответы не отображаются */
+    font-size: 24px;
+    color: #001573;
+    padding: 10px 0 0 0;
+    display: none;
     width: 55%;
 }
 
 .faq-item.active .faq-answer {
-    display: block; /* Отображаем ответ при активации */
+    display: block;
 }
 
-/* Медиа-запросы и другие стили для адаптивности */
 @media (max-width: 810px) {
     .faq-container {
-        width: 90%; /* Сужаем контейнер на мобильных устройствах */
+        width: 90%;
     }
 
     .faq-question {
-        font-size: 16px; /* Уменьшаем размер шрифта для вопросов */
+        font-size: 16px;
     }
 
     .faq-answer {
-        font-size: 14px; /* Уменьшаем размер шрифта для ответов */
+        font-size: 14px;
     }
 
     .faq-button {
@@ -108,7 +106,7 @@
 
 @media (max-width: 660px) {
     .faq-container {
-        width: 100%; /* Сужаем контейнер на мобильных устройствах */
+        width: 100%;
         margin-top: 40px;
     }
 
@@ -118,11 +116,11 @@
     }
 
     .faq-question {
-        font-size: 16px; /* Уменьшаем размер шрифта для вопросов */
+        font-size: 16px;
     }
 
     .faq-answer {
-        font-size: 14px; /* Уменьшаем размер шрифта для ответов */
+        font-size: 14px;
         width: 90%;
     }
 

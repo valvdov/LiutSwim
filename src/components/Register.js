@@ -1,12 +1,11 @@
-import React, { useState, useEffect } from "react";
-import emailjs from "@emailjs/browser"; // Импортируем EmailJS
+import React, {useState, useEffect} from "react";
+import emailjs from "@emailjs/browser";
 import downArrow from "../images/down_arrow_lesson.png";
 import translations from "../data/translations";
 
-function Register({ language, selectedService, onServiceChange }) {
+function Register({language, selectedService, onServiceChange}) {
     const t = translations[language] || translations["ru"];
 
-    // Локальные стейты для полей формы
     const [formData, setFormData] = useState({
         name: "",
         phone: "",
@@ -15,25 +14,21 @@ function Register({ language, selectedService, onServiceChange }) {
         place: "fulham",
     });
 
-    // Обновление formData, если selectedService изменился
     useEffect(() => {
-        setFormData((prev) => ({ ...prev, service: selectedService }));
+        setFormData((prev) => ({...prev, service: selectedService}));
     }, [selectedService]);
 
-    // Обновление стейта при вводе данных
     const handleChange = (e) => {
-        setFormData({ ...formData, [e.target.name]: e.target.value });
+        setFormData({...formData, [e.target.name]: e.target.value});
     };
 
-    // Обновление выбранного сервиса
     const handleServiceChange = (value) => {
-        setFormData({ ...formData, service: value });
-        onServiceChange(value); // Вызываем колбэк
+        setFormData({...formData, service: value});
+        onServiceChange(value);
     };
 
-    // Функция отправки формы
     const sendEmail = (e) => {
-        e.preventDefault(); // Предотвращаем перезагрузку страницы
+        e.preventDefault();
 
         emailjs
             .send(
@@ -126,7 +121,7 @@ function Register({ language, selectedService, onServiceChange }) {
                     </select>
                 </div>
                 <label className="privacy-policy">
-                    <input type="checkbox" required />
+                    <input type="checkbox" required/>
                     {t.discount_checkbox} <a href="/privacy">{t.discount_checkbox_privacy}</a>
                 </label>
                 <button type="submit" className="submit-button"> {t.discount_button} </button>

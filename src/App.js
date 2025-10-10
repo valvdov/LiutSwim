@@ -16,7 +16,7 @@ import Question from "./components/Question";
 import Footer from "./components/Footer";
 
 function App() {
-        const [language, setLanguage] = useState("en");
+    const [language, setLanguage] = useState("en");
 
     useEffect(() => {
         const savedLanguage = localStorage.getItem("selectedLanguage");
@@ -29,37 +29,36 @@ function App() {
 
 
     const handleServiceSelect = (service) => {
-        setSelectedService(service); // Устанавливаем выбранное значение из Services
+        setSelectedService(service);
     };
 
     const handleServiceChange = (service) => {
-        setSelectedService(service); // Устанавливаем новое значение из Register
+        setSelectedService(service);
     };
 
 
-    // Сохраняем язык в localStorage при изменении
     const handleLanguageChange = (newLanguage) => {
         setLanguage(newLanguage);
         localStorage.setItem("selectedLanguage", newLanguage);
     };
 
-        return (
-            <>
-                    <Main language={language} setLanguage={handleLanguageChange}/>
-                    <About language={language} />
-                    <Services language={language} onServiceSelect={handleServiceSelect} />
-                    <Metodology language={language} />
-                    <Mission language={language} />
-                    <Team language={language} />
-                    <Advantages language={language} />
-                    <Loyalty language={language} />
-                    <Reviews language={language} />
-                    <Register language={language} selectedService={selectedService} onServiceChange={handleServiceChange}/>
-                    <Faq language={language} />
-                    <Question language={language} />
-                    <Footer language={language} />
-            </>
-        );
+    return (
+        <>
+            <Main language={language} setLanguage={handleLanguageChange}/>
+            <About language={language}/>
+            <Services language={language} onServiceSelect={handleServiceSelect}/>
+            <Metodology language={language}/>
+            <Mission language={language}/>
+            <Team language={language}/>
+            <Advantages language={language}/>
+            <Loyalty language={language}/>
+            <Reviews language={language}/>
+            <Register language={language} selectedService={selectedService} onServiceChange={handleServiceChange}/>
+            <Faq language={language}/>
+            <Question language={language}/>
+            <Footer language={language}/>
+        </>
+    );
 }
 
 export default App;

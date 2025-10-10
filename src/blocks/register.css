@@ -1,6 +1,6 @@
 .discount-page {
-    background-color: #FFFFFF; /* Цвет фона страницы */
-    color: #001573; /* Цвет текста */
+    background-color: #FFFFFF;
+    color: #001573;
     font-family: 'Inter', sans-serif;
     /*width: 1600px;*/
     margin: 120px auto 0;
@@ -8,11 +8,11 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    text-align: center; /* Текст по центру */
+    text-align: center;
 }
 
 .discount-header {
-    font-size: 160px; /* Размер шрифта заголовка */
+    font-size: 160px;
     font-weight: 600;
     line-height: 75%;
     margin: 0;
@@ -31,9 +31,9 @@
 .discount-form {
     display: flex;
     flex-direction: column;
-    max-width: 718px; /* Максимальная ширина формы */
+    max-width: 718px;
     margin-top: 100px;
-    width: 100%; /* Ширина формы */
+    width: 100%;
     align-items: center;
 }
 
@@ -46,7 +46,7 @@
     align-items: center;
 }
 
-.discount-form-select{
+.discount-form-select {
     margin-right: 20px;
     background-color: rgba(0, 21, 115, 0.5);
     border: none;
@@ -62,15 +62,15 @@
 .discount-form input[type="text"],
 .discount-form input[type="tel"],
 .discount-form input[type="email"] {
-    width: 100%; /* Ширина полей ввода */
-    padding: 0.5em; /* Паддинг внутри полей ввода */
-    margin-bottom: 40px; /* Отступы между полями ввода */
+    width: 100%;
+    padding: 0.5em;
+    margin-bottom: 40px;
     border: none;
     height: 23px;
-    border-bottom: 2px solid #001573; /* Границы полей ввода */
-    /*border-radius: 5px; !* Скругление углов полей ввода *!*/
-    background: transparent; /* Прозрачный фон полей ввода */
-    color: #001573; /* Цвет текста в полях ввода */
+    border-bottom: 2px solid #001573;
+    /*border-radius: 5px; */
+    background: transparent;
+    color: #001573;
 }
 
 .discount-form input[type="email"] {
@@ -78,11 +78,11 @@
 }
 
 .discount-form .privacy-policy {
-    color: #001573; /* Цвет текста согласия с политикой */
-    font-size: 14px; /* Размер шрифта согласия с политикой */
+    color: #001573;
+    font-size: 14px;
     text-align: start;
     align-self: start;
-    /*margin-bottom: 1em; !* Отступ после согласия с политикой *!*/
+    /*margin-bottom: 1em;*/
 }
 
 .discount-form .privacy-policy a {
@@ -91,24 +91,24 @@
 }
 
 .discount-form .privacy-policy input[type="checkbox"] {
-    margin-right: 0.5em; /* Отступ галочки от текста */
+    margin-right: 0.5em;
 }
 
 .submit-button {
-    background-color: #FF6434; /* Цвет фона кнопки "Загрузить еще" */
-    color: white; /* Цвет текста кнопки */
+    background-color: #FF6434;
+    color: white;
     padding-bottom: 15px;
     padding-top: 15px;
     margin-top: 47px;
     margin-bottom: 45px;
     width: 728px;
     /*margin-left: 83px;*/
-    border: none; /* Убрать границу кнопки */
-    border-radius: 20px; /* Закругление углов кнопки */
-    font-size: 18px; /* Размер шрифта кнопки */
+    border: none;
+    border-radius: 20px;
+    font-size: 18px;
     font-weight: 500;
     line-height: 110%;
-    cursor: pointer; /* Курсор в виде пальца при наведении на кнопку */
+    cursor: pointer;
     box-shadow: 4px 6px 0 0 #406AEA;
 }
 
@@ -120,6 +120,7 @@
     .discount-header {
         font-size: 140px;
     }
+
     .lesson {
         margin-right: 12%;
     }
@@ -132,13 +133,13 @@
 }
 
 @media (max-width: 1284px) {
-    .discount-header{
+    .discount-header {
         font-size: 110px;
     }
 }
 
 @media (max-width: 810px) {
-    .discount-header{
+    .discount-header {
         font-size: 60px;
     }
 
@@ -160,7 +161,7 @@
 }
 
 @media (max-width: 660px) {
-    .discount-header{
+    .discount-header {
         font-size: 40px;
     }
 

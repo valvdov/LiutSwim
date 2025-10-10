@@ -1,6 +1,6 @@
 .reviews-page {
-    background-color: #001573; /* Цвет фона */
-    color: white; /* Цвет текста */
+    background-color: #001573;
+    color: white;
     font-family: 'Inter', sans-serif; /* Шрифт */
     /*width: 1600px;*/
     margin: 0 auto 0;
@@ -11,7 +11,7 @@
     background-color: transparent;
     color: white;
     border: 1px solid white;
-    border-radius: 20px; /* Закругленные углы */
+    border-radius: 20px;
     padding: 10px 20px;
     font-size: 16px;
     font-weight: 500;
@@ -28,21 +28,21 @@
     margin-left: 82px;
     margin-right: 82px;
     display: flex;
-    flex-direction: column; /* Отзывы идут один за другим */
+    flex-direction: column;
 }
 
 .review {
     display: flex;
-    align-items: center; /* Выравнивание аватара и текста отзыва */
-    margin-bottom: 20px; /* Отступ между отзывами */
+    align-items: center;
+    margin-bottom: 20px;
     gap: 35%;
     padding-bottom: 18px;
-    border-bottom: 1px solid rgba(255,255,255,0.4);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.4);
 }
 
 .review:first-child {
     padding-top: 18px;
-    border-top: 1px solid rgba(255,255,255,0.4);
+    border-top: 1px solid rgba(255, 255, 255, 0.4);
 }
 
 .review-name {
@@ -54,7 +54,7 @@
     width: 360px;
 }
 
-.review-name h3{
+.review-name h3 {
     font-size: 24px;
     font-weight: 500;
     line-height: 110%;
@@ -73,25 +73,25 @@
     box-shadow: 4px 6px 0 0 #406AEA;
 }
 
-.circletag-white-girl{
+.circletag-white-girl {
     background-image: url("../images/avatar_girl_white.png");
 }
 
-.circletag-black-girl{
+.circletag-black-girl {
     background-image: url("../images/avatar_girl_black.png");
 }
 
-.circletag-beard-man{
+.circletag-beard-man {
     background-image: url("../images/avatar_man_beard.png");
 }
 
-.circletag-white-girl-curved{
+.circletag-white-girl-curved {
     background-image: url("../images/avatar_girl_white_curved.png");
 }
 
 .review-avatar {
-    width: 50px; /* Размер аватара */
-    height: 50px; /* Размер аватара */
+    width: 50px;
+    height: 50px;
     align-self: center;
 }
 
@@ -101,15 +101,15 @@
 
 .review-content h3 {
     margin: 0;
-    font-size: 1rem; /* Размер шрифта для имени */
+    font-size: 1rem;
 }
 
 .review-content p {
-    font-size: 16px; /* Размер шрифта для текста отзыва */
+    font-size: 16px;
     font-weight: 400;
     line-height: 110%;
     color: #FFFFFF;
-    margin: 5px 0; /* Отступы вокруг текста отзыва */
+    margin: 5px 0;
 }
 
 .review-content span {
@@ -118,19 +118,18 @@
 }
 
 .load-more-button {
-    background-color: #FF6434; /* Цвет фона кнопки "Загрузить еще" */
-    color: white; /* Цвет текста кнопки */
+    background-color: #FF6434;
+    color: white;
     padding-bottom: 15px;
     padding-top: 15px;
     width: 90%;
-    border: none; /* Убрать границу кнопки */
-    border-radius: 20px; /* Закругление углов кнопки */
-    font-size: 18px; /* Размер шрифта кнопки */
+    border: none;
+    border-radius: 20px;
+    font-size: 18px;
     font-weight: 500;
     line-height: 110%;
-    /* Отступ сверху для кнопки */
     margin: 20px 83px 45px;
-    cursor: pointer; /* Курсор в виде пальца при наведении на кнопку */
+    cursor: pointer;
     box-shadow: 4px 6px 0 0 #406AEA;
 }
 
@@ -142,16 +141,14 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 115px; /* Задайте высоту кнопки или пустого места */
+    height: 115px;
     margin-top: 20px;
 }
 
 .placeholder {
-    width: 100%; /* Пустой блок занимает всё пространство контейнера */
-    height: 100%; /* Высота совпадает с высотой кнопки */
+    width: 100%;
+    height: 100%;
 }
-
-/* Подстройте медиа-запросы и другие параметры в соответствии с вашим дизайном */
 
 @media (max-width: 1370px) {
     .review {
@@ -164,15 +161,19 @@
         width: 75px;
         height: 75px;
     }
+
     .circletag-beard-man {
         background-size: 50%;
     }
+
     .circletag-white-girl {
         background-size: 50%;
     }
+
     .circletag-black-girl-curved {
         background-size: 50%;
     }
+
     .review {
         gap: 15%;
     }
@@ -182,19 +183,24 @@
     .review-name {
         width: 500px;
     }
+
     .circletag {
         width: 75px;
         height: 75px;
     }
+
     .circletag-beard-man {
         background-size: 50%;
     }
+
     .circletag-white-girl {
         background-size: 50%;
     }
+
     .circletag-black-girl-curved {
         background-size: 50%;
     }
+
     .review {
         gap: 5%;
     }
@@ -211,7 +217,7 @@
 
 @media (max-width: 660px) {
     .reviews-button {
-      margin-left: 10px;
+        margin-left: 10px;
     }
 
     .review {
@@ -232,22 +238,28 @@
         width: 100px;
         font-size: 14px;
     }
+
     .circletag {
         width: 50px;
         height: 50px;
     }
+
     .circletag-beard-man {
         background-size: 50%;
     }
+
     .circletag-white-girl {
         background-size: 50%;
     }
+
     .circletag-black-girl-curved {
         background-size: 50%;
     }
+
     .circletag-black-girl {
         background-size: 50%;
     }
+
     .circletag-white-girl-curved {
         background-size: 50%;
     }
@@ -265,6 +277,7 @@
     .review-content span {
         font-size: 12px;
     }
+
     .review {
         gap: 10px
     }

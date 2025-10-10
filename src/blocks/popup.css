@@ -4,7 +4,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.7); /* Полупрозрачный фон */
+    background: rgba(0, 0, 0, 0.7);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -13,15 +13,15 @@
 }
 
 .popup-container {
-    background: #ffffff; /* Цвет фона всплывающего окна */
-    color: #001573; /* Цвет текста */
+    background: #ffffff;
+    color: #001573;
     padding: 40px;
     border-radius: 20px;
     max-width: 700px;
-    width: 80%; /* Адаптивная ширина */
-    height: 80%; /* Ограничение высоты */
+    width: 80%;
+    height: 80%;
     position: relative;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); /* Тень для popup */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
 
 .popup-header {
@@ -31,32 +31,32 @@
 .popup-form {
     display: grid;
     flex-direction: column;
-    max-width: 718px; /* Максимальная ширина формы */
+    max-width: 718px;
     margin-top: 10px;
-    width: 100%; /* Ширина формы */
+    width: 100%;
     align-items: center;
 }
 
 .popup-form input[type="text"],
 .popup-form input[type="tel"],
 .popup-form input[type="email"] {
-    width: 100%; /* Ширина полей ввода */
-    padding: 0.5em; /* Паддинг внутри полей ввода */
-    margin-bottom: 40px; /* Отступы между полями ввода */
+    width: 100%;
+    padding: 0.5em;
+    margin-bottom: 40px;
     border: none;
     height: 23px;
-    border-bottom: 2px solid #001573; /* Границы полей ввода */
-    /*border-radius: 5px; !* Скругление углов полей ввода *!*/
-    background: transparent; /* Прозрачный фон полей ввода */
-    color: #001573; /* Цвет текста в полях ввода */
+    border-bottom: 2px solid #001573;
+    /*border-radius: 5px; */
+    background: transparent;
+    color: #001573;
 }
 
 .popup-form .privacy-policy {
-    color: #001573; /* Цвет текста согласия с политикой */
-    font-size: 14px; /* Размер шрифта согласия с политикой */
+    color: #001573;
+    font-size: 14px;
     text-align: start;
     align-self: start;
-    /*margin-bottom: 1em; !* Отступ после согласия с политикой *!*/
+    /*margin-bottom: 1em; */
 }
 
 .popup-form .privacy-policy a {
@@ -65,24 +65,24 @@
 }
 
 .popup-form .privacy-policy input[type="checkbox"] {
-    margin-right: 0.5em; /* Отступ галочки от текста */
+    margin-right: 0.5em;
 }
 
 .submit-popup-button {
-    background-color: #FF6434; /* Цвет фона кнопки "Загрузить еще" */
-    color: white; /* Цвет текста кнопки */
+    background-color: #FF6434;
+    color: white;
     padding-bottom: 15px;
     padding-top: 15px;
     margin-top: 47px;
     margin-bottom: 45px;
     width: 100%;
     /*margin-left: 83px;*/
-    border: none; /* Убрать границу кнопки */
-    border-radius: 20px; /* Закругление углов кнопки */
-    font-size: 18px; /* Размер шрифта кнопки */
+    border: none;
+    border-radius: 20px;
+    font-size: 18px;
     font-weight: 500;
     line-height: 110%;
-    cursor: pointer; /* Курсор в виде пальца при наведении на кнопку */
+    cursor: pointer;
     box-shadow: 4px 6px 0 0 #406AEA;
 }
 
@@ -94,7 +94,7 @@
     margin: 0;
 }
 
-.popup-page{
+.popup-page {
     background-color: transparent;
     color: #001573;
     font-family: 'Inter', sans-serif;
@@ -119,7 +119,7 @@
 }
 
 .popup-close:hover {
-    color: #FF6434; /* Цвет при наведении */
+    color: #FF6434;
 }
 
 .popup-form textarea {
@@ -144,7 +144,7 @@
     .popup-form input[type="text"],
     .popup-form input[type="tel"],
     .popup-form input[type="email"] {
-       font-size: 12px;
+        font-size: 12px;
     }
 
     .popup-form textarea {

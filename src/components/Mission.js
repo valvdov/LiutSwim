@@ -1,5 +1,5 @@
 import React from 'react';
-import '../blocks/mission.css'; // Убедитесь, что подключен файл стилей
+import '../blocks/mission.css';
 import downArrow from '../images/down_arrow.png'
 import translations from "../data/translations";
 
@@ -13,7 +13,8 @@ function Mission({language}) {
                 <h1 className={`main-text main-text_low ${language === "ru" ? "" : "main-text_low__lang-en"}`}>{t.main_text_low}</h1>
                 <div className={`overlay-cont ${language === "ru" ? "lang-ru" : "overlay-cont__lang_en"}`}>
                     <img className='overlay-img' src={downArrow} alt={"down_arrow"}/>
-                    <h2 className={`overlay-text ${language === "ru" ? "" : "overlay-text__lang-en"}`}>{t.overlay_text}<br/> {t.overlay_text_after}</h2>
+                    <h2 className={`overlay-text ${language === "ru" ? "" : "overlay-text__lang-en"}`}>{t.overlay_text}<br/> {t.overlay_text_after}
+                    </h2>
                 </div>
             </div>
         </div>

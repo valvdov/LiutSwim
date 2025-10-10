@@ -1,15 +1,15 @@
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 import faqsData from "../data/dataFaq";
 import plusSymbol from "../images/plus-sign.png";
 import minusSymbol from "../images/minus-sign.png";
 
-function Faq({ language }) {
-    const [faqs, setFaqs] = useState(faqsData.map(faq => ({ ...faq, isOpen: false })));
+function Faq({language}) {
+    const [faqs, setFaqs] = useState(faqsData.map(faq => ({...faq, isOpen: false})));
 
     const toggleFAQ = index => {
         setFaqs(faqs.map((faq, i) => {
             if (i === index) {
-                return { ...faq, isOpen: !faq.isOpen };
+                return {...faq, isOpen: !faq.isOpen};
             }
             return faq;
         }));

@@ -1,9 +1,9 @@
 .mission-page {
     position: relative;
     font-family: 'Inter', sans-serif;
-    background: #fff; /* или любой цвет фона, который вы выбрали */
-    /*height: 631px; !* Полная высота экрана *!*/
-    overflow: hidden; /* Скрывает переполнение за пределами контейнера */
+    background: #fff;
+    /*height: 631px;*/
+    overflow: hidden;
     /*display: flex;*/
     flex-direction: column;
     align-items: flex-start;
@@ -21,7 +21,7 @@
     font-weight: 500;
     font-size: 18px;
     line-height: 75%;
-    margin-bottom: 20px; /* Отступ от кнопки до списка */
+    margin-bottom: 20px;
     width: 121px;
     height: 33px;
     margin-left: 80px;
@@ -30,25 +30,25 @@
 
 .mission-statement {
     position: relative;
-    margin-left: 20px; /* или подходящий отступ слева */
+    margin-left: 20px;
 }
 
 .main-text {
     margin-top: 120px;
     margin-bottom: 0;
-    font-size: 220px; /* Размер шрифта для главного текста */
+    font-size: 220px;
     text-align: center;
     font-weight: bold;
     line-height: 90%;
     color: #001573;
-    white-space: nowrap; /* Обеспечивает отсутствие переносов строк */
-    position: relative; /* Относительное позиционирование для наложения текста */
-    z-index: 2; /* Устанавливаем z-index для контроля наложения */
+    white-space: nowrap;
+    position: relative;
+    z-index: 2;
     text-transform: uppercase;
 }
 
 .main-text__lang_en {
-    font-size: 380px; /* Размер шрифта для главного текста */
+    font-size: 380px;
     margin-bottom: 15px;
 }
 
@@ -61,7 +61,7 @@
 
 .main-text_low {
     margin-top: 0;
-    font-size: 264px; /* Размер шрифта для главного текста */
+    font-size: 264px;
 }
 
 .main-text_low__lang-en {
@@ -71,37 +71,35 @@
 /*.sub-text {*/
 /* */
 /*    color: #001573;*/
-/*    position: absolute; !* Абсолютное позиционирование для наложения на основной текст *!*/
-/*    top: 0; !* Позиционирование от верхнего края родителя *!*/
+/*    position: absolute; */
+/*    top: 0; */
 /*    left: 0;*/
-/*    z-index: 1; !* z-index меньше, чем у .main-text, чтобы текст находился под ним *!*/
-/*    transform: translateY(-50%); !* Сдвигаем текст, чтобы он был по центру основного *!*/
+/*    z-index: 1; */
+/*    transform: translateY(-50%); */
 /*}*/
 
-/* ... предыдущие стили ... */
-
 .overlay-text {
-    font-size: 75px; /* Размер шрифта для подзаголовка */
+    font-size: 75px;
     font-weight: 600;
     line-height: 75%;
     text-align: left;
-    color: #001573; /* Полупрозрачный цвет для эффекта наложения */
-    /*position: absolute; !* Абсолютное позиционирование для наложения текста *!*/
-    /*bottom: 100%; !* Расположение текста ближе к низу родительского контейнера *!*/
-    /*right: 15%; !* Сдвигаем текст вправо относительно родительского контейнера *!*/
-    /*transform: translateX(50%); !* Сдвигаем текст обратно, чтобы выровнять его относительно правого края *!*/
-    /*z-index: 1; !* Устанавливаем z-index меньше, чтобы текст оказался под основным текстом *!*/
+    color: #001573;
+    /*position: absolute; */
+    /*bottom: 100%; */
+    /*right: 15%; */
+    /*transform: translateX(50%); */
+    /*z-index: 1; */
     /*margin-right: auto;*/
 }
 
 .overlay-cont {
     display: flex;
     flex-direction: row;
-    position: absolute; /* Абсолютное позиционирование для наложения текста */
-    bottom: 90%; /* Расположение текста ближе к низу родительского контейнера */
-    right: 10%; /* Сдвигаем текст вправо относительно родительского контейнера */
-    /*transform: translateX(50%); !* Сдвигаем текст обратно, чтобы выровнять его относительно правого края *!*/
-    z-index: 1; /* Устанавливаем z-index меньше, чтобы текст оказался под основным текстом */
+    position: absolute;
+    bottom: 90%;
+    right: 10%;
+    /*transform: translateX(50%); */
+    z-index: 1;
     margin-right: auto;
     align-items: center;
     gap: 41px;
@@ -125,15 +123,19 @@
     .main-text {
         font-size: 180px;
     }
+
     .main-text_low {
         font-size: 220px;
     }
+
     .overlay-text {
         font-size: 65px;
     }
+
     .main-text__lang_en {
         font-size: 280px;
     }
+
     .main-text_low__lang-en {
         font-size: 320px;
     }
@@ -143,15 +145,19 @@
     .main-text {
         font-size: 160px;
     }
+
     .main-text_low {
         font-size: 200px;
     }
+
     .overlay-text {
         font-size: 60px;
     }
+
     .main-text__lang_en {
         font-size: 260px;
     }
+
     .main-text_low__lang-en {
         font-size: 300px;
     }
@@ -161,15 +167,19 @@
     .main-text {
         font-size: 140px;
     }
+
     .main-text_low {
         font-size: 180px;
     }
+
     .overlay-text {
         font-size: 50px;
     }
+
     .main-text__lang_en {
         font-size: 240px;
     }
+
     .main-text_low__lang-en {
         font-size: 280px;
     }
@@ -179,15 +189,19 @@
     .main-text {
         font-size: 120px;
     }
+
     .main-text_low {
         font-size: 160px;
     }
+
     .overlay-text {
         font-size: 40px;
     }
+
     .main-text__lang_en {
         font-size: 220px;
     }
+
     .main-text_low__lang-en {
         font-size: 260px;
     }
@@ -197,15 +211,19 @@
     .main-text {
         font-size: 100px;
     }
+
     .main-text_low {
         font-size: 140px;
     }
+
     .overlay-text {
         font-size: 20px;
     }
+
     .main-text__lang_en {
         font-size: 190px;
     }
+
     .main-text_low__lang-en {
         font-size: 230px;
     }
@@ -221,6 +239,7 @@
     .main-text__lang_en {
         font-size: 170px;
     }
+
     .main-text_low__lang-en {
         font-size: 210px;
     }
@@ -235,15 +254,19 @@
     .main-text {
         font-size: 6rem;
     }
+
     .main-text_low {
         font-size: 8.5rem;
     }
+
     .overlay-text {
         font-size: 1.5rem;
     }
+
     .main-text__lang_en {
         font-size: 8.5rem;
     }
+
     .main-text_low__lang-en {
         font-size: 9.5rem;
     }
@@ -263,12 +286,15 @@
     .main-text {
         font-size: 4rem;
     }
+
     .main-text_low {
         font-size: 5.5rem;
     }
+
     .overlay-text {
         font-size: 1.5rem;
     }
+
     .overlay-img {
         width: 88px;
         height: 71px;
@@ -277,6 +303,7 @@
     .main-text__lang_en {
         font-size: 7.5rem;
     }
+
     .main-text_low__lang-en {
         font-size: 8.5rem;
     }
@@ -308,12 +335,15 @@
     .main-text {
         font-size: 2.5rem;
     }
+
     .main-text_low {
         font-size: 3rem;
     }
+
     .overlay-text {
         font-size: 1.5rem;
     }
+
     .overlay-img {
         width: 30px;
         height: 21px;
@@ -322,6 +352,7 @@
     .main-text__lang_en {
         font-size: 3.5rem;
     }
+
     .main-text_low__lang-en {
         font-size: 4.5rem;
     }
@@ -347,6 +378,6 @@
     }
 
     .mission-button {
-     margin-left: 10px;
+        margin-left: 10px;
     }
 }

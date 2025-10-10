@@ -1,7 +1,7 @@
 .team-container {
-    background: rgb(9,9,121);
-    background: linear-gradient(180deg, rgba(9,9,121,1) 0%, rgba(9,9,121,1) 56%, rgba(255,255,255,1) 57%, rgba(255,255,255,1) 100%);
-    text-align: center; /* Выравнивание текста по центру */
+    background: rgb(9, 9, 121);
+    background: linear-gradient(180deg, rgba(9, 9, 121, 1) 0%, rgba(9, 9, 121, 1) 56%, rgba(255, 255, 255, 1) 57%, rgba(255, 255, 255, 1) 100%);
+    text-align: center;
     padding: 20px;
     /*max-width: 1600px;*/
     margin: 0 auto 0;
@@ -20,7 +20,7 @@
     background-color: transparent;
     color: white;
     border: 1px solid white;
-    border-radius: 20px; /* Закругленные углы */
+    border-radius: 20px;
     padding: 10px 20px;
     font-size: 16px;
     font-weight: 500;
@@ -37,43 +37,42 @@
     line-height: 110%;
     text-align: left;
     font-weight: 600;
-    font-size: 18px; /* Размер шрифта заголовка */
+    font-size: 18px;
 }
 
 .team-members {
-    display: flex; /* Использование flexbox для управления членами команды */
-    justify-content: center; /* Выравнивание по центру */
-    gap: 15px; /* Пространство между элементами команды */
+    display: flex;
+    justify-content: center;
+    gap: 15px;
 }
 
 .team-member {
-    background-color: #ffffff; /* Фон для карточки члена команды */
+    background-color: #ffffff;
     border: none;
     /*padding: 20px;*/
-    /*box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); !* Тень для карточки *!*/
+    /*box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
     width: 321px;
 }
 
 .member-image {
-    width: 321px; /* Ширина изображения */
-    height: auto; /* Высота изображения, чтобы сохранить пропорции */
+    width: 321px;
+    height: auto;
 }
 
 .member-info h3 span {
     color: #FFFFFF;
     background-color: #001573;
-    /*margin-bottom: 10px; !* Отступ заголовка от описания *!*/
-    font-size: 40px; /* Размер шрифта заголовка */
+    /*margin-bottom: 10px; */
+    font-size: 40px;
     font-weight: 600;
     line-height: 90%;
 }
 
 .member-info {
 
-    text-align: left; /* Выравнивание текста по левому краю */
+    text-align: left;
 }
 
-/* Оформление текста о каждом члене команды */
 .member-info p {
     color: #001573;
     font-weight: 500;
@@ -81,22 +80,22 @@
     line-height: 120%;
 }
 
-/* Добавьте медиа-запросы для адаптивности, если необходимо */
 @media (max-width: 1000px) {
     .team-container {
-        background: linear-gradient(180deg, rgba(9,9,121,1) 0%, rgba(9,9,121,1) 87%, rgba(255,255,255,1) 89%, rgba(255,255,255,1) 100%);
+        background: linear-gradient(180deg, rgba(9, 9, 121, 1) 0%, rgba(9, 9, 121, 1) 87%, rgba(255, 255, 255, 1) 89%, rgba(255, 255, 255, 1) 100%);
     }
+
     .team-members {
-        flex-direction: column; /* Столбцы для мобильных устройств */
+        flex-direction: column;
         align-items: center;
     }
 
     .team-member {
-        margin-bottom: 20px; /* Отступ между карточками членов команды */
+        margin-bottom: 20px;
     }
 
     .member-info {
-        text-align: center; /* Центрирование текста для мобильных устройств */
+        text-align: center;
     }
 }
 
@@ -121,19 +120,20 @@
     }
 
     .team-container {
-        background: linear-gradient(180deg, rgba(9,9,121,1) 0%, rgba(9,9,121,1) 87%, rgba(255,255,255,1) 89%, rgba(255,255,255,1) 100%);
+        background: linear-gradient(180deg, rgba(9, 9, 121, 1) 0%, rgba(9, 9, 121, 1) 87%, rgba(255, 255, 255, 1) 89%, rgba(255, 255, 255, 1) 100%);
     }
+
     .team-members {
-        flex-direction: column; /* Столбцы для мобильных устройств */
+        flex-direction: column;
         align-items: center;
     }
 
     .team-member {
-        margin-bottom: 20px; /* Отступ между карточками членов команды */
+        margin-bottom: 20px;
     }
 
     .member-info {
-        text-align: center; /* Центрирование текста для мобильных устройств */
+        text-align: center;
     }
 
     .member-info p {
