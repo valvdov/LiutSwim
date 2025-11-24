@@ -27,10 +27,10 @@ const servicesData = [
         },
         price: {
             ru: <>
-                £36 <br/> 45 минут в бассейне <br/>45 минут в зале
+                £37 <br/> 45 минут в бассейне <br/>45 минут в зале
             </>,
             en: <>
-                £36 <br/> 45 minutes in the pool<br/>45 minutes in the gym
+                £37 <br/> 45 minutes in the pool<br/>45 minutes in the gym
             </>,
         },
         value: 'sync'
@@ -64,12 +64,12 @@ const servicesData = [
             en: 'Private Lessons',
         },
         text: {
-            ru: 'Проводятся один на один с инструктором, что ускоряет процесс обучения и отлично подходит для тех, кто испытывает стеснение и неуверенность в себе. На уроке мы сможем проработать любые запросы ученика и уделить достаточно времени каждому запросу.',
-            en: 'Conducted one-on-one with an instructor, which speeds up the learning process and is perfect for those who feel shy and lack confidence. In the lesson, we can work on any learner’s requests and dedicate enough time to each request',
+            ru: 'Это выездные тренировки по всему Лондону. Вы можете пригласить нашего инструктора в свой собственный бассейн или в бассейн, который находится рядом с вами. В стоимость входит время работы преподавателя и его транспортные расходы. Такой формат подходит тем, кому неудобно добираться до наших основных локаций или у кого есть доступ к личному бассейну. Вы просто нанимаете учителя, и мы проводим занятие там, где вам удобно.',
+            en: 'These are mobile lessons available across London. You can book our instructor to teach in your own pool or in a pool located near you. The fee includes the instructor’s teaching time and travel expenses. This format is ideal if you find it difficult to travel to our main locations or if you have access to a private pool. You simply hire the instructor, and we deliver the lesson wherever it is most convenient for you.',
         },
         price: {
-            ru: '£35 - 30 минут',
-            en: '£35 - 30 minutes',
+            ru: '£59 - 30 минут',
+            en: '£59 - 30 minutes',
         },
         value: 'private'
     },
@@ -83,8 +83,8 @@ const servicesData = [
             en: 'Ideal for those with two children and the need to coordinate their time. Training is conducted in a semi-group, making the learning process fun and effective.',
         },
         price: {
-            ru: '£47 - 30 минут',
-            en: '£47 - 30 minutes',
+            ru: '£51 - 30 минут',
+            en: '£51 - 30 minutes',
         },
         value: 'two-two-one'
     },
@@ -94,12 +94,12 @@ const servicesData = [
             en: '1:2:1',
         },
         text: {
-            ru: 'Это тренировки, где один тренер работает с двумя спортсменами. Подходит для тех, кто хочет индивидуальный подход, но ценит тренировку в небольшой группе. Идеально для улучшения техники, подготовки к соревнованиям или работы над конкретными навыками.',
-            en: 'Features training sessions where one coach works with two athletes. It is perfect for those who seek personalised attention while enjoying training in a small group. Ideal for improving technique, preparing for competitions, or focusing on specific skills.',
+            ru: 'Индивидуальная 1-2-1 тренировка проходит в локациях, указанных на нашем сайте. Это персональные занятия, где ребёнок развивается в комфортном темпе вместе с личным тренером. Такой формат помогает быстрее улучшать навыки плавания, формировать доверие и уверенность в воде.',
+            en: 'A 1-2-1 session takes place at the locations shown on our website. These are fully personalised lessons where a child can progress comfortably at their own pace with a dedicated instructor. This format helps children develop swimming skills more quickly, build trust, and gain confidence in the water.',
         },
         price: {
-            ru: '£37 - 30 минут',
-            en: '£37 - 30 minutes',
+            ru: '£41 - 30 минут',
+            en: '£41 - 30 minutes',
         },
         value: 'one-two-one'
     }

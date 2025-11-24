@@ -121,6 +121,8 @@ const translations = {
         working_hours_fullham: 'Вторник 17:30 - 19:00',
         working_hours_hounslow: 'Среда 16:30 - 18:00',
         working_hours_hounslow_seconds: 'Четверг 16:30 - 18:30',
+        working_hours_kilburn: 'Вторник 16:00 - 18:00',
+        working_hours_kilburn_seconds: 'Пятница 16:00 - 18:00',
         popup_title: 'Задайте вопрос',
     },
     en: {
@@ -250,6 +252,8 @@ const translations = {
         working_hours_fullham: 'Tuesday 17:30 - 19:00',
         working_hours_hounslow: 'Wednesday 16:30 - 18:00',
         working_hours_hounslow_seconds: 'Thursday 16:30 - 18:30',
+        working_hours_kilburn: 'Tuesday 16:00 - 18:00',
+        working_hours_kilburn_seconds: 'Friday 16:00 - 18:00',
         popup_title: 'Ask a question',
     }
 };

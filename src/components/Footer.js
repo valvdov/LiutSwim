@@ -31,6 +31,7 @@ function Footer({language}) {
                         <li>Oaklands School, Gresham Road, Hounslow, TW3 4BX</li>
                         <li>Primary School, Wessex Gardens, London NW11 9RR</li>
                         <li>658 Chiswick High Rd., Brentford TW8 0HJ</li>
+                        <li>208 Willesden Lane, London, NW6 7PR</li>
                     </ul>
                     <ul className='contact_list'>
                         <li className='contact'>{t.phone_email}</li>
@@ -44,6 +45,11 @@ function Footer({language}) {
                         <p className='working_hours'>{t.working_hours}</p>
                         <li>Fulham pools:</li>
                         <li>{t.working_hours_fullham}</li>
+                    </ul>
+                    <ul className='work_hours_second'>
+                        <li>Kilburn:</li>
+                        <li>{t.working_hours_kilburn}</li>
+                        <li>{t.working_hours_kilburn_seconds}</li>
                     </ul>
                     <ul className='work_hours_second'>
                         <li>Hounslow:</li>
