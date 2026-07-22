@@ -4,6 +4,32 @@ body {
     margin: 0 auto;
 }
 
+/* Social buttons are now <a> instead of <button> — pin the button size the
+   flexbox used to give them, so they look exactly like production */
+a.social-icons-pack_header {
+    width: 30px;
+    height: 30px;
+    flex: 0 0 30px;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
+a.social-icons-pack {
+    width: 69px;
+    height: 69px;
+    flex: 0 0 69px;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
+@media (max-width: 660px) {
+    a.social-icons-pack {
+        width: 64px;
+        height: 64px;
+        flex-basis: 64px;
+    }
+}
+
 /* Footer addresses link to the location pages — visually unchanged */
 .footer_loc_link {
     color: inherit;

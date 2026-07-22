@@ -37,7 +37,7 @@ const SECTIONS = {
         blank: {id: '', name: {ru: '', en: ''}, image: '/images/Anna_new.jpg', bullets: {ru: [], en: []}},
     },
     locations: {
-        label: 'Локации и часы',
+        label: 'Локации: адрес, часы, описание, фото',
         type: 'array',
         itemLabel: (it) => it.name || 'Локация',
         fields: [
@@ -125,8 +125,14 @@ const BLOCKS = [
     {id: 'faq', label: 'FAQ — вопросы и ответы', sections: ['faqs'], accent: true},
     {id: 'question', label: '«Задать вопрос» + попап', hint: 'Форма отправляет письмо на почту клуба'},
     {
-        id: 'footer', label: 'Футер — локации, часы, контакты',
-        sections: ['locations', 'contacts'], accent: true,
+        id: 'footer', label: 'Футер — контакты',
+        sections: ['contacts'], accent: true,
+        hint: 'Телефон, e-mail и соцсети. Адреса и часы в футере берутся из «Страниц локаций» ниже.',
+    },
+    {
+        id: 'locations', label: 'Страницы локаций (/fulham, /hounslow…)',
+        sections: ['locations'], accent: true,
+        hint: 'Каждая локация — отдельная страница сайта с описанием, фото, часами и формой записи. Эти же данные показываются в футере и в форме «Адрес».',
     },
 ];
 

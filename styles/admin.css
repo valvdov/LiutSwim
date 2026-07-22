@@ -317,9 +317,12 @@
 }
 
 .adm-i18n-col em {
-    display: block;
+    display: inline-block;
     font-size: 11px;
-    color: #889;
+    padding: 1px 8px;
+    border-radius: 8px;
+    background: #dde7fb;
+    color: #014ccc;
     margin-bottom: 4px;
     font-style: normal;
     font-weight: 700;
