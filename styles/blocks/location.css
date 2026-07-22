@@ -1,0 +1,127 @@
+/* Location landing pages (/fulham, /ru/fulham, ...) */
+
+.location-hero {
+    background: linear-gradient(160deg, #001573 0%, #014ccc 130%);
+    color: #ffffff;
+    padding-bottom: 56px;
+}
+
+.location-hero-text {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 48px 80px 0;
+}
+
+.location-title {
+    font-family: 'Inter', sans-serif;
+    font-weight: 900;
+    font-size: 56px;
+    line-height: 1.1;
+    margin: 0 0 16px;
+}
+
+.location-address {
+    font-family: 'Inter', sans-serif;
+    font-size: 18px;
+    opacity: 0.85;
+    margin: 0;
+}
+
+.location-body {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 48px 80px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    font-family: 'Inter', sans-serif;
+    color: #001573;
+}
+
+.location-desc {
+    font-size: 18px;
+    line-height: 1.6;
+    margin: 0 0 32px;
+    white-space: pre-line;
+}
+
+.location-hours h2 {
+    font-size: 22px;
+    margin: 0 0 12px;
+}
+
+.location-hours ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 24px;
+    font-size: 17px;
+    line-height: 1.8;
+}
+
+.location-services-link {
+    display: inline-block;
+    color: #ff6434;
+    font-weight: 600;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+.location-services-link:hover {
+    text-decoration: underline;
+}
+
+.location-photos {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+    align-content: start;
+}
+
+.location-photo {
+    width: 100%;
+    height: auto;
+    border-radius: 16px;
+    box-shadow: 4px 6px 0 0 #406aea;
+}
+
+@media (max-width: 976px) {
+    .location-hero-text,
+    .location-body {
+        padding-left: 40px;
+        padding-right: 40px;
+    }
+
+    .location-body {
+        grid-template-columns: 1fr;
+    }
+
+    .location-title {
+        font-size: 40px;
+    }
+}
+
+@media (max-width: 660px) {
+    .location-hero-text,
+    .location-body {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .location-hero-text {
+        padding-top: 24px;
+    }
+
+    .location-title {
+        font-size: 30px;
+    }
+
+    .location-body {
+        padding-top: 28px;
+        padding-bottom: 20px;
+        gap: 28px;
+    }
+
+    .location-desc {
+        font-size: 16px;
+    }
+}

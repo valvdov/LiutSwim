@@ -150,47 +150,77 @@ const defaultContent = {
         {
             id: 'fulham',
             name: 'Fulham pools',
+            area: 'Fulham',
             address: 'Normand Park, Lillie Rd, London SW6 7ST',
             hours: {
                 ru: ['Вторник 17:30 - 19:00'],
                 en: ['Tuesday 17:30 - 19:00'],
             },
+            description: {
+                ru: 'Занятия по плаванию в Fulham проходят в бассейне Normand Park на Lillie Road. Мы обучаем детей от 3 лет и взрослых: спортивное плавание, синхронное плавание и индивидуальные тренировки. Тренеры сертифицированы Swim England и STA и находятся в воде вместе с учениками — так обучение идёт быстрее и безопаснее. Группы до 6 человек.',
+                en: 'Our swimming lessons in Fulham take place at the Normand Park pool on Lillie Road. We teach children from age 3 and adults: competitive swimming, artistic (synchronised) swimming, and one-to-one lessons. Our coaches are Swim England and STA certified and teach from inside the pool — so learners progress faster and feel safe. Groups of up to 6.',
+            },
+            photos: ['/images/tasks.jpg', '/images/trainers.jpg'],
         },
         {
             id: 'hounslow',
             name: 'Hounslow',
+            area: 'Hounslow',
             address: 'Oaklands School, Gresham Road, Hounslow, TW3 4BX',
             hours: {
                 ru: ['Среда 16:30 - 18:00', 'Четверг 16:30 - 18:30'],
                 en: ['Wednesday 16:30 - 18:00', 'Thursday 16:30 - 18:30'],
             },
+            description: {
+                ru: 'Уроки плавания в Hounslow проходят в бассейне школы Oaklands на Gresham Road. Обучаем детей от 3 лет и взрослых: спортивное и синхронное плавание, персональные занятия. Тренеры сертифицированы Swim England и STA и работают в воде вместе с учениками. Группы до 6 человек.',
+                en: 'Our swimming lessons in Hounslow run at the Oaklands School pool on Gresham Road. We teach children from age 3 and adults: competitive swimming, artistic (synchronised) swimming, and private lessons. Coaches are Swim England and STA certified and teach from inside the pool. Groups of up to 6.',
+            },
+            photos: ['/images/atmosphere.jpg', '/images/enviroment_new.jpg'],
         },
         {
             id: 'wessex',
             name: 'Wessex',
+            area: 'Golders Green (Wessex Gardens)',
             address: 'Primary School, Wessex Gardens, London NW11 9RR',
             hours: {
                 ru: ['Пятница 16:00 - 18:30', 'Суббота 10:00 - 12:00', 'Воскресенье 10:00 - 14:30'],
                 en: ['Friday 16:00 - 18:30', 'Saturday 10:00 - 12:00', 'Sunday 10:00 - 14:30'],
             },
+            description: {
+                ru: 'Занятия по плаванию в районе Golders Green проходят в бассейне школы Wessex Gardens (NW11). Обучаем детей от 3 лет и взрослых: спортивное и синхронное плавание, индивидуальные тренировки. Тренеры сертифицированы Swim England и STA и находятся в воде вместе с учениками. Группы до 6 человек.',
+                en: 'Our swimming lessons near Golders Green take place at the Wessex Gardens Primary School pool (NW11). We teach children from age 3 and adults: competitive swimming, artistic (synchronised) swimming, and one-to-one lessons. Coaches are Swim England and STA certified and teach from inside the pool. Groups of up to 6.',
+            },
+            photos: ['/images/tasks.jpg', '/images/atmosphere.jpg'],
         },
         {
             id: 'brentford',
             name: 'Brentford',
+            area: 'Brentford / Chiswick',
             address: '658 Chiswick High Rd., Brentford TW8 0HJ',
             hours: {
                 ru: ['Суббота 14:00 - 17:00'],
                 en: ['Saturday 14:00 - 17:00'],
             },
+            description: {
+                ru: 'Уроки плавания в Brentford проходят в бассейне на Chiswick High Road. Обучаем детей от 3 лет и взрослых: спортивное и синхронное плавание, персональные занятия. Тренеры сертифицированы Swim England и STA и работают в воде вместе с учениками. Группы до 6 человек.',
+                en: 'Our swimming lessons in Brentford run at the pool on Chiswick High Road. We teach children from age 3 and adults: competitive swimming, artistic (synchronised) swimming, and private lessons. Coaches are Swim England and STA certified and teach from inside the pool. Groups of up to 6.',
+            },
+            photos: ['/images/trainers.jpg', '/images/enviroment_new.jpg'],
         },
         {
             id: 'kilburn',
             name: 'Kilburn',
+            area: 'Kilburn / Willesden',
             address: '208 Willesden Lane, London, NW6 7PR',
             hours: {
                 ru: ['Вторник 16:00 - 18:00', 'Пятница 16:00 - 18:00'],
                 en: ['Tuesday 16:00 - 18:00', 'Friday 16:00 - 18:00'],
             },
+            description: {
+                ru: 'Занятия по плаванию в Kilburn проходят в бассейне на Willesden Lane (NW6). Обучаем детей от 3 лет и взрослых: спортивное и синхронное плавание, индивидуальные тренировки. Тренеры сертифицированы Swim England и STA и находятся в воде вместе с учениками. Группы до 6 человек.',
+                en: 'Our swimming lessons in Kilburn take place at the pool on Willesden Lane (NW6). We teach children from age 3 and adults: competitive swimming, artistic (synchronised) swimming, and one-to-one lessons. Coaches are Swim England and STA certified and teach from inside the pool. Groups of up to 6.',
+            },
+            photos: ['/images/atmosphere.jpg', '/images/tasks.jpg'],
         },
     ],
 

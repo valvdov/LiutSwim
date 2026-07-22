@@ -10,10 +10,15 @@ function Header({language, contacts}) {
         setMenuOpen(!menuOpen);
     }
 
-    // Language lives in the URL now (SEO): "/" is English, "/ru" is Russian
+    // Language lives in the URL now (SEO): "/" is English, "/ru" is Russian.
+    // Switching keeps the current page (e.g. /fulham <-> /ru/fulham).
     function changeLanguage(lang) {
-        window.location.href = lang === 'ru' ? '/ru' : '/';
+        const path = window.location.pathname.replace(/^\/ru(\/|$)/, '/');
+        window.location.href = lang === 'ru' ? ('/ru' + (path === '/' ? '' : path)) : path;
     }
+
+    const base = language === 'ru' ? '/ru' : '/';
+    const anchor = (id) => (base === '/' ? `/#${id}` : `${base}#${id}`);
 
     const langSelect = (
         <select
@@ -43,7 +48,8 @@ function Header({language, contacts}) {
     return (
         <section className="header">
             <div className={'header_container'}>
-                <div className={'logo_img'}>LIUTSWIM</div>
+                <a className={'logo_img'} href={base}
+                   style={{textDecoration: 'none', color: 'inherit'}}>LIUTSWIM</a>
 
                 {/* Burger Button */}
                 <button className="burger-button" onClick={toggleMenu} aria-label="Menu">
@@ -51,12 +57,12 @@ function Header({language, contacts}) {
                 </button>
 
                 <div className={`header_menu ${menuOpen ? 'menu-open' : ''}`}>
-                    <a href="#about" className={'header_menu_link'}>{language === "ru" ? "О нас" : "About"}</a>
-                    <a href="#services" className={'header_menu_link'}>{language === "ru" ? "Услуги" : "Services"}</a>
-                    <a href="#programm"
+                    <a href={anchor('about')} className={'header_menu_link'}>{language === "ru" ? "О нас" : "About"}</a>
+                    <a href={anchor('services')} className={'header_menu_link'}>{language === "ru" ? "Услуги" : "Services"}</a>
+                    <a href={anchor('programm')}
                        className={'header_menu_link'}>{language === "ru" ? "Программа лояльности" : "Loyalty Programme"}</a>
-                    <a href="#faq" className={'header_menu_link'}>FAQ</a>
-                    <a href="#contacts" className={'header_menu_link'}>{language === "ru" ? "Контакты" : "Contact"}</a>
+                    <a href={anchor('faq')} className={'header_menu_link'}>FAQ</a>
+                    <a href={anchor('contacts')} className={'header_menu_link'}>{language === "ru" ? "Контакты" : "Contact"}</a>
 
                     <div className="menu-lang-social">
                         {langSelect}

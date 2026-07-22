@@ -1,17 +1,22 @@
 import {SITE_URL} from '@/lib/seo';
+import {getContent} from '@/lib/content';
 
-export default function sitemap() {
+export default async function sitemap() {
+    const content = await getContent();
     const lastModified = new Date();
-    return [
-        {
-            url: `${SITE_URL}/`,
-            lastModified,
-            changeFrequency: 'weekly',
-            priority: 1,
-            alternates: {
-                languages: {en: `${SITE_URL}/`, ru: `${SITE_URL}/ru`},
-            },
+
+    const entry = (enPath, ruPath, priority) => ({
+        url: `${SITE_URL}${enPath}`,
+        lastModified,
+        changeFrequency: 'weekly',
+        priority,
+        alternates: {
+            languages: {en: `${SITE_URL}${enPath}`, ru: `${SITE_URL}${ruPath}`},
         },
+    });
+
+    const pages = [
+        entry('/', '/ru', 1),
         {
             url: `${SITE_URL}/ru`,
             lastModified,
@@ -22,4 +27,19 @@ export default function sitemap() {
             },
         },
     ];
+
+    for (const loc of content.locations) {
+        pages.push(entry(`/${loc.id}`, `/ru/${loc.id}`, 0.8));
+        pages.push({
+            url: `${SITE_URL}/ru/${loc.id}`,
+            lastModified,
+            changeFrequency: 'weekly',
+            priority: 0.7,
+            alternates: {
+                languages: {en: `${SITE_URL}/${loc.id}`, ru: `${SITE_URL}/ru/${loc.id}`},
+            },
+        });
+    }
+
+    return pages;
 }

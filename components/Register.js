@@ -5,7 +5,7 @@ import emailjs from "@emailjs/browser";
 import translations from "../content/translations";
 import {useSelectedService} from './ServiceProvider';
 
-function Register({language, services, locations}) {
+function Register({language, services, locations, defaultPlace}) {
     const t = translations[language] || translations["ru"];
     const {selectedService, setSelectedService} = useSelectedService();
 
@@ -16,7 +16,7 @@ function Register({language, services, locations}) {
         phone: "",
         email: "",
         service: selectedService || (serviceOptions[0] && serviceOptions[0].value) || "",
-        place: (locations[0] && locations[0].id) || "",
+        place: defaultPlace || (locations[0] && locations[0].id) || "",
     });
     const [sending, setSending] = useState(false);
 

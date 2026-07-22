@@ -4,6 +4,16 @@ body {
     margin: 0 auto;
 }
 
+/* Footer addresses link to the location pages — visually unchanged */
+.footer_loc_link {
+    color: inherit;
+    text-decoration: none;
+}
+
+.footer_loc_link:hover {
+    text-decoration: underline;
+}
+
 /* Smaller background photos on phones (saves ~800KB on mobile) */
 @media (max-width: 660px) {
     .mainPage {

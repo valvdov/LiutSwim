@@ -21,7 +21,12 @@ function Footer({language, locations, contacts}) {
                     <ul className='address_list'>
                         <li className='address'>{t.address}</li>
                         {locations.map((loc) => (
-                            <li key={loc.id}>{loc.address}</li>
+                            <li key={loc.id}>
+                                <a className='footer_loc_link'
+                                   href={language === 'ru' ? `/ru/${loc.id}` : `/${loc.id}`}>
+                                    {loc.address}
+                                </a>
+                            </li>
                         ))}
                     </ul>
                     <ul className='contact_list'>

@@ -41,12 +41,18 @@ const SECTIONS = {
         type: 'array',
         itemLabel: (it) => it.name || 'Локация',
         fields: [
-            {key: 'id', type: 'text', label: 'ID (латиницей, попадает в форму записи)'},
+            {key: 'id', type: 'text', label: 'ID (латиницей — адрес страницы: liutswim.co.uk/ID)'},
             {key: 'name', type: 'text', label: 'Название'},
+            {key: 'area', type: 'text', label: 'Район (для заголовка страницы, напр. Fulham)'},
             {key: 'address', type: 'text', label: 'Адрес'},
             {key: 'hours', type: 'i18n-list', label: 'Часы работы (по одному дню на строку)'},
+            {key: 'description', type: 'i18n-multi', label: 'Описание для страницы локации'},
+            {key: 'photos', type: 'lines', label: 'Фото (пути к файлам, по одному на строку, напр. /images/tasks.jpg)'},
         ],
-        blank: {id: '', name: '', address: '', hours: {ru: [], en: []}},
+        blank: {
+            id: '', name: '', area: '', address: '',
+            hours: {ru: [], en: []}, description: {ru: '', en: ''}, photos: [],
+        },
     },
     reviews: {
         label: 'Отзывы',
@@ -188,6 +194,19 @@ function I18nListField({label, value, onChange}) {
     );
 }
 
+function LinesField({label, value, onChange}) {
+    return (
+        <label className="adm-field">
+            <span>{label}</span>
+            <textarea
+                rows={3}
+                value={(value || []).join('\n')}
+                onChange={(e) => onChange(e.target.value.split('\n').map((s) => s.trim()).filter(Boolean))}
+            />
+        </label>
+    );
+}
+
 function SelectField({label, value, options, onChange}) {
     return (
         <label className="adm-field">
@@ -209,6 +228,8 @@ function Field({field, value, onChange}) {
             return <I18nField label={field.label} value={value} onChange={onChange} multi/>;
         case 'i18n-list':
             return <I18nListField label={field.label} value={value} onChange={onChange}/>;
+        case 'lines':
+            return <LinesField label={field.label} value={value} onChange={onChange}/>;
         case 'select':
             return <SelectField label={field.label} value={value} options={field.options} onChange={onChange}/>;
         default:
