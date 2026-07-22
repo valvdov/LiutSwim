@@ -1,0 +1,21 @@
+@import url(./normalize.css);
+
+@import url(./fonts.css);
+
+@import url(./blocks/header.css);
+@import url(./blocks/about.css);
+@import url(./blocks/main.css);
+@import url(./blocks/services.css);
+@import url(./blocks/metodology.css);
+@import url(./blocks/mission.css);
+@import url(./blocks/team.css);
+@import url(./blocks/advantages.css);
+@import url(./blocks/loyalty.css);
+@import url(./blocks/reviews.css);
+@import url(./blocks/register.css);
+@import url(./blocks/faq.css);
+@import url(./blocks/question.css);
+@import url(./blocks/footer.css);
+@import url(./blocks/popup.css);
+
+@import url(./overrides.css);

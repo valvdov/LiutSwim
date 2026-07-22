@@ -1,0 +1,13 @@
+/* Additions for the Next.js version */
+
+body {
+    margin: 0 auto;
+}
+
+/* Editable content stores line breaks as "\n" — render them */
+.price,
+.card-text,
+.faq-answer,
+.review-content p {
+    white-space: pre-line;
+}

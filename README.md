@@ -1,70 +1,37 @@
-# Getting Started with Create React App
+# Liut Swim — liutswim.co.uk
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Одностраничный сайт школы плавания (Next.js App Router) + админ-панель для
+редактирования контента без правок кода.
 
-## Available Scripts
+## Структура
 
-In the project directory, you can run:
+| Путь | Что это |
+|---|---|
+| `app/(en)/` | Английская версия — `/` |
+| `app/(ru)/ru/` | Русская версия — `/ru` |
+| `app/(admin)/admin/` | Админка (Firebase Auth) — `/admin` |
+| `app/api/revalidate/` | Обновление кэша страниц после сохранения в админке |
+| `components/` | Секции страницы |
+| `content/defaults.js` | Дефолтный редактируемый контент (услуги, отзывы, FAQ, тренеры, локации, контакты) |
+| `content/translations.js` | Статичные UI-тексты (кнопки, заголовки) |
+| `lib/content.js` | Серверная загрузка контента: Firestore → фолбэк на дефолты |
+| `styles/` | CSS (перенесён из CRA-версии как есть) |
+| `firestore.rules` | Правила безопасности Firestore |
 
-### `npm start`
+## Команды
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+```bash
+npm run dev     # разработка — http://localhost:3000
+npm run build   # продакшен-сборка
+npm start       # запуск собранного сайта
+```
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Как работает контент
 
-### `npm test`
+1. Сайт рендерится на сервере (SSG + ISR). Контент берётся из Firestore
+   (документ `site/content`), при его отсутствии — из `content/defaults.js`.
+2. Админка (`/admin`) после логина редактирует этот документ и дергает
+   `/api/revalidate` — изменения появляются на сайте сразу.
+3. Firebase не настроен? Сайт всё равно работает на дефолтном контенте.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Настройка Firebase и деплой на Vercel — см. **[SETUP.md](./SETUP.md)**.
