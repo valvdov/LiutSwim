@@ -4,6 +4,13 @@ body {
     margin: 0 auto;
 }
 
+/* Trainer added via the admin without a photo yet — brand-coloured placeholder */
+.member-image-placeholder {
+    background: linear-gradient(160deg, #001573, #406aea);
+    aspect-ratio: 857 / 1200;
+    border-radius: 4px;
+}
+
 /* Social buttons are now <a> instead of <button> — pin the button size the
    flexbox used to give them, so they look exactly like production */
 a.social-icons-pack_header {

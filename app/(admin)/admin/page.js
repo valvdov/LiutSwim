@@ -34,7 +34,7 @@ const SECTIONS = {
             {key: 'image', type: 'text', label: 'Фото (путь, напр. /images/Anna_new.jpg)'},
             {key: 'bullets', type: 'i18n-list', label: 'Пункты о тренере (по одному на строку)'},
         ],
-        blank: {id: '', name: {ru: '', en: ''}, image: '/images/Anna_new.jpg', bullets: {ru: [], en: []}},
+        blank: {id: '', name: {ru: '', en: ''}, image: '', bullets: {ru: [], en: []}},
     },
     locations: {
         label: 'Локации: адрес, часы, описание, фото',
@@ -114,7 +114,10 @@ const BLOCKS = [
     {id: 'services', label: 'Услуги и цены', sections: ['services'], accent: true},
     {id: 'metodology', label: 'Методология', hint: 'Список из 5 пунктов'},
     {id: 'mission', label: 'Миссия', hint: '«Driven by Passion»'},
-    {id: 'team', label: 'Команда — тренеры', sections: ['team'], accent: true},
+    {
+        id: 'team', label: 'Команда — тренеры', sections: ['team'], accent: true,
+        hint: 'Новый тренер: «+ Добавить» внизу списка. Пока нет фото — на сайте будет фирменная заглушка; чтобы добавить фото, файл должен лежать на сайте (пришлите разработчику или дождитесь загрузки файлов в админке).',
+    },
     {id: 'advantages', label: 'Преимущества', hint: '5 пунктов со значками'},
     {id: 'loyalty', label: 'Программа лояльности', hint: '50% / 10% / 6 месяцев'},
     {id: 'reviews', label: 'Отзывы', sections: ['reviews'], accent: true},
@@ -138,10 +141,15 @@ const BLOCKS = [
 
 function blockCount(block, content) {
     if (!block.sections) return null;
-    const counts = block.sections
-        .filter((s) => Array.isArray(content?.[s]))
-        .map((s) => content[s].length);
-    return counts.length ? counts.reduce((a, b) => a + b, 0) : null;
+    let total = 0, hidden = 0, hasArray = false;
+    for (const s of block.sections) {
+        if (!Array.isArray(content?.[s])) continue;
+        hasArray = true;
+        total += content[s].length;
+        hidden += content[s].filter((i) => i.hidden).length;
+    }
+    if (!hasArray) return null;
+    return hidden ? `${total - hidden} +${hidden} 🙈` : String(total);
 }
 
 // --- Small generic field editors ---------------------------------------------
@@ -264,12 +272,20 @@ function ArrayEditor({schema, items, onChange}) {
     return (
         <div>
             {items.map((item, i) => (
-                <details key={i} className="adm-item">
+                <details key={i} className={`adm-item ${item.hidden ? 'adm-item-hidden' : ''}`}>
                     <summary>
-                        <b>{schema.itemLabel(item)}</b>
+                        <b>
+                            {schema.itemLabel(item)}
+                            {item.hidden && <span className="adm-hidden-badge">скрыт с сайта</span>}
+                        </b>
                         <span className="adm-item-actions" onClick={(e) => e.preventDefault()}>
                             <button type="button" onClick={() => move(i, -1)} title="Вверх">↑</button>
                             <button type="button" onClick={() => move(i, 1)} title="Вниз">↓</button>
+                            <button type="button" className="adm-hide-btn"
+                                    title="Скрытый элемент не показывается на сайте, но остаётся здесь"
+                                    onClick={() => update(i, 'hidden', !item.hidden)}>
+                                {item.hidden ? 'Показать' : 'Скрыть'}
+                            </button>
                             <button type="button" className="adm-danger" onClick={() => remove(i)}>Удалить</button>
                         </span>
                     </summary>

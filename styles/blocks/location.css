@@ -1,7 +1,8 @@
 /* Location landing pages (/fulham, /ru/fulham, ...) */
 
 .location-hero {
-    background: linear-gradient(160deg, #001573 0%, #014ccc 130%);
+    /* the site's primary blue — same as the services/team sections */
+    background-color: #001573;
     color: #ffffff;
     padding-bottom: 56px;
 }
