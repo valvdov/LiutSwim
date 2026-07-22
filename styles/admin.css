@@ -60,6 +60,16 @@
     font-size: 14px;
 }
 
+.adm-demo-btn {
+    margin-top: 16px;
+    padding: 10px 16px;
+    border: 1px solid #b9c8e8;
+    border-radius: 10px;
+    background: #fff;
+    color: #014ccc;
+    cursor: pointer;
+}
+
 .adm-layout {
     max-width: 1100px;
     margin: 0 auto;
@@ -109,26 +119,121 @@
     cursor: pointer;
 }
 
-.adm-tabs {
+/* --- Page-structure sidebar (schematic site map) --- */
+.adm-columns {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 24px;
+    align-items: start;
+    margin-top: 16px;
+}
+
+.adm-page-map {
+    position: sticky;
+    top: 70px;
     display: flex;
-    gap: 8px;
-    margin: 16px 0;
-    flex-wrap: wrap;
-}
-
-.adm-tabs button {
-    padding: 8px 14px;
+    flex-direction: column;
+    gap: 6px;
+    background: #eaeef7;
     border: 1px solid #d6dbe8;
-    border-radius: 20px;
-    background: #fff;
-    cursor: pointer;
-    font-size: 14px;
+    border-radius: 14px;
+    padding: 12px;
 }
 
-.adm-tabs button.active {
+.adm-map-title {
+    margin: 0 0 4px;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: #667;
+}
+
+.adm-block {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    width: 100%;
+    text-align: left;
+    padding: 9px 12px;
+    border-radius: 8px;
+    font-size: 13px;
+    cursor: pointer;
+    border: 1px solid transparent;
+}
+
+.adm-block-editable {
+    background: #fff;
+    border-color: #b9c8e8;
+    color: #123;
+}
+
+.adm-block-static {
+    background: #dde3ef;
+    color: #778;
+}
+
+.adm-block.active {
     background: #014ccc;
-    color: #fff;
     border-color: #014ccc;
+    color: #fff;
+}
+
+.adm-block-count {
+    flex-shrink: 0;
+    min-width: 22px;
+    text-align: center;
+    padding: 1px 6px;
+    border-radius: 10px;
+    background: rgba(1, 76, 204, 0.12);
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.adm-block.active .adm-block-count {
+    background: rgba(255, 255, 255, 0.25);
+}
+
+.adm-map-legend {
+    margin: 8px 0 0;
+    font-size: 11px;
+    line-height: 1.5;
+    color: #778;
+}
+
+.adm-static-note {
+    background: #fff;
+    border: 1px dashed #b9c8e8;
+    border-radius: 12px;
+    padding: 20px;
+    color: #445;
+    max-width: 560px;
+}
+
+.adm-hint {
+    font-size: 13px;
+    color: #667;
+    margin: 4px 0 14px;
+}
+
+.adm-section {
+    margin-bottom: 28px;
+}
+
+.adm-section h3 {
+    font-size: 16px;
+    margin: 0 0 10px;
+}
+
+@media (max-width: 860px) {
+    .adm-columns {
+        grid-template-columns: 1fr;
+    }
+
+    .adm-page-map {
+        position: static;
+    }
 }
 
 .adm-main h2 {

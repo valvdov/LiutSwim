@@ -60,12 +60,6 @@
 
 }
 
-.right-column {
-    position: absolute;
-    right: 80px;
-    top: 50%;
-    transform: translateY(-50%);
-}
 
 .text-block {
     color: #1E1E1E;
@@ -79,11 +73,6 @@
     color: #001573;
 }
 
-.swimmer-image {
-    width: 263px;
-    height: auto;
-    /*border: 2px solid #001573;*/
-}
 
 
 @media (max-width: 810px) {

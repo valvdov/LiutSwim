@@ -4,6 +4,17 @@ body {
     margin: 0 auto;
 }
 
+/* Smaller background photos on phones (saves ~800KB on mobile) */
+@media (max-width: 660px) {
+    .mainPage {
+        background-image: url(/images/background-mobile.jpg);
+    }
+
+    .loyalty-program-page {
+        background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(/images/background_loyalty-mobile.jpg);
+    }
+}
+
 /* Editable content stores line breaks as "\n" — render them */
 .price,
 .card-text,

@@ -89,11 +89,6 @@
     background-image: url("/images/avatar_girl_white_curved.png");
 }
 
-.review-avatar {
-    width: 50px;
-    height: 50px;
-    align-self: center;
-}
 
 .review-content {
     width: 600px;
@@ -170,9 +165,6 @@
         background-size: 50%;
     }
 
-    .circletag-black-girl-curved {
-        background-size: 50%;
-    }
 
     .review {
         gap: 15%;
@@ -197,9 +189,6 @@
         background-size: 50%;
     }
 
-    .circletag-black-girl-curved {
-        background-size: 50%;
-    }
 
     .review {
         gap: 5%;
@@ -252,9 +241,6 @@
         background-size: 50%;
     }
 
-    .circletag-black-girl-curved {
-        background-size: 50%;
-    }
 
     .circletag-black-girl {
         background-size: 50%;

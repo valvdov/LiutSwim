@@ -97,6 +97,41 @@ const SECTIONS = {
 
 const CONTENT_DOC = ['site', 'content'];
 
+// ---------------------------------------------------------------------------
+// The site's page structure, top to bottom. The admin sidebar mirrors it so
+// you edit "the block on the site", not abstract fields. Static blocks hold
+// copy that lives in code (content/translations.js).
+// ---------------------------------------------------------------------------
+const BLOCKS = [
+    {id: 'hero', label: 'Шапка + главный экран', hint: 'Слоган «from non-swimmers to advanced», меню'},
+    {id: 'about', label: 'О нас — 4 преимущества', hint: 'Задания, среда, тренеры, атмосфера'},
+    {id: 'services', label: 'Услуги и цены', sections: ['services'], accent: true},
+    {id: 'metodology', label: 'Методология', hint: 'Список из 5 пунктов'},
+    {id: 'mission', label: 'Миссия', hint: '«Driven by Passion»'},
+    {id: 'team', label: 'Команда — тренеры', sections: ['team'], accent: true},
+    {id: 'advantages', label: 'Преимущества', hint: '5 пунктов со значками'},
+    {id: 'loyalty', label: 'Программа лояльности', hint: '50% / 10% / 6 месяцев'},
+    {id: 'reviews', label: 'Отзывы', sections: ['reviews'], accent: true},
+    {
+        id: 'register', label: 'Форма записи',
+        hint: 'Списки «Услуга» и «Адрес» берутся из блоков «Услуги» и «Футер»',
+    },
+    {id: 'faq', label: 'FAQ — вопросы и ответы', sections: ['faqs'], accent: true},
+    {id: 'question', label: '«Задать вопрос» + попап', hint: 'Форма отправляет письмо на почту клуба'},
+    {
+        id: 'footer', label: 'Футер — локации, часы, контакты',
+        sections: ['locations', 'contacts'], accent: true,
+    },
+];
+
+function blockCount(block, content) {
+    if (!block.sections) return null;
+    const counts = block.sections
+        .filter((s) => Array.isArray(content?.[s]))
+        .map((s) => content[s].length);
+    return counts.length ? counts.reduce((a, b) => a + b, 0) : null;
+}
+
 // --- Small generic field editors ---------------------------------------------
 
 function TextField({label, value, onChange}) {
@@ -247,11 +282,19 @@ export default function AdminPage() {
     const [user, setUser] = useState(null);
     const [authReady, setAuthReady] = useState(false);
     const [content, setContent] = useState(null);
-    const [tab, setTab] = useState('services');
+    const [blockId, setBlockId] = useState('services');
     const [status, setStatus] = useState('');
     const [dirty, setDirty] = useState(false);
     const [loginForm, setLoginForm] = useState({email: '', password: ''});
     const [loginError, setLoginError] = useState('');
+    // Demo mode: browse the admin UI on default content without Firebase (no saving)
+    const [demo, setDemo] = useState(false);
+
+    useEffect(() => {
+        if (demo && !content) {
+            setContent(JSON.parse(JSON.stringify(defaultContent)));
+        }
+    }, [demo, content]);
 
     useEffect(() => {
         const fb = getFirebase();
@@ -325,23 +368,26 @@ export default function AdminPage() {
     };
 
     // --- render states ---
-    if (!firebaseConfigured) {
+    if (!firebaseConfigured && !demo) {
         return (
             <div className="adm-center">
                 <div className="adm-card">
                     <h1>Админка не настроена</h1>
                     <p>Заполните переменные <code>NEXT_PUBLIC_FIREBASE_*</code> в <code>.env.local</code> (см.
                         <code> SETUP.md</code> в корне проекта), затем перезапустите сайт.</p>
+                    <button className="adm-demo-btn" onClick={() => setDemo(true)}>
+                        Посмотреть интерфейс (демо, без сохранения)
+                    </button>
                 </div>
             </div>
         );
     }
 
-    if (!authReady) {
+    if (!demo && !authReady) {
         return <div className="adm-center"><p>Загрузка…</p></div>;
     }
 
-    if (!user) {
+    if (!demo && !user) {
         return (
             <div className="adm-center">
                 <form className="adm-card adm-login" onSubmit={login}>
@@ -363,37 +409,80 @@ export default function AdminPage() {
         return <div className="adm-center"><p>Загрузка контента…</p></div>;
     }
 
-    const schema = SECTIONS[tab];
+    const block = BLOCKS.find((b) => b.id === blockId) || BLOCKS[0];
 
     return (
         <div className="adm-layout">
             <header className="adm-header">
                 <b>Liut Swim — админка</b>
-                <span className="adm-status">{status}</span>
+                <span className="adm-status">{demo ? 'Демо-режим: изменения не сохраняются' : status}</span>
                 <div>
-                    <button className="adm-save" onClick={save} disabled={!dirty}>
-                        {dirty ? 'Сохранить и опубликовать' : 'Сохранено'}
+                    <button className="adm-save" onClick={save} disabled={!dirty || demo}>
+                        {demo ? 'Демо' : dirty ? 'Сохранить и опубликовать' : 'Сохранено'}
                     </button>
-                    <button className="adm-signout" onClick={() => signOut(getFirebase().auth)}>Выйти</button>
+                    {!demo && (
+                        <button className="adm-signout" onClick={() => signOut(getFirebase().auth)}>Выйти</button>
+                    )}
                 </div>
             </header>
-            <nav className="adm-tabs">
-                {Object.entries(SECTIONS).map(([key, s]) => (
-                    <button key={key} className={tab === key ? 'active' : ''} onClick={() => setTab(key)}>
-                        {s.label}
-                    </button>
-                ))}
-            </nav>
-            <main className="adm-main">
-                <h2>{schema.label}</h2>
-                {schema.type === 'array' ? (
-                    <ArrayEditor schema={schema} items={content[tab] || []}
-                                 onChange={(v) => updateSection(tab, v)}/>
-                ) : (
-                    <ObjectEditor schema={schema} value={content[tab] || {}}
-                                  onChange={(v) => updateSection(tab, v)}/>
-                )}
-            </main>
+            <div className="adm-columns">
+                <nav className="adm-page-map">
+                    <p className="adm-map-title">Структура сайта</p>
+                    {BLOCKS.map((b) => {
+                        const count = blockCount(b, content);
+                        const editable = Boolean(b.sections);
+                        return (
+                            <button
+                                key={b.id}
+                                className={[
+                                    'adm-block',
+                                    editable ? 'adm-block-editable' : 'adm-block-static',
+                                    blockId === b.id ? 'active' : '',
+                                ].join(' ')}
+                                onClick={() => setBlockId(b.id)}
+                                title={editable ? 'Редактируемый блок' : 'Статичный блок'}
+                            >
+                                <span className="adm-block-label">
+                                    {editable ? '✏️ ' : '🔒 '}{b.label}
+                                </span>
+                                {count !== null && <span className="adm-block-count">{count}</span>}
+                            </button>
+                        );
+                    })}
+                    <p className="adm-map-legend">✏️ — можно менять здесь<br/>🔒 — статичный текст (меняется в коде)</p>
+                </nav>
+                <main className="adm-main">
+                    <h2>{block.label}</h2>
+                    {!block.sections ? (
+                        <div className="adm-static-note">
+                            <p>Этот блок — статичный: его текст задаётся в коде сайта
+                                (<code>content/translations.js</code>) и меняется редко.</p>
+                            {block.hint && <p className="adm-hint">Что внутри: {block.hint}</p>}
+                            <p className="adm-hint">Если нужно поменять текст здесь — напишите разработчику,
+                                или попросите вынести этот блок в редактируемые.</p>
+                        </div>
+                    ) : (
+                        <>
+                            {block.hint && <p className="adm-hint">{block.hint}</p>}
+                            {block.sections.map((key) => {
+                                const schema = SECTIONS[key];
+                                return (
+                                    <section key={key} className="adm-section">
+                                        {block.sections.length > 1 && <h3>{schema.label}</h3>}
+                                        {schema.type === 'array' ? (
+                                            <ArrayEditor schema={schema} items={content[key] || []}
+                                                         onChange={(v) => updateSection(key, v)}/>
+                                        ) : (
+                                            <ObjectEditor schema={schema} value={content[key] || {}}
+                                                          onChange={(v) => updateSection(key, v)}/>
+                                        )}
+                                    </section>
+                                );
+                            })}
+                        </>
+                    )}
+                </main>
+            </div>
         </div>
     );
 }

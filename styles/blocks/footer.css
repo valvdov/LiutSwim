@@ -75,11 +75,6 @@
     color: #f27d30;
 }
 
-.footer-icons {
-    display: flex;
-    gap: 10px;
-    align-items: center;
-}
 
 .social_icons {
     gap: 15px;
@@ -115,9 +110,6 @@
     transition: transform 0.3s ease;
 }
 
-.footer-icons img:hover {
-    transform: scale(1.1);
-}
 
 .work_hours {
     font-size: 16px;
