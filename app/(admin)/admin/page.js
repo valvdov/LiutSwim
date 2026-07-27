@@ -7,47 +7,118 @@ import {doc, getDoc, setDoc, serverTimestamp} from 'firebase/firestore';
 import defaultContent from '@/content/defaults';
 
 // ---------------------------------------------------------------------------
+// The admin UI itself is bilingual (RU/EN toggle in the header). Labels are
+// {ru, en} objects resolved through tx(); tx also accepts plain strings.
+// ---------------------------------------------------------------------------
+const tx = (v, lang) => (typeof v === 'string' ? v : (v?.[lang] ?? v?.ru ?? ''));
+
+const UI = {
+    ru: {
+        adminTitle: 'Liut Swim — админка',
+        demoStatus: 'Демо-режим: изменения не сохраняются',
+        save: 'Сохранить и опубликовать', saved: 'Сохранено', demoBtn: 'Демо',
+        signout: 'Выйти',
+        siteStructure: 'Структура сайта',
+        legend1: '✏️ — можно менять здесь', legend2: '🔒 — статичный текст (меняется в коде)',
+        editableTip: 'Редактируемый блок', staticTip: 'Статичный блок',
+        staticNote1: 'Этот блок — статичный: его текст задаётся в коде сайта',
+        staticNote1b: 'и меняется редко.',
+        staticWhat: 'Что внутри: ',
+        staticNote2: 'Если нужно поменять текст здесь — напишите разработчику, или попросите вынести этот блок в редактируемые.',
+        up: 'Вверх', down: 'Вниз', hide: 'Скрыть', show: 'Показать',
+        hiddenBadge: 'скрыт с сайта',
+        hideTip: 'Скрытый элемент не показывается на сайте, но остаётся здесь',
+        del: 'Удалить', confirmDel: 'Удалить элемент?', add: '+ Добавить',
+        loading: 'Загрузка…', loadingContent: 'Загрузка контента…',
+        signinTitle: 'Liut Swim — вход', password: 'Пароль', signin: 'Войти',
+        loginError: 'Не удалось войти: проверьте email и пароль.',
+        notConfiguredTitle: 'Админка не настроена',
+        notConfiguredText1: 'Заполните переменные', notConfiguredText2: 'в',
+        notConfiguredText3: '(см.', notConfiguredText4: 'в корне проекта), затем перезапустите сайт.',
+        demoView: 'Посмотреть интерфейс (демо, без сохранения)',
+        stSaving: 'Сохранение…',
+        stSavedUpdating: 'Сохранено. Обновляем сайт…',
+        stLive: 'Сохранено — изменения уже на сайте.',
+        stDelayed: 'Сохранено. Сайт обновится в течение часа (ревалидация не сработала).',
+        errLoad: 'Ошибка загрузки: ', errSave: 'Ошибка сохранения: ',
+    },
+    en: {
+        adminTitle: 'Liut Swim — admin',
+        demoStatus: 'Demo mode: changes are not saved',
+        save: 'Save & publish', saved: 'Saved', demoBtn: 'Demo',
+        signout: 'Sign out',
+        siteStructure: 'Site structure',
+        legend1: '✏️ — editable here', legend2: '🔒 — static copy (changed in code)',
+        editableTip: 'Editable block', staticTip: 'Static block',
+        staticNote1: 'This block is static: its copy lives in the site code',
+        staticNote1b: 'and rarely changes.',
+        staticWhat: 'What is inside: ',
+        staticNote2: 'If you need to change this copy — contact the developer, or ask to make this block editable.',
+        up: 'Move up', down: 'Move down', hide: 'Hide', show: 'Show',
+        hiddenBadge: 'hidden from site',
+        hideTip: 'A hidden item is not shown on the site but stays here',
+        del: 'Delete', confirmDel: 'Delete this item?', add: '+ Add',
+        loading: 'Loading…', loadingContent: 'Loading content…',
+        signinTitle: 'Liut Swim — sign in', password: 'Password', signin: 'Sign in',
+        loginError: 'Could not sign in: check your email and password.',
+        notConfiguredTitle: 'Admin is not configured',
+        notConfiguredText1: 'Fill in the', notConfiguredText2: 'variables in',
+        notConfiguredText3: '(see', notConfiguredText4: 'in the project root), then restart the site.',
+        demoView: 'Browse the interface (demo, no saving)',
+        stSaving: 'Saving…',
+        stSavedUpdating: 'Saved. Updating the site…',
+        stLive: 'Saved — the changes are live.',
+        stDelayed: 'Saved. The site will update within an hour (revalidation failed).',
+        errLoad: 'Failed to load: ', errSave: 'Failed to save: ',
+    },
+};
+
+// ---------------------------------------------------------------------------
 // Section schemas: describe editable content so the editors below are generic.
 // Field types: text | i18n (ru/en single line) | i18n-multi (ru/en textarea)
 //              | i18n-list (ru/en, one item per line) | select
 // ---------------------------------------------------------------------------
 const SECTIONS = {
     services: {
-        label: 'Услуги и цены',
+        label: {ru: 'Услуги и цены', en: 'Services & prices'},
         type: 'array',
-        itemLabel: (it) => it.title?.ru || it.title?.en || it.value || 'Услуга',
+        itemLabel: (it, lang) =>
+            it.title?.[lang] || it.title?.ru || it.title?.en || it.value
+            || tx({ru: 'Услуга', en: 'Service'}, lang),
         fields: [
-            {key: 'value', type: 'text', label: 'ID (латиницей, попадает в форму записи)'},
-            {key: 'title', type: 'i18n', label: 'Название'},
-            {key: 'text', type: 'i18n-multi', label: 'Описание'},
-            {key: 'price', type: 'i18n-multi', label: 'Цена (каждая строка — с новой строки)'},
+            {key: 'value', type: 'text', label: {ru: 'ID (латиницей, попадает в форму записи)', en: 'ID (latin letters, used in the booking form)'}},
+            {key: 'title', type: 'i18n', label: {ru: 'Название', en: 'Title'}},
+            {key: 'text', type: 'i18n-multi', label: {ru: 'Описание', en: 'Description'}},
+            {key: 'price', type: 'i18n-multi', label: {ru: 'Цена (каждая строка — с новой строки)', en: 'Price (one entry per line)'}},
         ],
         blank: {value: '', title: {ru: '', en: ''}, text: {ru: '', en: ''}, price: {ru: '', en: ''}},
     },
     team: {
-        label: 'Тренеры',
+        label: {ru: 'Тренеры', en: 'Coaches'},
         type: 'array',
-        itemLabel: (it) => it.name?.ru || it.name?.en || 'Тренер',
+        itemLabel: (it, lang) =>
+            it.name?.[lang] || it.name?.ru || it.name?.en
+            || tx({ru: 'Тренер', en: 'Coach'}, lang),
         fields: [
-            {key: 'id', type: 'text', label: 'ID (латиницей)'},
-            {key: 'name', type: 'i18n', label: 'Имя'},
-            {key: 'image', type: 'text', label: 'Фото (путь, напр. /images/Anna_new.jpg)'},
-            {key: 'bullets', type: 'i18n-list', label: 'Пункты о тренере (по одному на строку)'},
+            {key: 'id', type: 'text', label: {ru: 'ID (латиницей)', en: 'ID (latin letters)'}},
+            {key: 'name', type: 'i18n', label: {ru: 'Имя', en: 'Name'}},
+            {key: 'image', type: 'text', label: {ru: 'Фото (путь, напр. /images/Anna_new.jpg)', en: 'Photo (path, e.g. /images/Anna_new.jpg)'}},
+            {key: 'bullets', type: 'i18n-list', label: {ru: 'Пункты о тренере (по одному на строку)', en: 'Bio bullet points (one per line)'}},
         ],
         blank: {id: '', name: {ru: '', en: ''}, image: '', bullets: {ru: [], en: []}},
     },
     locations: {
-        label: 'Локации: адрес, часы, описание, фото',
+        label: {ru: 'Локации: адрес, часы, описание, фото', en: 'Locations: address, hours, description, photos'},
         type: 'array',
-        itemLabel: (it) => it.name || 'Локация',
+        itemLabel: (it, lang) => it.name || tx({ru: 'Локация', en: 'Location'}, lang),
         fields: [
-            {key: 'id', type: 'text', label: 'ID (латиницей — адрес страницы: liutswim.co.uk/ID)'},
-            {key: 'name', type: 'text', label: 'Название'},
-            {key: 'area', type: 'text', label: 'Район (для заголовка страницы, напр. Fulham)'},
-            {key: 'address', type: 'text', label: 'Адрес'},
-            {key: 'hours', type: 'i18n-list', label: 'Часы работы (по одному дню на строку)'},
-            {key: 'description', type: 'i18n-multi', label: 'Описание для страницы локации'},
-            {key: 'photos', type: 'lines', label: 'Фото (пути к файлам, по одному на строку, напр. /images/tasks.jpg)'},
+            {key: 'id', type: 'text', label: {ru: 'ID (латиницей — адрес страницы: liutswim.co.uk/ID)', en: 'ID (latin letters — page URL: liutswim.co.uk/ID)'}},
+            {key: 'name', type: 'text', label: {ru: 'Название', en: 'Name'}},
+            {key: 'area', type: 'text', label: {ru: 'Район (для заголовка страницы, напр. Fulham)', en: 'Area (for the page heading, e.g. Fulham)'}},
+            {key: 'address', type: 'text', label: {ru: 'Адрес', en: 'Address'}},
+            {key: 'hours', type: 'i18n-list', label: {ru: 'Часы работы (по одному дню на строку)', en: 'Opening hours (one day per line)'}},
+            {key: 'description', type: 'i18n-multi', label: {ru: 'Описание для страницы локации', en: 'Description for the location page'}},
+            {key: 'photos', type: 'lines', label: {ru: 'Фото (пути к файлам, по одному на строку, напр. /images/tasks.jpg)', en: 'Photos (file paths, one per line, e.g. /images/tasks.jpg)'}},
         ],
         blank: {
             id: '', name: '', area: '', address: '',
@@ -55,20 +126,22 @@ const SECTIONS = {
         },
     },
     reviews: {
-        label: 'Отзывы',
+        label: {ru: 'Отзывы', en: 'Reviews'},
         type: 'array',
-        itemLabel: (it) => it.name?.ru || it.name?.en || 'Отзыв',
+        itemLabel: (it, lang) =>
+            it.name?.[lang] || it.name?.ru || it.name?.en
+            || tx({ru: 'Отзыв', en: 'Review'}, lang),
         fields: [
-            {key: 'name', type: 'i18n', label: 'Имя'},
-            {key: 'review_content', type: 'i18n-multi', label: 'Текст отзыва'},
-            {key: 'hashtag', type: 'i18n', label: 'Хэштег (без #)'},
+            {key: 'name', type: 'i18n', label: {ru: 'Имя', en: 'Name'}},
+            {key: 'review_content', type: 'i18n-multi', label: {ru: 'Текст отзыва', en: 'Review text'}},
+            {key: 'hashtag', type: 'i18n', label: {ru: 'Хэштег (без #)', en: 'Hashtag (without #)'}},
             {
-                key: 'circle_tag', type: 'select', label: 'Аватар',
+                key: 'circle_tag', type: 'select', label: {ru: 'Аватар', en: 'Avatar'},
                 options: [
-                    {value: 'circletag-white-girl', label: 'Девушка (светлый фон)'},
-                    {value: 'circletag-black-girl', label: 'Девушка (тёмный фон)'},
-                    {value: 'circletag-white-girl-curved', label: 'Девушка (кудрявая)'},
-                    {value: 'circletag-beard-man', label: 'Мужчина с бородой'},
+                    {value: 'circletag-white-girl', label: {ru: 'Девушка (светлый фон)', en: 'Girl (light background)'}},
+                    {value: 'circletag-black-girl', label: {ru: 'Девушка (тёмный фон)', en: 'Girl (dark background)'}},
+                    {value: 'circletag-white-girl-curved', label: {ru: 'Девушка (кудрявая)', en: 'Girl (curly hair)'}},
+                    {value: 'circletag-beard-man', label: {ru: 'Мужчина с бородой', en: 'Man with a beard'}},
                 ],
             },
         ],
@@ -82,21 +155,23 @@ const SECTIONS = {
     faqs: {
         label: 'FAQ',
         type: 'array',
-        itemLabel: (it) => (it.question?.ru || it.question?.en || 'Вопрос').slice(0, 60),
+        itemLabel: (it, lang) =>
+            (it.question?.[lang] || it.question?.ru || it.question?.en
+                || tx({ru: 'Вопрос', en: 'Question'}, lang)).slice(0, 60),
         fields: [
-            {key: 'question', type: 'i18n-multi', label: 'Вопрос'},
-            {key: 'answer', type: 'i18n-multi', label: 'Ответ'},
+            {key: 'question', type: 'i18n-multi', label: {ru: 'Вопрос', en: 'Question'}},
+            {key: 'answer', type: 'i18n-multi', label: {ru: 'Ответ', en: 'Answer'}},
         ],
         blank: {question: {ru: '', en: ''}, answer: {ru: '', en: ''}},
     },
     contacts: {
-        label: 'Контакты',
+        label: {ru: 'Контакты', en: 'Contacts'},
         type: 'object',
         fields: [
-            {key: 'phone', type: 'text', label: 'Телефон'},
+            {key: 'phone', type: 'text', label: {ru: 'Телефон', en: 'Phone'}},
             {key: 'email', type: 'text', label: 'E-mail'},
-            {key: 'facebook', type: 'text', label: 'Facebook (ссылка)'},
-            {key: 'instagram', type: 'text', label: 'Instagram (ссылка)'},
+            {key: 'facebook', type: 'text', label: {ru: 'Facebook (ссылка)', en: 'Facebook (link)'}},
+            {key: 'instagram', type: 'text', label: {ru: 'Instagram (ссылка)', en: 'Instagram (link)'}},
         ],
     },
 };
@@ -109,33 +184,72 @@ const CONTENT_DOC = ['site', 'content'];
 // copy that lives in code (content/translations.js).
 // ---------------------------------------------------------------------------
 const BLOCKS = [
-    {id: 'hero', label: 'Шапка + главный экран', hint: 'Слоган «from non-swimmers to advanced», меню'},
-    {id: 'about', label: 'О нас — 4 преимущества', hint: 'Задания, среда, тренеры, атмосфера'},
-    {id: 'services', label: 'Услуги и цены', sections: ['services'], accent: true},
-    {id: 'metodology', label: 'Методология', hint: 'Список из 5 пунктов'},
-    {id: 'mission', label: 'Миссия', hint: '«Driven by Passion»'},
     {
-        id: 'team', label: 'Команда — тренеры', sections: ['team'], accent: true,
-        hint: 'Новый тренер: «+ Добавить» внизу списка. Пока нет фото — на сайте будет фирменная заглушка; чтобы добавить фото, файл должен лежать на сайте (пришлите разработчику или дождитесь загрузки файлов в админке).',
+        id: 'hero',
+        label: {ru: 'Шапка + главный экран', en: 'Header + hero'},
+        hint: {ru: 'Слоган «from non-swimmers to advanced», меню', en: 'The “from non-swimmers to advanced” slogan, menu'},
     },
-    {id: 'advantages', label: 'Преимущества', hint: '5 пунктов со значками'},
-    {id: 'loyalty', label: 'Программа лояльности', hint: '50% / 10% / 6 месяцев'},
-    {id: 'reviews', label: 'Отзывы', sections: ['reviews'], accent: true},
     {
-        id: 'register', label: 'Форма записи',
-        hint: 'Списки «Услуга» и «Адрес» берутся из блоков «Услуги» и «Футер»',
+        id: 'about',
+        label: {ru: 'О нас — 4 преимущества', en: 'About us — 4 highlights'},
+        hint: {ru: 'Задания, среда, тренеры, атмосфера', en: 'Tasks, environment, coaches, atmosphere'},
     },
-    {id: 'faq', label: 'FAQ — вопросы и ответы', sections: ['faqs'], accent: true},
-    {id: 'question', label: '«Задать вопрос» + попап', hint: 'Форма отправляет письмо на почту клуба'},
+    {id: 'services', label: {ru: 'Услуги и цены', en: 'Services & prices'}, sections: ['services'], accent: true},
     {
-        id: 'footer', label: 'Футер — контакты',
+        id: 'metodology',
+        label: {ru: 'Методология', en: 'Methodology'},
+        hint: {ru: 'Список из 5 пунктов', en: 'A list of 5 points'},
+    },
+    {id: 'mission', label: {ru: 'Миссия', en: 'Mission'}, hint: '«Driven by Passion»'},
+    {
+        id: 'team', label: {ru: 'Команда — тренеры', en: 'Team — coaches'}, sections: ['team'], accent: true,
+        hint: {
+            ru: 'Новый тренер: «+ Добавить» внизу списка. Пока нет фото — на сайте будет фирменная заглушка; чтобы добавить фото, файл должен лежать на сайте (пришлите разработчику или дождитесь загрузки файлов в админке).',
+            en: 'New coach: “+ Add” at the bottom of the list. Until there is a photo the site shows a branded placeholder; to add a photo the file must be on the site (send it to the developer or wait for file upload in the admin).',
+        },
+    },
+    {
+        id: 'advantages',
+        label: {ru: 'Преимущества', en: 'Advantages'},
+        hint: {ru: '5 пунктов со значками', en: '5 points with icons'},
+    },
+    {
+        id: 'loyalty',
+        label: {ru: 'Программа лояльности', en: 'Loyalty programme'},
+        hint: {ru: '50% / 10% / 6 месяцев', en: '50% / 10% / 6 months'},
+    },
+    {id: 'reviews', label: {ru: 'Отзывы', en: 'Reviews'}, sections: ['reviews'], accent: true},
+    {
+        id: 'register',
+        label: {ru: 'Форма записи', en: 'Booking form'},
+        hint: {
+            ru: 'Списки «Услуга» и «Адрес» берутся из блоков «Услуги» и «Футер»',
+            en: 'The “Service” and “Address” dropdowns come from the “Services” and “Footer” blocks',
+        },
+    },
+    {id: 'faq', label: {ru: 'FAQ — вопросы и ответы', en: 'FAQ — questions & answers'}, sections: ['faqs'], accent: true},
+    {
+        id: 'question',
+        label: {ru: '«Задать вопрос» + попап', en: '“Ask a question” + popup'},
+        hint: {ru: 'Форма отправляет письмо на почту клуба', en: 'The form sends an email to the club'},
+    },
+    {
+        id: 'footer',
+        label: {ru: 'Футер — контакты', en: 'Footer — contacts'},
         sections: ['contacts'], accent: true,
-        hint: 'Телефон, e-mail и соцсети. Адреса и часы в футере берутся из «Страниц локаций» ниже.',
+        hint: {
+            ru: 'Телефон, e-mail и соцсети. Адреса и часы в футере берутся из «Страниц локаций» ниже.',
+            en: 'Phone, e-mail and social links. Addresses and hours in the footer come from “Location pages” below.',
+        },
     },
     {
-        id: 'locations', label: 'Страницы локаций (/fulham, /hounslow…)',
+        id: 'locations',
+        label: {ru: 'Страницы локаций (/fulham, /hounslow…)', en: 'Location pages (/fulham, /hounslow…)'},
         sections: ['locations'], accent: true,
-        hint: 'Каждая локация — отдельная страница сайта с описанием, фото, часами и формой записи. Эти же данные показываются в футере и в форме «Адрес».',
+        hint: {
+            ru: 'Каждая локация — отдельная страница сайта с описанием, фото, часами и формой записи. Эти же данные показываются в футере и в форме «Адрес».',
+            en: 'Each location is a separate page with a description, photos, hours and a booking form. The same data appears in the footer and the “Address” dropdown.',
+        },
     },
 ];
 
@@ -150,6 +264,22 @@ function blockCount(block, content) {
     }
     if (!hasArray) return null;
     return hidden ? `${total - hidden} +${hidden} 🙈` : String(total);
+}
+
+// --- Admin UI language toggle -------------------------------------------------
+
+function LangToggle({lang, onChange}) {
+    return (
+        <span className="adm-lang" title="Язык админки / Admin language">
+            {['ru', 'en'].map((l) => (
+                <button key={l} type="button"
+                        className={lang === l ? 'active' : ''}
+                        onClick={() => onChange(l)}>
+                    {l === 'ru' ? 'РУ' : 'EN'}
+                </button>
+            ))}
+        </span>
+    );
 }
 
 // --- Small generic field editors ---------------------------------------------
@@ -221,39 +351,41 @@ function LinesField({label, value, onChange}) {
     );
 }
 
-function SelectField({label, value, options, onChange}) {
+function SelectField({label, value, options, onChange, lang}) {
     return (
         <label className="adm-field">
             <span>{label}</span>
             <select value={value || ''} onChange={(e) => onChange(e.target.value)}>
                 {options.map((o) => (
-                    <option key={o.value} value={o.value}>{o.label}</option>
+                    <option key={o.value} value={o.value}>{tx(o.label, lang)}</option>
                 ))}
             </select>
         </label>
     );
 }
 
-function Field({field, value, onChange}) {
+function Field({field, value, onChange, lang}) {
+    const label = tx(field.label, lang);
     switch (field.type) {
         case 'i18n':
-            return <I18nField label={field.label} value={value} onChange={onChange}/>;
+            return <I18nField label={label} value={value} onChange={onChange}/>;
         case 'i18n-multi':
-            return <I18nField label={field.label} value={value} onChange={onChange} multi/>;
+            return <I18nField label={label} value={value} onChange={onChange} multi/>;
         case 'i18n-list':
-            return <I18nListField label={field.label} value={value} onChange={onChange}/>;
+            return <I18nListField label={label} value={value} onChange={onChange}/>;
         case 'lines':
-            return <LinesField label={field.label} value={value} onChange={onChange}/>;
+            return <LinesField label={label} value={value} onChange={onChange}/>;
         case 'select':
-            return <SelectField label={field.label} value={value} options={field.options} onChange={onChange}/>;
+            return <SelectField label={label} value={value} options={field.options} onChange={onChange} lang={lang}/>;
         default:
-            return <TextField label={field.label} value={value} onChange={onChange}/>;
+            return <TextField label={label} value={value} onChange={onChange}/>;
     }
 }
 
 // --- Section editors ----------------------------------------------------------
 
-function ArrayEditor({schema, items, onChange}) {
+function ArrayEditor({schema, items, onChange, lang}) {
+    const L = UI[lang];
     const move = (i, dir) => {
         const next = [...items];
         const j = i + dir;
@@ -262,7 +394,7 @@ function ArrayEditor({schema, items, onChange}) {
         onChange(next);
     };
     const remove = (i) => {
-        if (!confirm('Удалить элемент?')) return;
+        if (!confirm(L.confirmDel)) return;
         onChange(items.filter((_, idx) => idx !== i));
     };
     const update = (i, key, value) => {
@@ -275,23 +407,23 @@ function ArrayEditor({schema, items, onChange}) {
                 <details key={i} className={`adm-item ${item.hidden ? 'adm-item-hidden' : ''}`}>
                     <summary>
                         <b>
-                            {schema.itemLabel(item)}
-                            {item.hidden && <span className="adm-hidden-badge">скрыт с сайта</span>}
+                            {schema.itemLabel(item, lang)}
+                            {item.hidden && <span className="adm-hidden-badge">{L.hiddenBadge}</span>}
                         </b>
                         <span className="adm-item-actions" onClick={(e) => e.preventDefault()}>
-                            <button type="button" onClick={() => move(i, -1)} title="Вверх">↑</button>
-                            <button type="button" onClick={() => move(i, 1)} title="Вниз">↓</button>
+                            <button type="button" onClick={() => move(i, -1)} title={L.up}>↑</button>
+                            <button type="button" onClick={() => move(i, 1)} title={L.down}>↓</button>
                             <button type="button" className="adm-hide-btn"
-                                    title="Скрытый элемент не показывается на сайте, но остаётся здесь"
+                                    title={L.hideTip}
                                     onClick={() => update(i, 'hidden', !item.hidden)}>
-                                {item.hidden ? 'Показать' : 'Скрыть'}
+                                {item.hidden ? L.show : L.hide}
                             </button>
-                            <button type="button" className="adm-danger" onClick={() => remove(i)}>Удалить</button>
+                            <button type="button" className="adm-danger" onClick={() => remove(i)}>{L.del}</button>
                         </span>
                     </summary>
                     <div className="adm-item-body">
                         {schema.fields.map((f) => (
-                            <Field key={f.key} field={f} value={item[f.key]}
+                            <Field key={f.key} field={f} value={item[f.key]} lang={lang}
                                    onChange={(v) => update(i, f.key, v)}/>
                         ))}
                     </div>
@@ -302,17 +434,17 @@ function ArrayEditor({schema, items, onChange}) {
                 className="adm-add"
                 onClick={() => onChange([...items, JSON.parse(JSON.stringify(schema.blank))])}
             >
-                + Добавить
+                {L.add}
             </button>
         </div>
     );
 }
 
-function ObjectEditor({schema, value, onChange}) {
+function ObjectEditor({schema, value, onChange, lang}) {
     return (
         <div className="adm-item-body">
             {schema.fields.map((f) => (
-                <Field key={f.key} field={f} value={value?.[f.key]}
+                <Field key={f.key} field={f} value={value?.[f.key]} lang={lang}
                        onChange={(v) => onChange({...value, [f.key]: v})}/>
             ))}
         </div>
@@ -326,12 +458,26 @@ export default function AdminPage() {
     const [authReady, setAuthReady] = useState(false);
     const [content, setContent] = useState(null);
     const [blockId, setBlockId] = useState('services');
-    const [status, setStatus] = useState('');
+    // Status is stored as {key, msg} and rendered in the current UI language
+    const [status, setStatus] = useState(null);
     const [dirty, setDirty] = useState(false);
     const [loginForm, setLoginForm] = useState({email: '', password: ''});
-    const [loginError, setLoginError] = useState('');
+    const [loginError, setLoginError] = useState(false);
     // Demo mode: browse the admin UI on default content without Firebase (no saving)
     const [demo, setDemo] = useState(false);
+    // Admin UI language; loaded from localStorage after mount (avoids hydration mismatch)
+    const [uiLang, setUiLang] = useState('ru');
+    const L = UI[uiLang];
+
+    useEffect(() => {
+        const saved = localStorage.getItem('adm-lang');
+        if (saved === 'en' || saved === 'ru') setUiLang(saved);
+    }, []);
+
+    const changeUiLang = (l) => {
+        setUiLang(l);
+        localStorage.setItem('adm-lang', l);
+    };
 
     useEffect(() => {
         if (demo && !content) {
@@ -363,7 +509,7 @@ export default function AdminPage() {
                     setContent(JSON.parse(JSON.stringify(defaultContent)));
                 }
             } catch (e) {
-                setStatus('Ошибка загрузки: ' + e.message);
+                setStatus({key: 'errLoad', msg: e.message});
                 setContent(JSON.parse(JSON.stringify(defaultContent)));
             }
         })();
@@ -371,17 +517,17 @@ export default function AdminPage() {
 
     const login = async (e) => {
         e.preventDefault();
-        setLoginError('');
+        setLoginError(false);
         try {
             const {auth} = getFirebase();
             await signInWithEmailAndPassword(auth, loginForm.email, loginForm.password);
         } catch (err) {
-            setLoginError('Не удалось войти: проверьте email и пароль.');
+            setLoginError(true);
         }
     };
 
     const save = async () => {
-        setStatus('Сохранение…');
+        setStatus({key: 'stSaving'});
         try {
             const {db, auth} = getFirebase();
             await setDoc(doc(db, ...CONTENT_DOC), {
@@ -390,18 +536,16 @@ export default function AdminPage() {
                 updatedBy: auth.currentUser?.email || '',
             });
             setDirty(false);
-            setStatus('Сохранено. Обновляем сайт…');
+            setStatus({key: 'stSavedUpdating'});
             const token = await auth.currentUser.getIdToken();
             const res = await fetch('/api/revalidate', {
                 method: 'POST',
                 headers: {'Content-Type': 'application/json'},
                 body: JSON.stringify({token}),
             });
-            setStatus(res.ok
-                ? 'Сохранено — изменения уже на сайте.'
-                : 'Сохранено. Сайт обновится в течение часа (ревалидация не сработала).');
+            setStatus({key: res.ok ? 'stLive' : 'stDelayed'});
         } catch (e) {
-            setStatus('Ошибка сохранения: ' + e.message);
+            setStatus({key: 'errSave', msg: e.message});
         }
     };
 
@@ -415,11 +559,11 @@ export default function AdminPage() {
         return (
             <div className="adm-center">
                 <div className="adm-card">
-                    <h1>Админка не настроена</h1>
-                    <p>Заполните переменные <code>NEXT_PUBLIC_FIREBASE_*</code> в <code>.env.local</code> (см.
-                        <code> SETUP.md</code> в корне проекта), затем перезапустите сайт.</p>
+                    <h1>{L.notConfiguredTitle} <LangToggle lang={uiLang} onChange={changeUiLang}/></h1>
+                    <p>{L.notConfiguredText1} <code>NEXT_PUBLIC_FIREBASE_*</code> {L.notConfiguredText2}{' '}
+                        <code>.env.local</code> {L.notConfiguredText3} <code>SETUP.md</code> {L.notConfiguredText4}</p>
                     <button className="adm-demo-btn" onClick={() => setDemo(true)}>
-                        Посмотреть интерфейс (демо, без сохранения)
+                        {L.demoView}
                     </button>
                 </div>
             </div>
@@ -427,50 +571,52 @@ export default function AdminPage() {
     }
 
     if (!demo && !authReady) {
-        return <div className="adm-center"><p>Загрузка…</p></div>;
+        return <div className="adm-center"><p>{L.loading}</p></div>;
     }
 
     if (!demo && !user) {
         return (
             <div className="adm-center">
                 <form className="adm-card adm-login" onSubmit={login}>
-                    <h1>Liut Swim — вход</h1>
+                    <h1>{L.signinTitle} <LangToggle lang={uiLang} onChange={changeUiLang}/></h1>
                     <input type="email" placeholder="Email" autoComplete="username" required
                            value={loginForm.email}
                            onChange={(e) => setLoginForm({...loginForm, email: e.target.value})}/>
-                    <input type="password" placeholder="Пароль" autoComplete="current-password" required
+                    <input type="password" placeholder={L.password} autoComplete="current-password" required
                            value={loginForm.password}
                            onChange={(e) => setLoginForm({...loginForm, password: e.target.value})}/>
-                    {loginError && <p className="adm-error">{loginError}</p>}
-                    <button type="submit">Войти</button>
+                    {loginError && <p className="adm-error">{L.loginError}</p>}
+                    <button type="submit">{L.signin}</button>
                 </form>
             </div>
         );
     }
 
     if (!content) {
-        return <div className="adm-center"><p>Загрузка контента…</p></div>;
+        return <div className="adm-center"><p>{L.loadingContent}</p></div>;
     }
 
     const block = BLOCKS.find((b) => b.id === blockId) || BLOCKS[0];
+    const statusText = status ? L[status.key] + (status.msg || '') : '';
 
     return (
         <div className="adm-layout">
             <header className="adm-header">
-                <b>Liut Swim — админка</b>
-                <span className="adm-status">{demo ? 'Демо-режим: изменения не сохраняются' : status}</span>
-                <div>
+                <b>{L.adminTitle}</b>
+                <span className="adm-status">{demo ? L.demoStatus : statusText}</span>
+                <div className="adm-header-actions">
+                    <LangToggle lang={uiLang} onChange={changeUiLang}/>
                     <button className="adm-save" onClick={save} disabled={!dirty || demo}>
-                        {demo ? 'Демо' : dirty ? 'Сохранить и опубликовать' : 'Сохранено'}
+                        {demo ? L.demoBtn : dirty ? L.save : L.saved}
                     </button>
                     {!demo && (
-                        <button className="adm-signout" onClick={() => signOut(getFirebase().auth)}>Выйти</button>
+                        <button className="adm-signout" onClick={() => signOut(getFirebase().auth)}>{L.signout}</button>
                     )}
                 </div>
             </header>
             <div className="adm-columns">
                 <nav className="adm-page-map">
-                    <p className="adm-map-title">Структура сайта</p>
+                    <p className="adm-map-title">{L.siteStructure}</p>
                     {BLOCKS.map((b) => {
                         const count = blockCount(b, content);
                         const editable = Boolean(b.sections);
@@ -483,40 +629,38 @@ export default function AdminPage() {
                                     blockId === b.id ? 'active' : '',
                                 ].join(' ')}
                                 onClick={() => setBlockId(b.id)}
-                                title={editable ? 'Редактируемый блок' : 'Статичный блок'}
+                                title={editable ? L.editableTip : L.staticTip}
                             >
                                 <span className="adm-block-label">
-                                    {editable ? '✏️ ' : '🔒 '}{b.label}
+                                    {editable ? '✏️ ' : '🔒 '}{tx(b.label, uiLang)}
                                 </span>
                                 {count !== null && <span className="adm-block-count">{count}</span>}
                             </button>
                         );
                     })}
-                    <p className="adm-map-legend">✏️ — можно менять здесь<br/>🔒 — статичный текст (меняется в коде)</p>
+                    <p className="adm-map-legend">{L.legend1}<br/>{L.legend2}</p>
                 </nav>
                 <main className="adm-main">
-                    <h2>{block.label}</h2>
+                    <h2>{tx(block.label, uiLang)}</h2>
                     {!block.sections ? (
                         <div className="adm-static-note">
-                            <p>Этот блок — статичный: его текст задаётся в коде сайта
-                                (<code>content/translations.js</code>) и меняется редко.</p>
-                            {block.hint && <p className="adm-hint">Что внутри: {block.hint}</p>}
-                            <p className="adm-hint">Если нужно поменять текст здесь — напишите разработчику,
-                                или попросите вынести этот блок в редактируемые.</p>
+                            <p>{L.staticNote1} (<code>content/translations.js</code>) {L.staticNote1b}</p>
+                            {block.hint && <p className="adm-hint">{L.staticWhat}{tx(block.hint, uiLang)}</p>}
+                            <p className="adm-hint">{L.staticNote2}</p>
                         </div>
                     ) : (
                         <>
-                            {block.hint && <p className="adm-hint">{block.hint}</p>}
+                            {block.hint && <p className="adm-hint">{tx(block.hint, uiLang)}</p>}
                             {block.sections.map((key) => {
                                 const schema = SECTIONS[key];
                                 return (
                                     <section key={key} className="adm-section">
-                                        {block.sections.length > 1 && <h3>{schema.label}</h3>}
+                                        {block.sections.length > 1 && <h3>{tx(schema.label, uiLang)}</h3>}
                                         {schema.type === 'array' ? (
-                                            <ArrayEditor schema={schema} items={content[key] || []}
+                                            <ArrayEditor schema={schema} items={content[key] || []} lang={uiLang}
                                                          onChange={(v) => updateSection(key, v)}/>
                                         ) : (
-                                            <ObjectEditor schema={schema} value={content[key] || {}}
+                                            <ObjectEditor schema={schema} value={content[key] || {}} lang={uiLang}
                                                           onChange={(v) => updateSection(key, v)}/>
                                         )}
                                     </section>

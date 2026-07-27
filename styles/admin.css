@@ -90,6 +90,36 @@
     flex-wrap: wrap;
 }
 
+.adm-header-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* RU/EN admin UI language toggle */
+.adm-lang {
+    display: inline-flex;
+    border: 1px solid #d6dbe8;
+    border-radius: 10px;
+    overflow: hidden;
+    vertical-align: middle;
+}
+
+.adm-lang button {
+    border: none;
+    background: #fff;
+    padding: 6px 10px;
+    font-size: 12px;
+    font-weight: 700;
+    color: #667;
+    cursor: pointer;
+}
+
+.adm-lang button.active {
+    background: #014ccc;
+    color: #fff;
+}
+
 .adm-status {
     font-size: 13px;
     color: #556;
@@ -103,7 +133,6 @@
     background: #014ccc;
     color: #fff;
     cursor: pointer;
-    margin-right: 8px;
 }
 
 .adm-save:disabled {
