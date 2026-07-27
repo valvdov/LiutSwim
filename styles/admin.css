@@ -382,6 +382,96 @@
     }
 }
 
+/* --- Photo upload --- */
+.adm-photo-row,
+.adm-photo-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+}
+
+.adm-thumb {
+    width: 72px;
+    height: 72px;
+    object-fit: cover;
+    border-radius: 10px;
+    border: 1px solid #d6dbe8;
+    background: #eef1f7;
+    display: block;
+}
+
+.adm-photo-cell {
+    position: relative;
+    display: inline-block;
+}
+
+.adm-photo-cell button {
+    position: absolute;
+    top: -6px;
+    right: -6px;
+    width: 20px;
+    height: 20px;
+    padding: 0;
+    line-height: 1;
+    border: none;
+    border-radius: 50%;
+    background: #c0392b;
+    color: #fff;
+    cursor: pointer;
+}
+
+.adm-upload {
+    display: inline-block;
+    padding: 9px 14px;
+    border: 1px dashed #9fb3d9;
+    border-radius: 10px;
+    background: #fff;
+    color: #014ccc;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.adm-upload input {
+    display: none;
+}
+
+.adm-subfield span {
+    display: block;
+    margin: 8px 0 4px;
+    font-size: 12px;
+    font-weight: 400;
+    color: #778;
+}
+
+.adm-subfield input {
+    width: 100%;
+    padding: 8px 10px;
+    border: 1px solid #d6dbe8;
+    border-radius: 8px;
+    font-size: 13px;
+}
+
+.adm-manual-paths {
+    margin-top: 8px;
+    font-size: 12px;
+    color: #667;
+}
+
+.adm-manual-paths summary {
+    cursor: pointer;
+}
+
+.adm-manual-paths textarea {
+    width: 100%;
+    margin-top: 6px;
+    padding: 8px 10px;
+    border: 1px solid #d6dbe8;
+    border-radius: 8px;
+    font-size: 13px;
+    font-family: inherit;
+}
+
 .adm-add {
     margin-top: 8px;
     padding: 10px 18px;

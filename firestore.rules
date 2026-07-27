@@ -11,6 +11,16 @@ service cloud.firestore {
           'valvdov@gmail.com'
         ];
     }
+    // Uploaded photos (compressed in the admin, served via /api/img/ID):
+    // public read, uploads only for admin accounts.
+    match /images/{imageId} {
+      allow read: if true;
+      allow write: if request.auth != null
+        && request.auth.token.email in [
+          'liutswim@gmail.com',
+          'valvdov@gmail.com'
+        ];
+    }
     // Everything else is closed.
     match /{document=**} {
       allow read, write: if false;

@@ -41,6 +41,11 @@ const UI = {
         stLive: 'Сохранено — изменения уже на сайте.',
         stDelayed: 'Сохранено. Сайт обновится в течение часа (ревалидация не сработала).',
         errLoad: 'Ошибка загрузки: ', errSave: 'Ошибка сохранения: ',
+        upload: 'Загрузить фото', uploading: 'Загрузка…',
+        uploadDemo: 'В демо-режиме загрузка фото недоступна',
+        uploadErr: 'Не удалось загрузить фото: ',
+        orPath: 'или путь к файлу (напр. /images/Anna_new.jpg)',
+        manualPaths: 'Пути к файлам вручную', removePhoto: 'Убрать фото',
     },
     en: {
         adminTitle: 'Liut Swim — admin',
@@ -70,8 +75,84 @@ const UI = {
         stLive: 'Saved — the changes are live.',
         stDelayed: 'Saved. The site will update within an hour (revalidation failed).',
         errLoad: 'Failed to load: ', errSave: 'Failed to save: ',
+        upload: 'Upload photo', uploading: 'Uploading…',
+        uploadDemo: 'Photo upload is unavailable in demo mode',
+        uploadErr: 'Failed to upload the photo: ',
+        orPath: 'or a file path (e.g. /images/Anna_new.jpg)',
+        manualPaths: 'Edit file paths manually', removePhoto: 'Remove photo',
     },
 };
+
+// ---------------------------------------------------------------------------
+// Photo upload: compressed in the browser (canvas → JPEG), stored as base64 in
+// a Firestore `images/{id}` document, served by /api/img/{id}. Firestore docs
+// max out at ~1MB, so quality steps down until the image fits.
+// ---------------------------------------------------------------------------
+async function compressToDataUrl(file, maxDim = 1600) {
+    const img = await new Promise((resolve, reject) => {
+        const i = new window.Image();
+        i.onload = () => resolve(i);
+        i.onerror = () => reject(new Error('bad image file'));
+        i.src = URL.createObjectURL(file);
+    });
+    const scale = Math.min(1, maxDim / Math.max(img.width, img.height));
+    const canvas = document.createElement('canvas');
+    canvas.width = Math.round(img.width * scale);
+    canvas.height = Math.round(img.height * scale);
+    canvas.getContext('2d').drawImage(img, 0, 0, canvas.width, canvas.height);
+    URL.revokeObjectURL(img.src);
+    let quality = 0.85;
+    let dataUrl = canvas.toDataURL('image/jpeg', quality);
+    while (dataUrl.length > 900_000 && quality > 0.35) {
+        quality -= 0.15;
+        dataUrl = canvas.toDataURL('image/jpeg', quality);
+    }
+    return dataUrl;
+}
+
+async function uploadPhoto(file) {
+    const dataUrl = await compressToDataUrl(file);
+    const id = Date.now().toString(36) + '-' + Math.random().toString(36).slice(2, 8);
+    const {db, auth} = getFirebase();
+    await setDoc(doc(db, 'images', id), {
+        data: dataUrl,
+        name: file.name,
+        uploadedBy: auth.currentUser?.email || '',
+        createdAt: serverTimestamp(),
+    });
+    return `/api/img/${id}`;
+}
+
+function UploadButton({onUploaded, demo, lang, multiple}) {
+    const L = UI[lang];
+    const [busy, setBusy] = useState(false);
+    const [err, setErr] = useState('');
+    if (demo) return <span className="adm-hint">{L.uploadDemo}</span>;
+    return (
+        <>
+            <label className="adm-upload">
+                {busy ? L.uploading : L.upload}
+                <input type="file" accept="image/*" multiple={multiple} disabled={busy}
+                       onChange={async (e) => {
+                           const files = [...e.target.files];
+                           e.target.value = '';
+                           if (!files.length) return;
+                           setBusy(true);
+                           setErr('');
+                           try {
+                               const urls = [];
+                               for (const f of files) urls.push(await uploadPhoto(f));
+                               onUploaded(urls);
+                           } catch (uploadError) {
+                               setErr(L.uploadErr + uploadError.message);
+                           }
+                           setBusy(false);
+                       }}/>
+            </label>
+            {err && <span className="adm-error">{err}</span>}
+        </>
+    );
+}
 
 // ---------------------------------------------------------------------------
 // Section schemas: describe editable content so the editors below are generic.
@@ -102,7 +183,7 @@ const SECTIONS = {
         fields: [
             {key: 'id', type: 'text', label: {ru: 'ID (латиницей)', en: 'ID (latin letters)'}},
             {key: 'name', type: 'i18n', label: {ru: 'Имя', en: 'Name'}},
-            {key: 'image', type: 'text', label: {ru: 'Фото (путь, напр. /images/Anna_new.jpg)', en: 'Photo (path, e.g. /images/Anna_new.jpg)'}},
+            {key: 'image', type: 'image', label: {ru: 'Фото', en: 'Photo'}},
             {key: 'bullets', type: 'i18n-list', label: {ru: 'Пункты о тренере (по одному на строку)', en: 'Bio bullet points (one per line)'}},
         ],
         blank: {id: '', name: {ru: '', en: ''}, image: '', bullets: {ru: [], en: []}},
@@ -118,7 +199,7 @@ const SECTIONS = {
             {key: 'address', type: 'text', label: {ru: 'Адрес', en: 'Address'}},
             {key: 'hours', type: 'i18n-list', label: {ru: 'Часы работы (по одному дню на строку)', en: 'Opening hours (one day per line)'}},
             {key: 'description', type: 'i18n-multi', label: {ru: 'Описание для страницы локации', en: 'Description for the location page'}},
-            {key: 'photos', type: 'lines', label: {ru: 'Фото (пути к файлам, по одному на строку, напр. /images/tasks.jpg)', en: 'Photos (file paths, one per line, e.g. /images/tasks.jpg)'}},
+            {key: 'photos', type: 'images', label: {ru: 'Фотографии', en: 'Photos'}},
         ],
         blank: {
             id: '', name: '', area: '', address: '',
@@ -204,8 +285,8 @@ const BLOCKS = [
     {
         id: 'team', label: {ru: 'Команда — тренеры', en: 'Team — coaches'}, sections: ['team'], accent: true,
         hint: {
-            ru: 'Новый тренер: «+ Добавить» внизу списка. Пока нет фото — на сайте будет фирменная заглушка; чтобы добавить фото, файл должен лежать на сайте (пришлите разработчику или дождитесь загрузки файлов в админке).',
-            en: 'New coach: “+ Add” at the bottom of the list. Until there is a photo the site shows a branded placeholder; to add a photo the file must be on the site (send it to the developer or wait for file upload in the admin).',
+            ru: 'Новый тренер: «+ Добавить» внизу списка. Фото загружается прямо здесь — кнопка «Загрузить фото» (сжимается автоматически). Пока фото нет, на сайте будет фирменная заглушка.',
+            en: 'New coach: “+ Add” at the bottom of the list. Upload the photo right here via “Upload photo” (it is compressed automatically). Until then the site shows a branded placeholder.',
         },
     },
     {
@@ -351,6 +432,52 @@ function LinesField({label, value, onChange}) {
     );
 }
 
+function ImageField({label, value, onChange, lang, demo}) {
+    const L = UI[lang];
+    return (
+        <div className="adm-field">
+            <span>{label}</span>
+            <div className="adm-photo-row">
+                {value && <img src={value} alt="" className="adm-thumb"/>}
+                <UploadButton demo={demo} lang={lang} onUploaded={(urls) => onChange(urls[0])}/>
+            </div>
+            <label className="adm-subfield">
+                <span>{L.orPath}</span>
+                <input type="text" value={value || ''} onChange={(e) => onChange(e.target.value)}/>
+            </label>
+        </div>
+    );
+}
+
+function ImagesField({label, value, onChange, lang, demo}) {
+    const L = UI[lang];
+    const photos = value || [];
+    return (
+        <div className="adm-field">
+            <span>{label}</span>
+            <div className="adm-photo-grid">
+                {photos.map((p, i) => (
+                    <span key={p + i} className="adm-photo-cell">
+                        <img src={p} alt="" className="adm-thumb"/>
+                        <button type="button" title={L.removePhoto}
+                                onClick={() => onChange(photos.filter((_, idx) => idx !== i))}>×</button>
+                    </span>
+                ))}
+                <UploadButton demo={demo} lang={lang} multiple
+                              onUploaded={(urls) => onChange([...photos, ...urls])}/>
+            </div>
+            <details className="adm-manual-paths">
+                <summary>{L.manualPaths}</summary>
+                <textarea
+                    rows={3}
+                    value={photos.join('\n')}
+                    onChange={(e) => onChange(e.target.value.split('\n').map((s) => s.trim()).filter(Boolean))}
+                />
+            </details>
+        </div>
+    );
+}
+
 function SelectField({label, value, options, onChange, lang}) {
     return (
         <label className="adm-field">
@@ -364,7 +491,7 @@ function SelectField({label, value, options, onChange, lang}) {
     );
 }
 
-function Field({field, value, onChange, lang}) {
+function Field({field, value, onChange, lang, demo}) {
     const label = tx(field.label, lang);
     switch (field.type) {
         case 'i18n':
@@ -375,6 +502,10 @@ function Field({field, value, onChange, lang}) {
             return <I18nListField label={label} value={value} onChange={onChange}/>;
         case 'lines':
             return <LinesField label={label} value={value} onChange={onChange}/>;
+        case 'image':
+            return <ImageField label={label} value={value} onChange={onChange} lang={lang} demo={demo}/>;
+        case 'images':
+            return <ImagesField label={label} value={value} onChange={onChange} lang={lang} demo={demo}/>;
         case 'select':
             return <SelectField label={label} value={value} options={field.options} onChange={onChange} lang={lang}/>;
         default:
@@ -384,7 +515,7 @@ function Field({field, value, onChange, lang}) {
 
 // --- Section editors ----------------------------------------------------------
 
-function ArrayEditor({schema, items, onChange, lang}) {
+function ArrayEditor({schema, items, onChange, lang, demo}) {
     const L = UI[lang];
     const move = (i, dir) => {
         const next = [...items];
@@ -423,7 +554,7 @@ function ArrayEditor({schema, items, onChange, lang}) {
                     </summary>
                     <div className="adm-item-body">
                         {schema.fields.map((f) => (
-                            <Field key={f.key} field={f} value={item[f.key]} lang={lang}
+                            <Field key={f.key} field={f} value={item[f.key]} lang={lang} demo={demo}
                                    onChange={(v) => update(i, f.key, v)}/>
                         ))}
                     </div>
@@ -440,11 +571,11 @@ function ArrayEditor({schema, items, onChange, lang}) {
     );
 }
 
-function ObjectEditor({schema, value, onChange, lang}) {
+function ObjectEditor({schema, value, onChange, lang, demo}) {
     return (
         <div className="adm-item-body">
             {schema.fields.map((f) => (
-                <Field key={f.key} field={f} value={value?.[f.key]} lang={lang}
+                <Field key={f.key} field={f} value={value?.[f.key]} lang={lang} demo={demo}
                        onChange={(v) => onChange({...value, [f.key]: v})}/>
             ))}
         </div>
@@ -658,10 +789,10 @@ export default function AdminPage() {
                                         {block.sections.length > 1 && <h3>{tx(schema.label, uiLang)}</h3>}
                                         {schema.type === 'array' ? (
                                             <ArrayEditor schema={schema} items={content[key] || []} lang={uiLang}
-                                                         onChange={(v) => updateSection(key, v)}/>
+                                                         demo={demo} onChange={(v) => updateSection(key, v)}/>
                                         ) : (
                                             <ObjectEditor schema={schema} value={content[key] || {}} lang={uiLang}
-                                                          onChange={(v) => updateSection(key, v)}/>
+                                                          demo={demo} onChange={(v) => updateSection(key, v)}/>
                                         )}
                                     </section>
                                 );
