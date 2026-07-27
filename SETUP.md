@@ -2,26 +2,22 @@
 
 ## 1. Firebase (контент + логин админки)
 
-1. Зайдите на [console.firebase.google.com](https://console.firebase.google.com) → **Add project**
-   (например, `liutswim`). Google Analytics можно не включать.
-2. **Build → Firestore Database → Create database** → Production mode → регион `europe-west2 (London)`.
-3. **Build → Authentication → Get started → Sign-in method** → включите **Email/Password**.
-4. Там же во вкладке **Users → Add user** — создайте пользователя-администратора
-   (например, `liutswim@gmail.com` + надёжный пароль). Это логин для `/admin`.
-5. **Project settings (шестерёнка) → General → Your apps → Web (</>)** — зарегистрируйте
-   web-приложение и скопируйте из конфига 4 значения в `.env.local`:
+Проект **уже создан и настроен** (проект `liutswim`, аккаунт valvdov@gmail.com):
 
-   ```
-   NEXT_PUBLIC_FIREBASE_API_KEY=...
-   NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN=liutswim.firebaseapp.com
-   NEXT_PUBLIC_FIREBASE_PROJECT_ID=liutswim
-   NEXT_PUBLIC_FIREBASE_APP_ID=...
-   ```
+- ✅ Firebase-проект `liutswim` + web-приложение
+- ✅ Firestore Database, регион `europe-west2 (London)`
+- ✅ Правила безопасности из `firestore.rules` задеплоены
+  (редактировать могут только: liutswim@gmail.com, valvdov@gmail.com —
+  при изменении списка синхронно меняйте `ADMIN_EMAILS` в env и передеплойте
+  правила: `firebase deploy --only firestore`)
+- ✅ Вход по Email/Password включён
+- ✅ Конфиг вписан в `.env.local`
 
-6. **Firestore Database → Rules** — вставьте содержимое файла `firestore.rules`
-   из корня проекта и нажмите **Publish**. В списке email-ов в правилах должны
-   быть те, кому разрешено редактировать (сейчас: liutswim@gmail.com, valvdov@gmail.com —
-   поменяйте при необходимости, и синхронно поменяйте `ADMIN_EMAILS` в env).
+**Остался один ручной шаг** — создать аккаунт(ы) администратора:
+
+[console.firebase.google.com](https://console.firebase.google.com/project/liutswim/authentication/users)
+→ **Authentication → Users → Add user** — email `liutswim@gmail.com` (и/или
+`valvdov@gmail.com`) + надёжный пароль. Это логин для `/admin`.
 
 Готово: откройте `http://localhost:3000/admin`, войдите, отредактируйте что-нибудь,
 нажмите «Сохранить и опубликовать» — изменение появится на сайте.
