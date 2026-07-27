@@ -1,5 +1,5 @@
-import Image from 'next/image';
 import Header from './Header';
+import LocationPhotos from './LocationPhotos';
 import Register from './Register';
 import Footer from './Footer';
 import Question from './Question';
@@ -62,15 +62,7 @@ export default function LocationPage({lang, content, location}) {
                     </div>
                 </div>
 
-                {loc.photos && loc.photos.length > 0 && (
-                    <div className="location-photos">
-                        {loc.photos.map((src, i) => (
-                            <Image key={i} src={src} width={800} height={600}
-                                   alt={`${loc.name} — ${lang === 'ru' ? 'занятия по плаванию' : 'swimming lessons'} ${i + 1}`}
-                                   className="location-photo" sizes="(max-width: 660px) 90vw, 45vw"/>
-                        ))}
-                    </div>
-                )}
+                <LocationPhotos photos={loc.photos || []} name={loc.name} lang={lang}/>
             </div>
 
             <Register language={lang} services={content.services} locations={content.locations}

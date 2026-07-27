@@ -46,6 +46,7 @@ const UI = {
         uploadErr: 'Не удалось загрузить фото: ',
         orPath: 'или путь к файлу (напр. /images/Anna_new.jpg)',
         manualPaths: 'Пути к файлам вручную', removePhoto: 'Убрать фото',
+        photoLeft: 'Передвинуть раньше', photoRight: 'Передвинуть позже',
     },
     en: {
         adminTitle: 'Liut Swim — admin',
@@ -80,6 +81,7 @@ const UI = {
         uploadErr: 'Failed to upload the photo: ',
         orPath: 'or a file path (e.g. /images/Anna_new.jpg)',
         manualPaths: 'Edit file paths manually', removePhoto: 'Remove photo',
+        photoLeft: 'Move earlier', photoRight: 'Move later',
     },
 };
 
@@ -88,23 +90,39 @@ const UI = {
 // a Firestore `images/{id}` document, served by /api/img/{id}. Firestore docs
 // max out at ~1MB, so quality steps down until the image fits.
 // ---------------------------------------------------------------------------
-async function compressToDataUrl(file, maxDim = 1600) {
+async function compressToDataUrl(file, maxDim = 1920) {
     const img = await new Promise((resolve, reject) => {
         const i = new window.Image();
         i.onload = () => resolve(i);
         i.onerror = () => reject(new Error('bad image file'));
         i.src = URL.createObjectURL(file);
     });
-    const scale = Math.min(1, maxDim / Math.max(img.width, img.height));
+    // Downscale in halving steps — a single big jump loses sharpness
+    let source = img;
+    let w = img.width, h = img.height;
+    while (w / 2 > maxDim) {
+        const half = document.createElement('canvas');
+        half.width = Math.round(w / 2);
+        half.height = Math.round(h / 2);
+        const hctx = half.getContext('2d');
+        hctx.imageSmoothingQuality = 'high';
+        hctx.drawImage(source, 0, 0, half.width, half.height);
+        source = half;
+        w = half.width;
+        h = half.height;
+    }
+    const scale = Math.min(1, maxDim / Math.max(w, h));
     const canvas = document.createElement('canvas');
-    canvas.width = Math.round(img.width * scale);
-    canvas.height = Math.round(img.height * scale);
-    canvas.getContext('2d').drawImage(img, 0, 0, canvas.width, canvas.height);
+    canvas.width = Math.round(w * scale);
+    canvas.height = Math.round(h * scale);
+    const ctx = canvas.getContext('2d');
+    ctx.imageSmoothingQuality = 'high';
+    ctx.drawImage(source, 0, 0, canvas.width, canvas.height);
     URL.revokeObjectURL(img.src);
-    let quality = 0.85;
+    let quality = 0.92;
     let dataUrl = canvas.toDataURL('image/jpeg', quality);
-    while (dataUrl.length > 900_000 && quality > 0.35) {
-        quality -= 0.15;
+    while (dataUrl.length > 950_000 && quality > 0.45) {
+        quality -= 0.07;
         dataUrl = canvas.toDataURL('image/jpeg', quality);
     }
     return dataUrl;
@@ -452,6 +470,13 @@ function ImageField({label, value, onChange, lang, demo}) {
 function ImagesField({label, value, onChange, lang, demo}) {
     const L = UI[lang];
     const photos = value || [];
+    const move = (i, dir) => {
+        const j = i + dir;
+        if (j < 0 || j >= photos.length) return;
+        const next = [...photos];
+        [next[i], next[j]] = [next[j], next[i]];
+        onChange(next);
+    };
     return (
         <div className="adm-field">
             <span>{label}</span>
@@ -459,8 +484,16 @@ function ImagesField({label, value, onChange, lang, demo}) {
                 {photos.map((p, i) => (
                     <span key={p + i} className="adm-photo-cell">
                         <img src={p} alt="" className="adm-thumb"/>
-                        <button type="button" title={L.removePhoto}
+                        <button type="button" className="adm-photo-del" title={L.removePhoto}
                                 onClick={() => onChange(photos.filter((_, idx) => idx !== i))}>×</button>
+                        {i > 0 && (
+                            <button type="button" className="adm-photo-nav adm-photo-prev" title={L.photoLeft}
+                                    onClick={() => move(i, -1)}>‹</button>
+                        )}
+                        {i < photos.length - 1 && (
+                            <button type="button" className="adm-photo-nav adm-photo-next" title={L.photoRight}
+                                    onClick={() => move(i, 1)}>›</button>
+                        )}
                     </span>
                 ))}
                 <UploadButton demo={demo} lang={lang} multiple

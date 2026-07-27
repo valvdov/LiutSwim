@@ -78,6 +78,14 @@
     align-content: start;
 }
 
+.location-photo-btn {
+    padding: 0;
+    border: none;
+    background: none;
+    display: block;
+    cursor: zoom-in;
+}
+
 .location-photo {
     width: 100%;
     height: auto;
@@ -85,13 +93,76 @@
     object-fit: cover;
     border-radius: 16px;
     box-shadow: 4px 6px 0 0 #406aea;
+    display: block;
 }
 
 /* Odd number of photos: feature the first one full-width so the grid
    below it is always complete (1 → hero, 3 → 1+2, 5 → 1+4, ...) */
-.location-photo:first-child:nth-last-child(odd) {
+.location-photo-btn:first-child:nth-last-child(odd) {
     grid-column: 1 / -1;
+}
+
+.location-photo-btn:first-child:nth-last-child(odd) .location-photo {
     aspect-ratio: 16 / 10;
+}
+
+/* Enlarged view: centred overlay, not quite full-screen */
+.location-lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    background: rgba(4, 10, 40, 0.78);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.location-lightbox img {
+    max-width: min(880px, 88vw);
+    max-height: 82vh;
+    border-radius: 14px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+    cursor: default;
+}
+
+.lb-close {
+    position: fixed;
+    top: 16px;
+    right: 22px;
+    border: none;
+    background: none;
+    color: #fff;
+    font-size: 38px;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.lb-nav {
+    flex: 0 0 48px;
+    width: 48px;
+    height: 48px;
+    margin: 0 16px;
+    border: none;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.14);
+    color: #fff;
+    font-size: 32px;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.lb-nav:hover {
+    background: rgba(255, 255, 255, 0.28);
+}
+
+@media (max-width: 660px) {
+    .lb-nav {
+        flex-basis: 36px;
+        width: 36px;
+        height: 36px;
+        margin: 0 6px;
+        font-size: 24px;
+    }
 }
 
 @media (max-width: 976px) {

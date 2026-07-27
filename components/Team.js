@@ -17,6 +17,7 @@ function Team({language, team}) {
                         {member.image ? (
                             <Image src={member.image} width={857} height={1200}
                                    alt={member.name[language] || member.name.ru}
+                                   unoptimized={member.image.startsWith('/api/img/')}
                                    className="member-image" sizes="(max-width: 660px) 90vw, 30vw"/>
                         ) : (
                             <div className="member-image member-image-placeholder" aria-hidden="true"/>

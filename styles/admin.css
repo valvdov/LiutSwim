@@ -387,7 +387,7 @@
 .adm-photo-grid {
     display: flex;
     flex-wrap: wrap;
-    gap: 10px;
+    gap: 18px;
     align-items: center;
 }
 
@@ -408,17 +408,34 @@
 
 .adm-photo-cell button {
     position: absolute;
-    top: -6px;
-    right: -6px;
     width: 20px;
     height: 20px;
     padding: 0;
     line-height: 1;
     border: none;
     border-radius: 50%;
-    background: #c0392b;
     color: #fff;
     cursor: pointer;
+}
+
+.adm-photo-del {
+    top: -6px;
+    right: -6px;
+    background: #c0392b;
+}
+
+.adm-photo-nav {
+    bottom: -6px;
+    background: #014ccc;
+    font-size: 13px;
+}
+
+.adm-photo-prev {
+    left: -6px;
+}
+
+.adm-photo-next {
+    right: -6px;
 }
 
 .adm-upload {
