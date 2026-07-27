@@ -73,16 +73,25 @@
 
 .location-photos {
     display: grid;
-    grid-template-columns: 1fr;
-    gap: 16px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
     align-content: start;
 }
 
 .location-photo {
     width: 100%;
     height: auto;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
     border-radius: 16px;
     box-shadow: 4px 6px 0 0 #406aea;
+}
+
+/* Odd number of photos: feature the first one full-width so the grid
+   below it is always complete (1 → hero, 3 → 1+2, 5 → 1+4, ...) */
+.location-photo:first-child:nth-last-child(odd) {
+    grid-column: 1 / -1;
+    aspect-ratio: 16 / 10;
 }
 
 @media (max-width: 976px) {
@@ -120,6 +129,10 @@
         padding-top: 28px;
         padding-bottom: 20px;
         gap: 28px;
+    }
+
+    .location-photos {
+        gap: 12px;
     }
 
     .location-desc {
