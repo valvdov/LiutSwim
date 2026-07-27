@@ -30,10 +30,21 @@
 3. В **Settings → Environment Variables** добавьте все переменные из `.env.local`
    (EmailJS + Firebase + `ADMIN_EMAILS`).
 4. Deploy. Проверьте preview-URL: сайт, `/ru`, `/admin`.
-5. **Домен**: Settings → Domains → добавьте `liutswim.co.uk` и `www.liutswim.co.uk`,
-   затем у регистратора домена поменяйте DNS-записи на те, что покажет Vercel
-   (A-запись `76.76.21.21` и CNAME для www). Старый хостинг (Netlify) можно
-   отключить после переключения DNS.
+5. **Домен** (куплен на names.co.uk, DNS управляется там же):
+   1. В Vercel: Settings → Domains → добавьте три домена:
+      `liutswim.co.uk`, `www.liutswim.co.uk`, `admin.liutswim.co.uk`.
+      Vercel покажет для каждого нужную DNS-запись.
+   2. В панели names.co.uk (управление DNS домена liutswim.co.uk):
+      - запись **A @** `75.2.60.5` (Netlify) → замените на IP, который покажет
+        Vercel (обычно `76.76.21.21`);
+      - **www** → CNAME `cname.vercel-dns.com`;
+      - добавьте **admin** → CNAME `cname.vercel-dns.com`.
+   3. Подождите 10–60 минут (обновление DNS). Vercel сам выпустит SSL-сертификаты —
+      в Domains все три станут зелёными «Valid Configuration».
+   4. В Firebase Console → Authentication → Settings → **Authorized domains** —
+      добавьте `liutswim.co.uk` и `admin.liutswim.co.uk` (для входа в админку).
+   5. Netlify пока не удаляйте — просто убедитесь, что сайт открывается с Vercel
+      (по заголовкам/новому виду), после этого сайт на Netlify можно остановить.
 
 ## 3. После переезда (SEO)
 
