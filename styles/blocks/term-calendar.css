@@ -1,0 +1,72 @@
+.term-calendar {
+    padding: 48px 80px 0;
+    max-width: 1600px;
+    margin: 0 auto;
+    font-family: Inter, sans-serif;
+    color: #001573;
+    box-sizing: border-box;
+}
+
+.term-calendar-card {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    padding: 32px;
+    border: 2px solid #001573;
+    border-radius: 20px;
+    background: #FFFFFF;
+}
+
+.term-calendar-file {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 54px;
+    height: 68px;
+    flex-shrink: 0;
+    border: 2px solid #001573;
+    border-radius: 7px;
+    background: white;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.term-calendar-copy { flex: 1; min-width: 0; }
+.term-calendar-copy h2 { margin: 0 0 10px; font-size: 28px; line-height: 1.2; }
+.term-calendar-copy p { margin: 0 0 8px; font-size: 16px; line-height: 1.5; color: #001573; }
+.term-calendar-meta { font-size: 13px; line-height: 1.5; color: #001573; }
+.term-calendar-button {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    padding: 16px 25px;
+    border-radius: 100px;
+    background: #FF6434;
+    color: #FFFFFF;
+    font-size: 16px;
+    font-weight: 500;
+    text-decoration: none;
+    white-space: nowrap;
+}
+.term-calendar-button:hover { background: #FF6434; box-shadow: 0 0 0 2px #001573; }
+.term-calendar a:focus-visible { outline: 3px solid #001573; outline-offset: 5px; }
+.term-calendar-note { margin: 14px 0 0; font-size: 13px; line-height: 1.7; color: #001573; }
+.term-calendar-note a { color: #001573; text-underline-offset: 3px; }
+.term-calendar-sr { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+
+@media (max-width: 976px) {
+    .term-calendar { padding: 36px 30px 0; }
+    .term-calendar-card { gap: 18px; padding: 25px; }
+    .term-calendar-copy h2 { font-size: 24px; }
+}
+
+@media (max-width: 660px) {
+    .term-calendar { padding: 28px 20px 0; }
+    .term-calendar-card { flex-wrap: wrap; padding: 22px; gap: 16px; }
+    .term-calendar-copy h2 { font-size: 21px; }
+    .term-calendar-copy p { font-size: 14px; }
+    .term-calendar-meta { font-size: 12px; }
+    .term-calendar-file { width: 42px; height: 55px; }
+    .term-calendar-button { width: 100%; box-sizing: border-box; }
+}

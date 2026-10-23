@@ -1,6 +1,7 @@
 import Main from "./Main";
 import About from "./About";
 import Services from "./Services";
+import TermCalendar from "./TermCalendar";
 import Metodology from "./Metodology";
 import Mission from "./Mission";
 import Team from "./Team";
@@ -21,6 +22,7 @@ export default function HomePage({lang, content}) {
             <Main language={lang} contacts={content.contacts}/>
             <About language={lang}/>
             <Services language={lang} services={content.services}/>
+            <TermCalendar language={lang}/>
             <Metodology language={lang}/>
             <Mission language={lang}/>
             <Team language={lang} team={content.team}/>

@@ -1,0 +1,2 @@
+reportlab==5.1.0
+fonttools[woff]==4.67.0
